@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	star-light - version 1.0.2 (2005/06/06)
+	Copyright 2005, Dean Edwards
+	License: http://creativecommons.org/licenses/LGPL/2.1/
+-->
+<public:component xmlns:public="urn:HTMLComponent" lightweight="true">
+<public:attach event="ondocumentready" handler="init"/>
+<script type="text/javascript">
+//<![CDATA[
+
+var KEYWORDS = "bg|break|cd|continue|echo|eval|exec|fg|jobs|kill|newgrp|set|shift|stop|suspend|time|umask|unset|wait" +
+               "done|esac|for|do|if|fi|ulimit|read|readonly|trap|until|while"
+var COMMANDS = "awk|bash|bc|cat|chmod|chown|chsh|clear|cmp|cp|cpio|csh|csplit|cut|date|df|diff|diff3|du|echo|egrep|emacs|ex|expr|" +
+               "false|fgrep|file|find|gawk|grep|gzip|head|hostname|id|info|kill|killall|less|ln|ls|man|more|mkdir|mv|nice|passwd|" +
+               "perl|pidof|ps|pwd|renice|reset|rm|rmdir|rsh|sed|sh|sort|sleep|split|su|tail|tee|tcsh|test|tr|true|uniq|vi|w|wc|" +
+               "xargs"
+var PROGRAMS = "cvs|svn"
+
+function init() {
+	// default text colour
+	style.color = "black";
+
+	// escape character
+	parser.escapeChar = "\\";
+
+	tabStop = 2;
+
+	// urls/email
+	urls = false;
+	email = false;
+
+	// strings
+	parser.add(STRING1, "color:maroon");
+	parser.add(STRING2, "color:maroon");
+
+	parser.add(KEYWORDS, "color:red");
+	parser.add(COMMANDS, "color:blue");
+	parser.add(PROGRAMS, "color:green");
+};
+
+//]]>
+</script>
+</public:component>

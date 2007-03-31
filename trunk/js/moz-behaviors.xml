@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml">
+<!--
+	moz-behaviors.xml - version 1.1.1 (2005-08-19)
+	Copyright 2004-2005, Dean Edwards
+	License: http://creativecommons.org/licenses/LGPL/2.1/
+-->
+<!--
+=======================================================================
+ TO DO
+=======================================================================
+
+hideFocus
+fix CSSStyleDeclaration pixel*.__defineGetter__
+behaviors FAQ
+test Event.returnValue
+http://developer-test.mozilla.org/docs/Working_around_the_Firefox_1.0.3_DHTML_regression
+-->
+
+<!-- add a behavior through css -->
+<binding id="behavior" extends="#-moz-behaviors">
+<implementation><constructor>
+<![CDATA[
+addBehavior(0);
+]]></constructor></implementation>
+</binding>
+
+<!-- manually attach behaviors to child elements of <table>s -->
+<binding id="table" extends="#-moz-behaviors">
+<implementation><constructor><![CDATA[
+	var i, j;
+	if (tHead) tHead.addBehavior(0);
+	for (i = 0; i < tBodies.length; i++) tBodies[i].addBehavior(0);
+	for (i = 0; i < rows.length; i++) {
+		rows[i].addBehavior(0);
+		for (j = 0; j < rows[i].cells.length; j++) {
+			rows[i].cells[j].addBehavior(0);
+		}
+	}
+	if (tFoot) tFoot.addBehavior(0);
+]]></constructor></implementation>
+</binding>
+
+<binding id="-moz-behaviors">
+<implementation><constructor>
+<![CDATA[if(!this.addBehavior){
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(c/a))+String.fromCharCode(c%a+161)};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'[\xa1-\xff]+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp(e(c),'g'),k[c]);return p}('¤ ¢¡=-1;ÿ.¥.¢¯=¢(´){Á{¨(´===0){¤ b=Ó(¡,¯).ð("-¢ù-¢ø");b=b.°(/^¢÷\\(([^)]*)\\)$/,"$1").Ø("#");¨(b){¤ p=b[0].°(/[^\\/]+$/,"");¤ h=b[1].Ø("|");¤ i=h.Æ;Å(i--)¡.¢¯(p+h[i])}}¨(!´)£;¨(!².³[´]){¤ S=";";¢ É(n){¤ t=n.¢ö.ó();£ t.·(t.¢¬(":")+1)};¢ ©(n,a){£ n.º(a)||n.º(a.¢õ())};¢ ¢«(b){¢®(É(b)){µ"¶":¤ ¬=©(b,"¬");£(¬)?"¤ "+¬+"={¢ô:¢(¶){».è(\'"+©(b,"¹")+"\',¶)}}":"";µ"¢ª":¤ n=©(b,"¹");¤ g=©(b,"¢ó")||"";¨(g)g="¦(\'"+n+"\',"+g+")";¤ p=©(b,"¢­")||"";¨(p)p=";®(\'"+n+"\',"+p+")";¤ ¬=©(b,"¬")||"";¨(¬)¬="¤ "+¬+"={¢ò:¸ ×};";£ ¬+g+p;µ"¢ñ":£"»."+©(b,"¹")+"="+©(b,"¹");µ"¢ð":¤ h=©(b,"¢ï")||"";h+=(h)?"()":©(b,"¢î");h="¢(¶){¾.¶=¶;£ "+h+"}";¤ e=©(b,"¶");¢®(e){µ"¢í":£"¾.¢ì("+h+",1)";µ"¢ë":£"².³.Ä.Ú("+h+")"}£(©(b,"¿")||"»")+".Ñ(\'"+e.·(2)+"\',"+h+",±)";µ"¢ê":¢é:£""}};¢ ¢©(n){£(©(n,"¢­"))?";¤ È=º(\'"+©(n,"¹")+"\')||"+(©(n,"¢è")||"¯")+";¨(È!=¯)»[\'"+©(n,"¹")+"\']=È":""};¢ ¢§(f){¢¢(¢ç(f))£ ·(¢¬("{")+1,¢æ("}"))};¤ Ê=¸ ¢¦;¢ Ý(u){Á{Ê.¢å("¢ä",u,±);Ê.¢ã(¯);£ Ê.¢â}À(i){}};¤ Û=[];¤ Ç="";¤ §="";¢ ¢¨(){¤ d=(¸ ¢á).¢à(Ý(´),"¢ß/¢Þ");¤ c=d.¢Ý.Ü,n;¿(¤ i=0;(n=c[i]);i++){¨(n.ä==ã.â){¨(É(n)=="¢Ü"){¤ s=©(n,"¢Û");¨(s){§+=Ý(s)}Ï{¿(¤ j=0;j<n.Ü.Æ;j++)§+=n.Ü[j].¢Ú}}Ï{Û.Ú(¢«(n));¨(É(n)=="¢ª"){Ç+=¢©(n)}}}}Ç+=";þ È"};¢¨();§=¢§(¸ ×(§));¤ A=/\\¢Ù\\s+¢Ø\\s*\\(\\s*(["\'])\\w\\.¢×\\1\\s*\\)/¢Ö;§=§.°(A,"¸ ¢¦()");§=§.°(/#/g,"\\\\¢Õ");¤ $=[Û.Ù(S)];¤ B=/(\\"[^\\"\\n]+\\")|(\\/[^\\/\\n]+\\/)|(\\{[^\\{\\}]*\\})/g;¤ ¢Ô=/#(\\d+)\\b/g;¢ ¢¥(m){£"#"+$.Ú(m)};¢ ¢Ó(m,i){£ $[i-1]};Å(B.¢Ò(§)){§=§.°(B,¢¥)}¤ F=/\\n\\s*¢[^\\n]*\\n/g;¤ ¢¤=§.¢Ñ(F)||[];§=§.°(F,"");§=¢¤.¢Ð("#1",§).Ù(S);¤ i=$.Æ;$=$.Ù("\\¢£").°(/\\$\\$/g,"$$$$$$$").Ø("\\¢£");¢Ï §=§.°("#"+i,$[--i]);Å(i);§+=Ç;².³[´]=¸ ×("»","¢¢(¡){"+§+"}")}².³[´].¢Î(¡,¡);£ ¢¡}À(e){£ 0}};ÿ.¥.¢Í=¢(c){};².³={Ä:[]};¾.Ñ("¢Ì",¢(){Á{¤ h=².³.Ä;¤ i=h.Æ;Å(i)h[--i]();þ ².³.Ä}À(i){}},±);«.¥.¦("ý",¢(){£ ¡.ü});«.¥.®("ý",¢(v){¡.ü=v});«.¥.¦("û",¢(){£ Ã(¡.ú)||0});«.¥.®("û",¢(v){¡.ú=v+"Â"});«.¥.¦("ù",¢(){£ Ã(¡.ø)||0});«.¥.®("ù",¢(v){¡.ø=v+"Â"});«.¥.¦("÷",¢(){£ Ã(¡.ö)||0});«.¥.®("÷",¢(v){¡.ö=v+"Â"});«.¥.¦("õ",¢(){£ Ã(¡.ô)||0});«.¥.®("õ",¢(v){¡.ô=v+"Â"});Á{¤ c=Ó(¡,¯);¤ t=c.¢Ë}À(i){}¢Ê{¨(!t){¤ U=/[A-Z]/g;¢ ò(m){£"-"+m.ó()};¢ ñ(p){£ p.°(U,ò)};¢ ï(p){¤ c=ñ(p);«.¥.¦(p,¢(){£ ¡.ð(c)})};¿(¤ p ¢É ¡.Ò){¨(ç ¡.Ò[p]=="¢È"){ï(p)}}}}î.¥.¦("í",¢(){£ ¡.ì("*")});î.¥.½=¢(){£ ².¢Ç("¢Æ")};ª.¥.¦("í",¢(){£ ¡.ì("*")});ª.¥.¦("å",¢(){£(¡.Í==¡.Ð)?¯:¡.Í});ª.¥.¦("ë",¢(){¨(!Ö.Õ.Ô)Ö.Õ.Ô=0;¤ u="¢Å"+Ö.Õ.Ô++;¾[u]=¡;¡.¦("ë",¢(){£ u});£ u});ª.¥.¦("¢Ä",¢(){£ Ó(¡,¯)});ª.¥.¦("¢Ã",¢(){£ ¡.Ò});ª.¥.¦("ê",¢(){£ ¡.é});ª.¥.®("ê",¢(v){¡.é=v});ª.¥.¢Â=¢(n,h){¡.Ñ(n.·(2),h,±)};ª.¥.¢Á=¢(n,h){¡.¢À(n.·(2),h,±)};ª.¥.½=¢(){£ ¡.Ð.½()};ª.¥.è=¢(n,e){¨(!e)e=¡.Ð.½();e.¢¿(n.·(2),±,±);¡.¢¾(e);¨(ç ¡[n]=="¢")¡[n]();Ï ¨(¡.º(n))¢½(¡.º(n))};ª.¥.æ=¢(e){£ ¢¼(e==¡||(e&&¡.æ(e.å)))};­.¥.¦("Ì",¢(){£(¡.Î.ä==ã.â)?¡.Î:¡.Î.Í});­.¥.¦("¢»",¢(){£(¡.¼=="ß")?¡.à:(¡.¼=="á")?¡.Ì:¯});­.¥.¦("¢º",¢(){£(¡.¼=="á")?¡.à:(¡.¼=="ß")?¡.Ì:¯});­.¥.¦("¢¹",¢(){£(¡.Þ==1)?1:(¡.Þ==2)?4:2});­.¥.¦("Ë",¢(){£ ¢¸});­.¥.®("Ë",¢(v){¨(¡.¢·&&!v){¡.¢¶();¡.¦("Ë",¢(){£ ±})}});­.¥.®("¢µ",¢(v){¨(v)¡.¢´()});­.¥.¦("¢³",¢(){£ ¡.¢²});­.¥.¦("¢±",¢(){£ ¡.¢°});',95,184,'this|function|return|var|prototype|__defineGetter__|_0|if|_1|HTMLElement|CSSStyleDeclaration|id|Event|__defineSetter__|null|replace|false|document|behaviorUrns|_2|case|event|slice|new|name|getAttribute|element|type|createEventObject|window|for|catch|try|px|parseInt|__private|while|length|_3|__tmp|_4|_5|returnValue|srcElement|parentNode|target|else|ownerDocument|addEventListener|style|getComputedStyle|count|callee|arguments|Function|split|join|push|_6|childNodes|_7|which|mouseover|relatedTarget|mouseout|ELEMENT_NODE|Node|nodeType|parentElement|contains|typeof|fireEvent|textContent|innerText|uniqueID|getElementsByTagName|all|HTMLDocument|_8|getPropertyValue|_9|_10|toLowerCase|width|pixelWidth|top|pixelTop|height|pixelHeight|left|pixelLeft|cssFloat|styleFloat|delete|Element|_11|with|x01|_12|_13|XMLHttpRequest|_14|_15|_16|property|_17|indexOf|put|switch|addBehavior|layerY|offsetY|layerX|offsetX|stopPropagation|cancelBubble|preventDefault|cancelable|true|button|toElement|fromElement|Boolean|eval|dispatchEvent|initEvent|removeEventListener|removeEvent|attachEvent|runtimeStyle|currentStyle|moz_id|Events|createEvent|string|in|finally|display|load|removeBehavior|call|do|concat|match|test|_18|_19|x23|gi|XMLHTTP|ActiveXObject|bnew|nodeValue|src|script|documentElement|xml|text|parseFromString|DOMParser|responseText|send|GET|open|lastIndexOf|String|value|default|defaults|ondocumentready|setTimeout|oncontentready|onevent|handler|attach|method|fireChange|get|fire|toUpperCase|tagName|url|binding|moz'.split('|'),0,{}))
+}]]></constructor></implementation>
+</binding>
+
+<binding id="block-netscape6">
+<content>
+<html:script type="text/javascript"><![CDATA[
+// netscape6 does not retain the -moz-binding css property value
+//  so we disable moz-behaviors
+if (/netscape6/i.test(navigator.userAgent)) {
+	document.styleSheets[0].insertRule("*{-moz-binding:none!important}", 0);
+}
+]]></html:script>
+<children/>
+</content>
+</binding>
+
+</bindings>
+
