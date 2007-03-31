@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	favatar.htc - version 1.0
+	Copyright 2005, Dean Edwards
+	Web: http://dean.edwards.name/
+
+	This software is licensed under the CC-GNU LGPL
+	Web: http://creativecommons.org/licenses/LGPL/2.1/
+-->
+
+<!-- favatar.htc - version 1.0 (2005/01/11) -->
+
+<public:component xmlns:public="urn:HTMLComponent" lightweight="true">
+<public:attach event="ondocumentready" handler="showFavatar"/>
+<script type="text/javascript">
+//<![CDATA[
+
+/* show a favicon alongside a wordpress comment */
+
+function getAuthorSite() {
+	// put your own code here
+	// but this should work for a standard WP installation
+	var cites = getElementsByTagName("cite");
+	if (cites.length) {
+		return cites[cites.length - 1].getElementsByTagName("a")[0];
+	}
+};
+
+function showFavatar() {
+	// if the author has provided a home site then it is
+	//  contained in a hyperlink
+	var $site = getAuthorSite();
+	if ($site) {
+		// trim the file name (if any) and replace with the favicon file name
+		$icon = $site.href.replace(/^(http:\/\/[\w-.]+).*$/, "$1") + "/favicon.ico";
+        if ($site == "http://blogs.msdn.com/ie") $icon = "/images/iexplorer.ico";
+		// show it as a background image
+		//  if it doesn't exist the browser won't show anything anyway
+		style.backgroundRepeat = "no-repeat";
+		style.backgroundImage = "url(" + $icon + ")";
+	}
+};
+
+//]]>
+</script>
+</public:component>

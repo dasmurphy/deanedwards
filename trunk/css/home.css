@@ -1,0 +1,91 @@
+/* home page only */
+
+h2 {
+	font-size: 1em;
+}
+
+#home {
+	padding: 1em;
+	margin-bottom: 2px;
+}
+
+#me img {
+	border: none;
+	vertical-align: top;
+}
+
+#me {
+	float: right;
+	background-color: #EEEEEE;
+	border: 1px solid #000000;
+	padding: 2px;
+	width: 82px;
+	height: 99px;
+	margin-left: 1ex;
+}
+
+#me:hover {
+	border: 1px solid #EE0000;
+	background-color: #FFFFCC;
+}
+
+#site-news {
+	font-size: xx-small;
+	margin: 0 0 0 1em;
+}
+
+#site-news img {
+	vertical-align: middle;
+}
+
+#site-news a {
+	background-color: transparent;
+}
+
+#recent li {
+	margin-bottom: 0.25em;
+}
+
+#bad-bot {
+	display: none;
+}
+
+#my {
+	display: block;
+	margin: 0;
+	padding: 5px;
+	border: 2px solid black;
+	background: #FFFFCC;
+	width: 12em;
+	list-style-type: none;
+}
+
+#posts {
+	float: right;
+	width: 60%;
+}
+
+#work {
+	float: left;
+	width: 40%;
+}
+
+#recent {
+	clear: both;
+	background: transparent;
+}
+
+
+#site-news {
+	clear: both;
+}
+
+#recent:after {
+	clear: both;
+	display: block;
+	content: "\A0";
+}
+
+#recent ul {
+	margin-bottom: 0;
+}
