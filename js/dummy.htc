@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- a simple test for dhtml behaviors support -->
+
+<public:component xmlns:public="urn:HTMLComponent" lightweight="true">
+<script type="text/javascript">
+//<![CDATA[
+alert(99);
+//]]>
+</script>
+</public:component>
