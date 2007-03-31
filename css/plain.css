@@ -1,0 +1,233 @@
+/* dean.edwards/2004 */
+/* keeping code tidy! */
+
+@import url("layout.css");
+@import url("behaviors.css");
+@import url("widgets.css");
+
+/* PAGE */
+div.document {
+	background-color: #FCFCFC;
+	border-left: 2px solid #EEEEEE;
+	border-right: 2px solid #EEEEEE;
+	margin-top: 2px;
+}
+
+/* because of people's giant favicons! */
+div.comment-text {
+	background-color: #FCFCFC;
+}
+
+/* FONTS */
+
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+
+p, dd {
+	line-height: 1.4;
+}
+
+li {
+	padding: 1px 0;
+}
+
+h1 {
+	font-size: 18px;
+	line-height: 20px;
+	font-style: italic;
+	margin: 0;
+}
+
+div.posts h2,
+#weblog h4 {
+	font-size: 1.17em;
+}
+
+div.posts h3 {
+	font-size: 1.5em;
+}
+
+p.permalink {
+	font-size: 1em;
+}
+
+blockquote address,
+ul.meta {
+	font-size: xx-small;
+}
+
+#bread-crumbs {
+	font-size: 0.8em;
+}
+
+div.footer {
+	font-size: xx-small;
+}
+
+sup.flag {
+	font-size: 10px;
+}
+
+*.author cite {
+	font-style: normal;
+}
+
+p.footnote {
+	font-style: italic;
+	font-family: "Times New Roman", Times, serif;
+}
+
+dt {
+	font-weight: bold;
+}
+
+/* COLOUR */
+
+*.alert {
+	color: #AA3333;
+}
+
+ul.meta {
+	color: #898E79;
+}
+
+ul.meta :link, ul.meta :visited {
+	color: #898E79;
+}
+
+div.preview div.comment {
+	border-width: 0 0 0 0.33em;
+	border-color: #AA3333;
+	border-style: solid;
+}
+
+pre,
+code,
+html *.code,
+kbd {
+	font-size: 1em;
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", courier, monospace;
+	font-style: normal;
+}
+
+pre {
+	font-size: small;
+}
+
+@media screen {
+pre {
+	font-size: 1em;
+}}
+
+pre.src {
+	background-color: transparent;
+}
+
+/* default colour */
+body,
+*.author cite,
+li.more-info,
+li.version  {
+	color: black;
+}
+
+/* link colour */
+blockquote address a:link,
+blockquote address a:visited {
+	color: #898E79;
+}
+
+div.footer *, div.footer :link, div.footer :visited {
+	color: #898E79;
+}
+
+div.footer hr {
+	color: #000000;
+}
+
+:link, :visited {
+	padding-bottom: 1px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	text-decoration: none;
+}
+
+/* HOVER */
+
+a:link:hover,
+a:visited:hover,
+a:active:hover,
+a:hover span.link-text,
+a:hover cite,
+#commentlist li.author a:hover,
+a:hover code {
+	background-color: #FFFF99;
+	color: #EE0000 !important;
+	border-bottom-color: #EE0000 !important;
+}
+a:link img, a:visited img {
+	border: 1px solid #FCFCFC;
+	border-bottom-color: #FCFCFC !important;
+}
+a:hover img {
+	background-color: #FFFF99;
+	border: 1px solid #EE0000;
+	border-bottom-color: #EE0000 !important;
+	cursor: pointer;
+}
+#site-news a {
+	border-bottom-color: #FFFFFF !important;
+}
+
+h1 :link,
+h1 :visited,
+div.header :link,
+div.header :visited,
+h2 :link,
+h2 :visited,
+.h2 :link,
+.h2 :visited,
+h3 :link,
+h3 :visited,
+.h3 :link,
+.h3 :visited,
+#buttons a {
+	border-bottom-width: 0;
+}
+
+a code {
+	border-bottom-width: 0;
+}
+
+/* ACTIVE */
+
+a:active,
+h1 :active,
+div.header a:active {
+	color: #EE0000 !important;
+}
+
+/* DISABLED STATES */
+
+*.disabled,
+*.disabled * {
+	color: #898E79 !important;
+}
+
+*.disabled a:link,
+*.disabled a:visited {
+	color: #898E79 !important;
+}
+
+*.disabled a:hover {
+	color: #00e !important;
+}
+
+/* weblog favatars */
+
+*.comment {
+	background-position: right top;
+	background-repeat: no-repeat;
+}

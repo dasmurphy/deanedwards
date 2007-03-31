@@ -1,0 +1,404 @@
+/* dean.edwards/2004 */
+/* keeping code tidy! */
+
+@import url("html4.css");
+
+body {
+	padding: 0;
+}
+
+h1 {
+	margin: 0 0 4px;
+}
+
+img {
+	vertical-align: middle;
+	margin-right: 2px;
+	padding: 0;
+}
+
+img.icon {
+	height: 20px;
+	width: 20px;
+}
+
+/* LAYOUT */
+
+div.document {
+	width: 75%;
+	max-width: 60em;
+	min-width: 20em;
+	margin-left: 5em;
+	padding: 8px 15px;
+}
+
+div.content {
+	min-height: 5em;
+	clear: right;
+}
+
+div.footer {
+	margin-top: 8px;
+	padding-bottom: 1em;
+}
+
+/* BOXES */
+
+*.box,
+*.section,
+pre,
+form {
+	display: block;
+	padding: 0 1em;
+	margin: 1.33em 1em;
+	border-style: solid;
+	border-width: 1px;
+}
+
+/* CODE */
+
+a code {
+	border: inherit;
+}
+
+pre,
+code,
+kbd {
+	white-space: nowrap;
+}
+
+pre,
+code.box {
+	padding: 1em;
+}
+
+pre, *.pre {
+	white-space: pre; /* CSS2 */
+	overflow: auto;
+}
+
+pre.src {
+	margin: 0;
+	padding: 1em 0;
+	border: none;
+	white-space: pre;
+	overflow: visible;
+	border-top: 1px dashed black;
+	border-bottom: 1px dashed black;
+}
+
+pre.message {
+	white-space: normal;
+}
+
+pre,
+blockquote {
+	width: 100%;
+}
+
+@media screen {
+pre,
+blockquote {
+	width: auto;
+}}
+
+blockquote {
+	display: block;
+	padding: 0 2em;
+	margin: 1.33em 2em;
+	border-left: 2em solid;
+}
+
+/* HORIZONTAL RULES */
+
+hr {
+	height: 1px;
+	border: none;
+	color: black;
+	background-color: black;
+}
+
+hr.short {
+	height: 2px;
+	width: 20%;
+}
+
+hr.paste {
+	border-width: 1px;
+	border-style: dashed;
+	border-bottom: none;
+}
+
+div.header hr,
+div.footer hr {
+	border: none;
+	margin: 0.5em auto;
+}
+
+/* LISTS */
+
+#main-menu li {
+	border-right-style: solid;
+	border-right-width: 2px;
+}
+
+ul {
+	list-style-type: square;
+}
+
+ul.meta {
+	margin: 3em 0 1.33em 1.33em;
+	line-height: 1.2em;
+}
+
+ul.meta li {
+	margin-top: 2px;
+}
+
+dt {
+	margin: 0.67em 0 0.25em 0;
+}
+
+dl.flat dd {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+ul.box li {
+	margin-left: 1em;
+}
+
+a.selected {
+	cursor: default;
+}
+
+/* ANCHORS */
+
+a img {
+	border: none;
+	margin: 0;
+}
+
+/* TABLES */
+
+table.data {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div.table {
+	border-right: none;
+	border-bottom: none;
+	padding: 0;
+}
+
+div.table td {
+	vertical-align: top;
+}
+
+div.table th {
+	text-align: left;
+}
+
+div.table th,
+div.table td {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding: 3px;
+}
+
+/* MENUS */
+
+ul.menu {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+ul.menu li {
+	display: inline;
+}
+
+#main-menu {
+	text-align: right;
+}
+
+#main-menu li {
+	padding: 0 0.5em 0;
+	white-space: normal;
+}
+
+#main-menu li.last-child {
+	border-right: none;
+	padding-right: 0;
+}
+
+#main-menu a {
+	margin-right: 1px;
+}
+
+/* FLOATS */
+
+hr,
+*.box,
+*.section,
+div.footer {
+	clear: both;
+}
+
+li.download {
+	float: right;
+}
+
+#sourceforge,
+#donate,
+#no-ie,
+a#browse-happy {
+	float: right;
+	border: none;
+	padding: 0;
+}
+
+#no-ie {
+	float: left;
+	margin: 1em 0.5em 0 0;
+}
+
+#sourceforge {
+	width: 88px;
+	height: 31px;
+	margin-left: 1em;
+}
+
+#sourceforge img {
+	margin: 0;
+}
+
+#buttons {
+	float: right;
+}
+
+/* BLOG */
+
+*.comment div.section {
+	border: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+#comments,
+#postcomment {
+	margin-top: 2em;
+}
+
+div.comment-text {
+	margin-right: 2em;
+}
+
+ul.meta {
+	margin: 4em 0 1.33em 1.33em;
+}
+
+*.comment div.section {
+	margin-left: 3em;
+}
+
+li.comment div.section {
+	margin-top: -2.67em;
+}
+
+div.preview div.section {
+	margin-left: 2.33em;
+}
+
+div.preview fieldset.input {
+	padding-left: 1em;
+	border: none;
+	background-color: transparent;
+}
+
+div.preview fieldset.buttons {
+	margin-left: 0.67em;
+}
+
+#navigate {
+	margin-bottom: 2.17em;
+}
+
+#navigate span.label {
+	display: none;
+}
+
+#navigate li.previous {
+	display: inline;
+	float: left;
+}
+
+#navigate li.next {
+	display: inline;
+	float: right;
+}
+
+#navigate:after {
+	content: "\A0";
+	clear: both;
+}
+
+#commentlist {
+	margin-left: 0;
+	list-style-type: none;
+}
+
+button.autoquote {
+	float: right;
+	padding: 1px 2px;
+	margin-top: -4em;
+	margin-right: 2em;
+}
+
+p.permalink {
+	text-align: right;
+	width: 30px;
+}
+
+p.permalink span {
+	display: none;
+}
+
+#help {
+	margin: 0;
+	float: right;
+}
+
+blockquote address {
+	text-align: right;
+}
+
+/* OTHER STUFF */
+
+#license, #syndication {
+	margin-top: 0;
+	margin-bottom: 0.17em;
+}
+
+#modified {
+	margin: 0;
+	text-align: right;
+}
+
+sup {
+	vertical-align: top;
+}
+
+sup.flag {
+	margin-left: 2px;
+}
+
+/* HACKS */
+#donate a {border-bottom-width: 0 !important;}
+/* tweak IE5.x for mac (http://www.sam-i-am.com/work/sandbox/css/mac_ie5_hack.html) */
+/*\*//*/
+  @import "ie5mac.css";
+/**/

@@ -1,0 +1,87 @@
+/* dean.edwards/2004 */
+/* keeping code tidy! */
+
+@import url("plain.css");
+
+/* PAGE */
+@media screen {
+html, body {
+	background-color: #E2E3E8;
+}}
+
+*.section {
+	background-color: #FFFFFF;
+}
+
+*.comment div.section {
+	background-color: transparent;
+}
+
+/* COLOUR */
+
+/* border colour */
+
+*.box,
+*.section,
+fieldset.input,
+blockquote,
+textarea,
+div.table th,
+div.table td,
+*.comment div.section,
+*.input input {
+	border-color: #E6E9F9;
+}
+
+/* background colour */
+div.table th,
+fieldset.input {
+	background-color: #F2F3F8;
+}
+
+/* code */
+pre,
+code,
+html *.code,
+kbd {
+	background-color: #F6F6F9;
+	border-color: #E7E7EF;
+}
+
+/* link colour */
+:link,
+h1,
+h1 :visited,
+*.author :link,
+*.author :visited,
+*.author :link cite,
+*.author :visited cite,
+:link span.link-text,
+#commentlist li.author :link,
+#commentlist li.author :visited,
+#commentlist p.IE-bug-fix.permalink :visited,
+div.header,
+div.header hr,
+div.header :visited {
+	color: #0000EE;
+	border-bottom-color: #0000EE;
+}
+#main-menu li {
+	border-color: #0000EE;
+}
+div.header hr {
+	background-color: #0000EE;
+}
+#syndication :link span.link-text {
+	border-bottom-color: #0000EE;
+}
+
+/* visited link colour */
+:visited,
+:visited span.link-text {
+	color: #551A86;
+	border-bottom-color: #551A8B;
+}
+#syndication :visited span.link-text {
+	border-bottom-color: #551A8B;
+}

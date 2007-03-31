@@ -1,0 +1,115 @@
+/* XML button */
+
+*.feed-button {
+	font-size: smaller;
+	text-decoration: none;
+}
+
+*.feed-button,
+a.feed-button:hover {
+	font-weight: bold;
+	padding: 0 2px 1px 2px;
+	border: 1px solid;
+	/* stop other link styles from interfering with
+	 the look of the XML button */
+	background-color: #FF6600 !important;
+	border-color: #000000 !important;
+	color: #FFFFFF !important;
+}
+
+*.feed-button abbr {
+	color: #FFFFFF !important; /* for opera */
+}
+
+#syndication a,
+#syndication-page ul.feeds a {
+	border-bottom-width: 0;
+}
+
+
+ul.feeds a:hover img,
+#syndication a:hover img,
+#syndication-page ul.feeds a {
+	padding: 1px;
+	border: none !important;
+}
+
+#syndication span.link-text {
+	border-bottom: 1px solid;
+	color: #898E79;
+}
+
+/* NOTES */
+
+html *.note {
+	background-color: #FFFFCC;
+	padding: 1em;
+}
+
+*.note p {
+	margin: 0;
+}
+
+/* IMAGES */
+
+#sourceforge,
+#donate,
+#no-ie,
+a#browse-happy,
+#buttons :link img,
+#buttons :visited img {
+	padding: 0;
+}
+
+#sourceforge img,
+#buttons img,
+#donate img {
+	vertical-align: top;
+}
+
+#download #donate {
+	margin: 0;
+}
+
+/* WEBLOG EXTRAS */
+
+blockquote.verse {
+	margin: auto;
+	font-style: italic;
+	font-size: 1.1em;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	width: 24em;
+	background-color: ivory;
+	border: 1px solid black;
+	padding: 1em;
+}
+blockquote.verse h4 {
+	margin-top: 0;
+	text-decoration: underline;
+}
+blockquote.verse p {
+	margin: 0;
+}
+blockquote.verse hr {
+	width: 25%;
+	height: 1px;
+}
+
+#britpack a img {
+	border-color: #898E79;
+	border-bottom-color: #898E79 !important;
+}
+
+#britpack a:hover img {
+	border: 1px solid #EE0000;
+	border-bottom-color: #EE0000 !important;
+}
+
+#rules dt {
+	margin: 1em 0 1ex 0;
+}
+
+#rules dt a[href^="#"] {
+	font-weight: normal;
+}
