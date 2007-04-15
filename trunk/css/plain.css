@@ -2,8 +2,8 @@
 /* keeping code tidy! */
 
 @import url("layout.css");
-@import url("http://dean.edwards.name/my/behaviors/bind.css");
 @import url("widgets.css");
+@import url("syntax.css");
 
 /* PAGE */
 div.document {
@@ -227,7 +227,7 @@ div.header a:active {
 
 /* weblog favatars */
 
-*.comment {
+*.comment div.section {
 	background-position: right top;
 	background-repeat: no-repeat;
 }
