@@ -1,0 +1,99 @@
+
+/* syntax highlighitng */
+
+/* defaults */
+
+.highlight span {
+	display: inline !important;
+}
+
+.highlight .comment {
+	color: green;
+	font-style: italic;
+}
+
+.highlight .conditional {
+	background: #FFFFA0;
+}
+
+.highlight .string,
+.highlight .regexp,
+.highlight .number {
+	color: darkred;
+}
+
+.highlight .keyword {
+	color: blue;
+}
+
+.highlight .special {
+	color: red;
+}
+
+.highlight .tag {
+	color: purple;
+	font-weight: bold;
+}
+
+.highlight .attribute {
+	font-weight: bold;
+}
+
+.highlight .attribute.value {
+	color: blue;
+	font-weight: normal;
+}
+
+.highlight .entity {
+	color: orangered;
+}
+
+.highlight .pi { /* processing instruction */
+	color: orchid;
+	font-style: italic;
+}
+
+.highlight .cdata {
+	/* no styling */
+}
+
+/* (X)HTML */
+
+.html .doctype {
+	color: steelblue;
+	font-style: italic;
+}
+
+/* CSS */
+
+.css .comment {
+	color: gray;
+}
+
+.css .selector {
+	color: darkred;
+	font-weight: bold;
+}
+
+.css .at_rule {
+	color: orangered;
+}
+
+.css .property {
+	font-weight: bold;
+}
+
+.css .property.value {
+	color: blue;
+	font-weight: normal;
+}
+
+/* JavaScript */
+
+.javascript .global {
+	color: teal;
+}
+
+.javascript .base2 {
+	color: purple;
+}
