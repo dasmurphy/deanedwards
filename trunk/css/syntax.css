@@ -3,6 +3,10 @@
 
 /* defaults */
 
+.highlight {
+	color: black;
+}
+
 .highlight span {
 	display: inline !important;
 }
