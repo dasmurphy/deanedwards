@@ -1,1 +1,2926 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('u R={};C q(2D){u L=q(){};L.M={y:q(c){x(B.E>1){u d=l[c];u e=B[1];x(H e=="q"&&d&&/\\83\\b/.18(e)){u f=e;e=q(){u a=l.A;l.A=d;u b=f.T(l,B);l.A=a;v b};e.7s=f;e.2R=d}l[c]=e}J x(c){u g=L.M.y;x(L.34){u h,i=0,6G=["V","1v","4O"];1q(h=6G[i++])x(c[h]!=2a.M[h]){g.13(l,h,c[h])}}J x(H l!="q"){g=l.y||g}1e(h 2A c)x(!2a.M[h]){g.13(l,h,c[h])}}v l},A:L};L.y=q(b,c){u d=L.M.y;L.34=12;u e=C l;d.13(e,b);25 L.34;u V=e.V;u f=e.V=q(){x(!L.34){x(l.4x||l.V==f){l.4x=12;V.T(l,B);25 l.4x}J{u a=B[0];x(a!=I){(a.y||d).13(a,e)}v a}}};1e(u i 2A L)f[i]=l[i];f.2R=l;f.A=L.A;f.M=e;f.1v=l.1v;d.13(f,c);x(H f.11=="q")f.11();v f};L=L.y({V:q(){l.y(B[0])}},{2R:2a,A:L,1p:q(a){x(H a=="q"){a(l.M)}J{l.M.y(a)}v l}});u 2H=H $2H=="1U"?{}:$2H;u K=q(k){v k};u 2b=q(a,b,c){x(!a){2S C(c||5v)(b||"7j 7f.");}};u 43=q(a,b,c){x(b){u d=H b=="q"?19(a,b):H a==b;2b(d,c||"5g 3h.",58)}};u 1W=q(a){u b=C 1C;b.M=a;v C b};u F=q(c){u d=B;v Y(c).G(/%([1-9])/g,q(a,b){v b<d.E?d[b]:a})};u $19=2H.19||C 1C("o,k","v o 6D k");u 19=q(a,b){43(b,"q","5g \'19\' 8d.");x($19(a,b))v 12;x(a!=I)2j(b){14 2a:v 12;14 4R:14 3K:14 1C:14 Y:v H a==H b.M.4O();14 1u:v!!(a.2G&&a.32&&!B.4J(a,1C));14 6n:v!!a.7V;14 1k:v Y(a.V.M)==Y(C 1k)}v U};u 2X=q(a,b){v Y(a).2X(b)||[]};u 68=/([\\/()[\\]{}|*+-.,^$?\\\\])/g;u 2z=q(a){v Y(a).G(68,"\\\\$1")};u $S=1u.M.S;u S=q(a){v $S.T(a,$S.13(B,1))};u 63=/^\\s+|\\s+$/g;u 2i=q(a){v Y(a).G(63,"")};u A=q(a,b){v a.A.T(a,b)};u y=q(a){2b(a!=2a.M,"2a.M 7K 7J!");v L.M.y.T(a,S(B,1))};u $2U=1;u 1t=q(a){x(!a.1S)a.1S="7C"+$2U++;v a.1S};x(H 2T=="1U"){2T=C 5v("2T")}u D=q(a,b,c){x(a==I)v;x(H a=="q"){u d=1C}J x(H a.D=="q"&&a.D!=B.4J){a.D(b,c);v}J x(H a.E=="35"){D.1u(a,b,c);v}D.1C(d||2a,a,b,c)};D.1u=q(a,b,c){u i,E=a.E;x(H a=="1d"){1e(i=0;i<E;i++){b.13(c,a.38(i),i,a)}}J{1e(i=0;i<E;i++){b.13(c,a[i],i,a)}}};D.1C=2H.D||q(a,b,c,d){1e(u e 2A b){x(a.M[e]===1U){c.13(d,b[e],e,b)}}};L.D=q(a,b,c){D.1C(l,a,b,c)};1C.M.M={};x("".G(/^/,Y)){y(Y.M,"G",q(a,b){x(H b=="q"){x(19(a,1k)){u c=a;u d=c.2u;x(d==I)d=/(g|4m)$/.18(c);x(d)c=C 1k(c.3e)}J{c=C 1k(2z(a))}u e,1d=l,55="";1q(1d&&(e=c.17(1d))){55+=1d.S(0,e.Z)+b.T(l,e);1d=1d.S(e.Z+e[0].E);x(!d)3g}v 55+1d}J{v A(l,B)}})}u 3n=L.y({V:q(){2S C 58("7q 7p 7n 7i.");}});u 1x=3n.y(I,{y:q(c,d){u e=l.A();D(l,q(a,b){x(!1x[b]&&b!="11"){y(e,b,a)}});e.1p(c);y(e,d);x(H e.11=="q")e.11();v e},1p:q(c){u d=l;x(H c=="q"){d.A(c);D(c,q(a,b){x(!1x[b]&&b!="11"){y(d,b,a)}})}J{L.D(y({},c),q(a,b){x(H a=="q"){a=q(){A;v d[b].T(d,[l].48(S(B)))}}x(!1x[b])y(l,b,a)},d.M);y(d,c)}v d}});u 1K=1x.y({46:q(c,d,e){u f=12;3v{l.D(c,q(a,b){f=d.13(e,a,b,c);x(!f)2S 2T;})}3j(2Y){x(2Y!=2T)2S 2Y;}v!!f},5e:q(d,e,f){v l.2o(d,q(a,b,c){x(e.13(f,b,c,d)){a[a.E]=b}v a},C 1D)},3I:q(b,c){u d=S(B,2);v l.2J(b,(H c=="q")?q(a){x(a!=I)v c.T(a,d)}:q(a){x(a!=I)v a[c].T(a,d)})},2J:q(c,d,e){u f=C 1D;l.D(c,q(a,b){f[f.E]=d.13(e,a,b,c)});v f},6V:q(b,c){v l.2J(b,q(a){x(a!=I)v a[c]})},2o:q(c,d,e,f){l.D(c,q(a,b){e=d.13(f,e,a,b,c)});v e},6U:q(c,d,e){v!l.46(c,q(a,b){v!d.13(e,a,b,c)})}},{D:D});u 1w=1x.y({6L:q(d,e){x(!e)e=d;v l.2o(d,q(a,b,c){a[b]=e[c];v a},{})},1W:q(a){v l.48(a)},1I:q(a,b){v l.1Q(a,b)!=-1},D:D.1u,1Q:q(a,b,c){u d=a.E;x(c==I){c=0}J x(c<0){c=6H.6O(0,d+c)}1e(u i=c;i<d;i++){x(a[i]===b)v i}v-1},4Z:q(a,b,c){l.32(a,c,0,b);v b},8l:q(a,b,c){u d=l.1Q(a,c);x(d==-1)l.2l(a,b);J l.32(a,d,0,b);v b},8k:q(a,b,c){u d=a.E;x(c==I){c=d-1}J x(8j<0){c=6H.6O(0,d+c)}1e(u i=c;i>=0;i--){x(a[i]===b)v i}v-1},39:q(a,b){u c=l.1Q(a,b);x(c!=-1)l.4W(a,c);v b},4W:q(a,b){u c=a[b];l.32(a,b,1);v c}});1w.M.D=q(a,b){D.1u(l,a,b)};1w.1p(1K);D("48,2G,8g,2l,4V,8a,S,37,32,85".1A(","),q(b){1w[b]=q(a){v 1u.M[b].T(a,S(B,1))}});u 1D=q(){v 1w(l.V==1w?1u.T(I,B):B[0])};1D.M=1w.M;D(1w,q(a,b,c){x(1u[b]){1w[b]=1u[b];25 1w.M[b]}1D[b]=1w[b]});u 26="#"+4R(C 6n);u 1b=26+"6x";u 2f=26+"6u";u 3V=L.y({V:q(a){l[1b]=C 1D;l[2f]={};l.3H(a)},1W:q(){u c=C l.V(l);L.D(l,q(a,b){x(H a!="q"&&b.38(0)!="#"){c[b]=a}});v c},2r:2H.2r||C 1C("k",F("v(\'%1\'+k)2A l[\'%2\']",26,2f)),2h:q(a){v l[2f][26+a]},D:q(b,c){D(l[1b],q(a){b.13(c,l.2h(a),a,l)},l)},6x:q(a,b){u c=l[1b]||C 1D;2j(B.E){14 0:v c.1W();14 1:v c[a];33:v c.S(a,b)}},3H:q(d){D(B,q(c){D(c,q(a,b){l.1M(b,a)},l)},l);v l},39:q(a){u b=l.2h(a);l[1b].39(Y(a));25 l[2f][26+a];v b},1M:q(a,b){x(B.E==1)b=a;x(!l.2r(a)){l[1b].2l(Y(a))}l[2f][26+a]=b;v b},1v:q(){v Y(l[1b])},6p:q(a){v l.3H.T(l.1W(),B)},6u:q(a,b){u c=l.2J(K);2j(B.E){14 0:v c;14 1:v c[a];33:v c.S(a,b)}}});3V.1p(1K);u 3F=3V.y({31:q(a,b){2b(!l.2r(a),"6m 6l.");v l.1M.T(l,B)},6j:q(){v l[1b].E},1Q:q(a){v l[1b].1Q(Y(a))},4Z:q(a,b,c){2b(!l.2r(b),"6m 6l.");l[1b].4Z(a,Y(b));v l.1M.T(l,S(B,1))},2s:q(a){v l.2h(l[1b][a])},4W:q(a){v l.39(l[1b][a])},4V:q(){l[1b].4V();v l},37:q(c){x(c){u d=l;l[1b].37(q(a,b){v c(d.2h(a),d.2h(b),a,b)})}J l[1b].37();v l},1M:q(a,b){x(B.E==1)b=a;b=l.V.3C.T(l.V,B);v l.A(a,b)},4F:q(a,b){2b(a<l.6j(),"7R 7Q 7O 7N.");B[0]=l[1b][a];v l.1M.T(l,B)}},{1j:I,3C:q(a,b){x(l.1j&&!19(b,l.1j)){b=C l.1j(a,b)}v b},y:q(a,b){u c=l.A(a);c.3C=l.3C;y(c,b);x(!c.1j){c.1j=l.1j}J x(H c.1j!="q"){c.1j=(l.1j||L).y(c.1j)}x(H c.11=="q")c.11();v c}});u 1B=3F.y({V:q(a,b){l.A(a);x(H b=="1d"){l.2u=/g/.18(b);l.3B=/i/.18(b)}},2u:12,3B:U,17:q(d,e){x(B.E==1){u f=l[1b];u g=l[2f];e=q(a){x(!a)v"";u b=1,i=0;1q(a=g[26+f[i++]]){x(B[b]){u c=a.4A;2j(H c){14"q":v c.T(I,S(B,b));14"35":v B[b+c];33:v c}}J b+=a.E+1}}}u h=(l.2u?"g":"")+(l.3B?"i":"");v Y(d).G(C 1k(l,h),e)},18:q(a){v l.17(a)!=a},1v:q(){u d=0;v"("+l.2J(q(b){u c=Y(b).G(/\\\\(\\d+)/g,q($,a){v"\\\\"+(1+4R(a)+d)});d+=b.E+1;v c}).2G(")|(")+")"}},{1R:"$0",11:q(){D("31,2r,2h,39,1M".1A(","),q(b){y(l,b,q(a){x(19(a,1k)){a=a.3e}v A(l,B)})},l.M)}});1B.1j=L.y({V:q(a,b){u c=/\\\\./g;u d=/([\'"])\\1\\+(.*)\\+\\1\\1$/;a=19(a,1k)?a.3e:Y(a);x(H b=="35")b=Y(b);J x(b==I)b="";l.E=2X(a.G(c,"").G(/\\[[^\\]]+\\]/g,""),/\\(/g).E;x(H b=="1d"&&/\\$(\\d+)/.18(b)){x(/^\\$\\d+$/.18(b)){b=3y(b.S(1))}J{u i=l.E+1;u Q=/\'/.18(b.G(c,""))?\'"\':"\'";b=b.G(/\\n/g,"\\\\n").G(/\\r/g,"\\\\r").G(/\\$(\\d+)/g,Q+"+(B[$1]||"+Q+Q+")+"+Q);b=C 1C("v "+Q+b.G(d,"$1")+Q)}}l.4A=b;l.1v=q(){v a||""}},E:0,4A:""});u 2c=L.y({V:q(c,d){l.y(d);l.1v=q(){v F("[R.%1]",l.1m)};x(H l.11=="q")l.11();x(l.1m!="R"){l.1J=F("u %1=R.%1;",l.1m)}u e="u A="+A+";";u f=("R,3x,"+l.23).1A(",");c.23=1K.2o(f,q(a,b){x(R[b])a+=R[b].1J;v a},e);u e=F("R.%1=%1;",l.1m);u g=l.1n.1A(",");c.1n=1K.2o(g,q(a,b){x(b){l.1J+=F("u %2=%1.%2;",l.1m,b);a+=F("x(!%1.%2)%1.%2=%2;R.%2=%1.%2;",l.1m,b)}v a},e,l);x(l.1m!="R"){R.1J+=F("u %1=R.%1;",l.1m)}},1n:"",23:"",1J:"",1m:""});R=C 2c(l,{1m:"R",2C:"0.8 (5T)",1n:"L,3n,1x,1K,1D,3V,3F,1B,2c"});R.1v=q(){v"[R]"};1h(l.1n);u 3x=C 2c(l,{1m:"3x",2C:R.2C,1n:"K,2b,43,1t,1W,19,y,F,D,2X,2z,S,2i",11:q(){l.y=y;D(1K.M,q(a,b){x(!1x[b]){l[b]=q(){v 1K[b].T(1K,B)};l.1n+=","+b}},l)}});1h(l.1n);R.1J+=3x.1J};C q(2D){u 1s=P.4v("1a");u 7A/*@5P=@7z@*/;u 1o={3J:"",11:q(){u a/*@5P=12@*/;u b=5K.3J;x(!a)b=b.G(/15\\s[\\d.]+/,"");b=b.G(/([a-z])[\\s\\/](\\d)/4m,"$1$2");l.3J=5K.5H+" "+b},2g:q(a){u r=U;u b=a.38(0)=="!";a=a.G(/^\\!?(x\\s*|5H\\s+)?/,"").G(/^(["\']?)([^\\(].*)(\\1)$/,"/($2)/i.18(1o.3J)");3v{1h("r=!!"+a)}3j(2Y){}v 3K(b^r)}};R.y(1o,{1m:"1o",2C:"0.9",1n:"2g,4o"});1o=C R.2c(l,1o);1h(l.23);u 4n=L.M.y;L.M.y=q(a,b){x(H a=="1d"&&a.38(0)=="@"){v 1o.2g(a.S(1))?4n.13(l,b):l}v 4n.T(l,B)};x(1o.2g("15.+3d")){u $22={};1o.$O=q(b,c){x(!c||c.2M!=1){v b}u d=c.7u;u e=1t(b);$22[e]=b;x(!$22[d])$22[d]={};u f=$22[d][e];x(f)v f;c=I;b=I;u g=q(){u a=P.1X[d];x(a)v $22[e].T(a,B)};g.4e=e;$22[d][e]=g;v g};4d("7r",q(){$22=I})}u 4o=1x.y(I,{4b:q(a){v(a&&a.5d)?a:I},"@15":{4b:q(a){v(a==5y)?5y:l.A()}}});1h(l.1n)};C q(2D){u 1O=C R.2c(l,{1m:"1O",2C:"0.9 (5T)",23:"1o",1n:"2O,1F,1G,N,3l,1Z,1r,3q,1f,4c,4h,3L,3r,47,2x"});1h(l.23);u 2p=1x.y(I,{2V:q(b){l[b]=q(a){u m=(a.A&&a.A==a[b].2R)?"A":b;v a[m].T(a,S(B,1))}},y:q(c,d){u e=l.A();D(c,q(a,b){x(H a=="q"&&!e[b]){e.2V(b)}J x(b.38(0)=="@"){D(a,B.4J)}});e.1p(c);y(e,d);x(H e.11=="q")e.11();v e},"@!(1s.1l.T)":{2V:q(c){l[c]=q(a){u m=(a.A&&a.A==a[c].2R)?"A":c;2j(B.E){14 1:v a[m]();14 2:v a[m](B[1]);14 3:v a[m](B[1],B[2]);14 4:v a[m](B[1],B[2],B[3])}u b=[],i=B.E;1q(i-->1)b[i-1]="B["+i+"]";1h("u 2W=7c[m]("+b+")");v 2W}}}});u 28=2p.y(I,{y:q(a,b){u c=l.O;x(b){c=b.O||c;25 b.O}u d=l.A(a,b);y(d,"O",c);v d}});28.O=q(a){v l(a)};u N=1x.y({3E:q(a){v l.2E(a).3M},3Z:q(a){1q(a&&(a=a.4L)&&!l.2L(a))3N;v a},5c:q(a){u b=0;1q(a&&(a=a.5a))b++;v b},27:q(a){v a.3O},57:q(a){1q(a&&(a=a.5a)&&!l.2L(a))3N;v a},3X:q(a){v a[N.$3P]},6S:q(a){a=a.8H;1q(a){x(a.2M==3||l.2L(a))v U;a=a.4L}v 12},54:q(a,b){v a[N.$3P]=b},"@15":{3E:q(a){v l.2E(a).8C},"@29":{27:q(a){v a.3O||a.P}}}},{$3P:"8y",1I:q(a,b){v l.52(a)?a==l.27(b):a!=b&&a.1I(b)},2E:q(a){v l.52(a)?a:l.27(a)},52:q(a){v 3K(a&&a.51)},2L:q(a){v 3K(a&&a.6J)},"@!(1s.1I)":{1I:q(a,b){1q(b&&(b=b.3c)&&a!=b)3N;v!!b}},"@15":{$3P:"8q"},"@29":{2L:q(a){v l.A(a)&&a.3R!="!"}}});u 2O=28.y({"@!(1s.6M)":{6M:q(a,b){x(N.1I(a,b)){v 4|16}J x(N.1I(b,a)){v 2|8}u c=l.$3S(a);u d=l.$3S(b);x(c<d){v 4}J x(c>d){v 2}v 0}}},{$3S:q(a){u b=0;1q(a){b=N.5c(a)+"."+b;a=a.3c}v b},"@(1s.2m)":{$3S:q(a){v a.2m}}});u 1F=2O.y(I,{O:q(a){l.A(a);3l.O(a.3M);v a}});1F.2V("4v");u 1G=2O.y({"@15[67]":{3b:q(a,b){x(a.1z===1U||b=="3a"||b=="4Y"){v l.A(a,b,2)}u c=a.8i(b);v c&&c.6F?c.6E:I}},"@29.+3d":{3b:q(a,b){x(a.1z===1U||b=="3a"||b=="4Y"){v l.A(a,b,2)}u c=a.6J[l.$2K[b.3Q()]||b];v c?c.6F?c.6E:I:l.A(a,b)}}},{$2K:"",11:q(){u a=l.$2K.3Q().1A(",");u b=l.$2K.1A(",");l.$2K=1D.6L(a,b)},"@29.+3d":{$2K:"8h,8f,8e,8c,8b,89,88,87,86,84"}});1G.2V("4U");y(1O,{O:q(a){2j(a.2M){14 1:v 1G.O(a);14 9:v 1F.O(a);33:v 2O.O(a)}v a}});u 4T={};u 2k=q(a){x(a){u b=1t(a);x(!4T[b]){1O.O(a);4T[b]=12}}v a};u 3l=28.y();u 1Z=28.y({"@!(P.2I)":{4S:q(a,b,c,d){a.3h=b;a.6y=c;a.4Q=d},"@15":{4S:q(a){A(l,B);a.6w=!a.6y},4P:q(a){x(a.4Q!==U){a.2W=U}},6v:q(a){a.6w=12}}}},{"@15":{"82":{O:q(a){v l.A(y({4P:q(){x(l.4Q!==U){l.2W=U}}},a))}},"6t":{O:q(a){l.A(a);a.4N=a.81;v a}}}});u 1r=2p.y({"@!(1s.1l)":{1l:q(a,b,c){u d=1t(a);u e=c.4e||1t(c);u f=l.$1X[d];x(!f)f=l.$1X[d]={};u g=f[b];u h=a["4M"+b];x(!g){g=f[b]={};x(h)g[0]=h}g[e]=c;x(h!==1U){a["4M"+b]=l.$3U}},3f:q(a,b){l.$3U.13(a,b)},6s:q(a,b,c){u d=l.$1X[a.1S];x(d&&d[b]){25 d[b][c.1S]}},"@15.+3d":{1l:q(a,b,c){l.A(a,b,l.2k(c,a))},3f:q(a,b){b.4N=a;3v{a.80(b.3h,b)}3j(2Y){l.A(a,b)}}}}},{2k:q(a,b){u c=q(){v a.T(b,B)};c.4e=1t(a);v c},"@!(1s.1l)":{$1X:{},$3U:q(a){u b=12;u c=1r.$1X[l.1S];x(c){a=1Z.O(a);u d=c[a.3h];1e(u i 2A d){b=d[i].13(l,a);x(a.2W===U)b=U;x(b===U)3g}}v b},"@15":{$3U:q(a){x(!a){u b=4o.4b(l)||N.3E(l);a=b.7Y}v l.A(a)},"6t":{2k:q(a,b){v 1o.$O(a,b)}}}}});y(1r,{1l:q(a,b,c,d){x(d)c=l.2k(c,d);l.A(a,b,c,U)},3f:q(a,b){x(H b=="1d"){u c=b;u d=N.2E(a);b=3q.2I(d,"6r");1Z.4S(b,c,U,U)}l.A(a,b)}});u 3q=2p.y({"@!(P.2I)":{2I:q(a){v 1Z.O({})},"@(P.6q)":{2I:q(a){v 1Z.O(a.6q())}}},"@4K":{2I:q(a,b){v l.A(a,b=="6r"?"7X":b)}}});u 1i=C L({3G:U,2F:q(){x(!1i.3G){1i.3G=12;4I("R.1r.3f(P,\'1i\')",0)}},11:q(){1r.1l(P,"1i",q(){1i.3G=12});1r.1l(2P,"6o",1i.2F)},"@(1l)":{11:q(){l.A();1l("6o",1i.2F,U)}},"@(4d)":{11:q(){l.A();4d("4H",1i.2F)}},"@15.+3d":{11:q(){l.A();P.7W("<4G 30=6k 3D 4Y=//:><\\/4G>");P.1X.6k.7U=q(){x(l.6i=="6h"){l.7T();1i.2F()}}}},"@4K":{11:q(){l.A();u a=6g(q(){x(/7S|6h/.18(P.6i)){6d(a);1i.2F()}},6c)}}});1i.11();u 3r=2p.y({"@!(6b)":{6b:q(a,b){v b.7P}}},{69:q(c){v Y(c).G(/\\-([a-z])/g,q(a,b){v b.4C()})}});y(1F,{"@!(P.3M)":{O:q(a){l.A(a);a.3M=N.3E(a);v a}}});u 3p=2p.y({"@!(1s.1P)":{2B:q(a,b){v C 1f(b).17(a)},1P:q(a,b){v C 1f(b).17(a,1)}}});y(3p.M,{2B:q(b){v y(l.A(b),"2s",q(a){v 2k(l.A(a))})},1P:q(a){v 2k(l.A(a))}});u 4c=3p.y();u 4h=3p.y({"@!(1s.66)":{66:q(a,b){v C 1f(b).18(a)}}});u 3L=L.y({V:q(b){b=b||[];l.E=b.E;l.2s=q(a){v b[a]}},E:0,D:q(a,b){u c=l.E;1e(u i=0;i<c;i++){a.13(b,l.2s(i),i,l)}},2s:q(a){},"@(7M)":{V:q(b){x(b&&b.65){l.E=b.7L;l.2s=q(a){v b.65(a)}}J l.A(b)}}});3L.1p(1K);u 1f=L.y({V:q(a){l.1v=q(){v 2i(a)}},17:q(a,b){u c=l.$64(a||P,b);v b?c:C 3L(c)},18:q(a){a.4U("4B",12);u b=C 1f(l+"[4B]");u c=b.17(N.27(a),1);a.3A("4B");v c==a},$64:q(a,b){v 1f.4z(l)(a,b)}});u 24=1B.y({V:q(){A(l,B);l.20={};l.3z=C 1B;l.3z.31(/:4y\\([^)]*\\)/,1B.1R);l.3z.31(/([ >](\\*|[\\w-]+))([^: >+~]*)(:\\w+-2y(\\([^)]+\\))?)([^: >+~]*)/,"$1$3$6$4")},20:I,3B:12,2d:q(b){u c=l.62=[];v l.61(l.F(Y(b).G(24.60,q(a){c.2l(a.S(1,-1));v"%"+c.E})))},F:q(a){v a.G(24.5Z,"$1").G(24.5Y,"$1 $2").G(24.5X,"$1*$2")},61:q(a){v l.3z.17(a.G(24.5W,">* "))},4z:q(a){v l.20[a]||(l.20[a]=l.2e(l.17(l.2d(a))))},2e:q(a){v F(a,l.62)}},{60:/(["\'])[^\\1]*\\1/g,5X:/([\\s>+~,]|[^(]\\+|^)([#.:@])/g,5Y:/(^|,)([^\\s>+~])/g,5Z:/\\s*([\\s>+~(),]|^|$)\\s*/g,5W:/\\s\\*\\s/g,5V:q(c,d,e,f,g,h,i,j){f=/3w/i.18(c)?f+"+1-":"";x(!5U(d))d="7I+"+d;J x(d=="7H")d="2n";J x(d=="7G")d="2n+1";d=d.1A(/n\\+?/);u a=(d[0]=="")?1:(d[0]=="-")?-1:3y(d[0]);u b=3y(d[1])||0;u g=a<0;x(g){a=-a;x(a==1)b++}u k=F(a==0?"%3%7"+(f+b):"(%4%3-%2)%6%1%70%5%4%3>=%2",a,b,e,f,h,i,j);x(g)k=g+"("+k+")";v k}});1f.4E={"=":"%1==\'%2\'","~=":/(^| )%1( |$)/,"|=":/^%1(-|$)/,"^=":/^%1/,"$=":/%1$/,"*=":/%1/};1f.4E[""]="%1!=I";1f.5S={"6f":"e%1.6f","1I":"N.3X(e%1).1Q(\'%2\')!=-1","3u":"e%1.3u","7F":"N.6S(e%1)","7E":"e%1.3u===U","7D-2y":"!N.57(e%1)","3w-2y":"!N.3Z(e%1)","7B-2y":"!N.57(e%1)&&!N.3Z(e%1)","5R":"e%1==N.2E(e%1).51"};C q(2D){u 15=1o.2g("15");u 29=1o.2g("29");u 2Z=1o.2g("(1s.2m)");u 4u="u p%2=0,i%2,e%2,n%2=e%1.";u 2U=2Z?"e%1.2m":"1t(e%1)";u 5Q="u g="+2U+";x(!p[g]){p[g]=1;";u 5O="r[r.E]=e%1;x(s)v e%1;";u 5N="2w=q(5M,s){2v={};u r=[],p={},1E=[%1],"+"d=N.2E(5M),c=d.5L?\'4C\':\'1v\';";u 4r=15?q(a,b){u c=a.1X[b]||I;x(!c||c.30==b)v c;1e(u i=0;i<c.E;i++){x(c[i].30==b)v c[i]}v I}:q(a,b){v a.4r(b)};u 2v={};q 5J(a){u b=2Z?a.2m:1t(a);x(!2v[b]){u c=2v[b]={};u d=15?a.5I||a.4q:a.4q;u e=0;u f;1e(u i=0;(f=d[i]);i++){x(N.2L(f)){c[2Z?f.2m:1t(f)]=++e}}c.E=e}v b};u 2w;u Z;u 1E;u 1g;u 1V;u 36;u 20={};u 2N=C 24({"^ \\\\*:5R":q(a){1g=U;u b="e%2=d.51;x(N.1I(e%1,e%2)){";v F(b,Z++,Z)}," (\\\\*|[\\\\w-]+)#([\\\\w-]+)":q(a,b,c){1g=U;u d="u e%2=4r(d,\'%4\');x(";x(b!="*")d+="e%2.3s==\'%3\'[c]()&&";d+="N.1I(e%1,e%2)){";x(1V)d+=F("i%1=n%1.E;",1V);v F(d,Z++,Z,b,c)}," (\\\\*|[\\\\w-]+)":q(a,b){36++;1g=b=="*";u c=4u;c+=(1g&&29)?"1X":"7y(\'%3\')";c+=";1e(i%2=0;(e%2=n%2[i%2]);i%2++){";v F(c,Z++,1V=Z,b)},">(\\\\*|[\\\\w-]+)":q(a,b){u c=15&&1V;1g=b=="*";u d=4u;d+=c?"5I":"4q";x(!1g&&c)d+=".4p(\'%3\')";d+=";1e(i%2=0;(e%2=n%2[i%2]);i%2++){";x(1g){d+="x(e%2.2M==1){";1g=29}J{x(!c)d+="x(e%2.3s==\'%3\'[c]()){"}v F(d,Z++,1V=Z,b)},"([+~])(\\\\*|[\\\\w-]+)":q(a,b,c){u d="";x(1g&&15)d+="x(e%1.3R!=\'!\'){";1g=U;u e=b=="+";x(!e){d+="1q(";36=2}d+="e%1=N.3Z(e%1)";d+=(e?";":"){")+"x(e%1";x(c!="*")d+="&&e%1.3s==\'%2\'[c]()";d+="){";v F(d,Z,c)},"#([\\\\w-]+)":q(a,b){1g=U;u c="x(e%1.30==\'%2\'){";x(1V)c+=F("i%1=n%1.E;",1V);v F(c,Z,b)},"\\\\.([\\\\w-]+)":q(a,b){1g=U;1E.2l(C 1k("(^|\\\\s)"+2z(b)+"(\\\\s|$)"));v F("x(1E[%2].18(e%1.1z)){",Z,1E.E-1)},":4y\\\\((\\\\*|[\\\\w-]+)?([^)]*)\\\\)":q(a,b,c){u d=(b&&b!="*")?F("x(e%1.3s==\'%2\'[c]()){",Z,b):"";d+=2N.17(c);v"x(!"+d.S(2,-1).G(/\\)\\{x\\(/g,"&&")+"){"},":7x(-3w)?-2y\\\\(([^)]+)\\\\)":q(a,b,c){1g=U;b=F("2v[p%1].E",Z);u d="x(p%1!==e%1.3c.";d+=2Z?"2m":"1S";d+=")p%1=5J(e%1.3c);u i=2v[p%1]["+2U+"];x(";v F(d,Z)+24.5V(a,c,"i",b,"!","&&","%","==")+"){"},":([\\\\w-]+)(\\\\(([^)]+)\\\\))?":q(a,b,c,d){v"x("+F(1f.5S[b],Z,d||"")+"){"},"\\\\[([\\\\w-]+)\\\\s*([^=]?=)?\\\\s*([^\\\\]]*)\\\\]":q(a,b,c,d){x(c){x(b=="1T")b=="1z";J x(b=="1e")b=="7w";b=F("(e%1.3b(\'%2\')||e%1[\'%2\'])",Z,b)}J{b=F("1G.3b(e%1,\'%2\')",Z,b)}u e=1f.4E[c||""];x(19(e,1k)){1E.2l(C 1k(F(e.3e,2z(2N.2e(d)))));e="1E[%2].18(%1)";d=1E.E-1}v"x("+F(e,b,d)+"){"}});1f.4z=q(f){x(!20[f]){1E=[];2w="";u g=2N.2d(f).1A(",");D(g,q(a,b){Z=1V=36=0;u c=2N.17(a);x(1g&&15){c+=F("x(e%1.3R!=\'!\'){",Z)}u d=(b||36>1)?5Q:"";c+=F(d+5O,Z);u e=2X(c,/\\{/g).E;1q(e--)c+="}";2w+=c});1h(F(5N,1E)+2N.2e(2w)+"v s?I:r}");20[f]=2w}v 20[f]}};3l.1p(3r);1F.1p(4c);1F.1p(3q);1F.1p(1r);1G.1p(4h);1G.1p(1r);u 47=1F.y({"@!(P.2M)":{2M:9},"@!(P.3T)":{3T:q(a,b){v l.2B(a,"."+b.2G("."))}}},{"@(P.4l===1U)":{O:q(b){l.A(b);b.4l=I;b.1l("5G",q(a){b.4l=a.4N},U);v b}}});u 2x=1G.y({4k:q(a,b){x(!l.5F(a,b)){a.1z+=(a.1z?" ":"")+b;v b}},5F:q(a,b){u c=C 1k("(^|\\\\s)"+b+"(\\\\s|$)");v c.18(a.1z)},7v:q(a,b){u c=C 1k("(^|\\\\s)"+b+"(\\\\s|$)");a.1z=a.1z.G(c,"$2");v b},"@!(1s.3T)":{3T:q(a,b){v l.2B(a,"."+b.2G("."))}}},{4j:{},4p:"*",y:q(){u b=A(l,B);u c=(b.4p||"").4C().1A(",");D(c,q(a){2x.4j[a]=b});v b},"@!(1s.3O)":{O:q(a){l.A(a);a.3O=N.27(a);v a}}});y(1O,"O",q(a){x(H a.1z=="1d"){(2x.4j[a.3R]||2x).O(a)}J x(a.5L!==1U){47.O(a)}J{l.A(a)}v a});1h(l.1n)};C q(2D){u 4i=C R.2c(l,{1m:"4i",2C:"0.6",23:"1O",1n:"28,53,4g"});1h(l.23);u 5E=q(a,b,c,d){l.13=q(){b.T(a,c)};l.4f=d||6c};u 1y=C L({3m:U,2q:C 1D,3D:q(a,b){u c=q(){x(1y.2q){1y.2q.2l(C 5E(l,a,B,b))}J{a.T(l,B)}};v c},4H:q(){x(!1y.3m){1y.3m=12;1O.O(P);1y.2q.37(q(a,b){v a.4f-b.4f});1y.2q.3I("13");25 1y.2q;4I(q(){1r.3f(P,"3m")},0)}}});1r.1l(P,"1i",1y.4H);y(1Z,{5D:/^4M(1i|[a-z]+)$/,7t:q(a){a.6v();a.4P();v U}});y(2x.M,"y",q(a,b){x(!L.34&&1Z.5D.18(a)&&H b=="q"){1r.1l(l,a.S(2),b);v l}x(B.E==2&&a=="1Y"){y(l.1Y,b);v l}v A(l,B)});y(1r,{1l:q(a,b,c,d){x(b.1Q("P")==0){b=b.S(8);d=a;a=N.27(a)}l.A(a,b,c,d)},6s:q(a,b,c){x(b.1Q("P")==0){b=b.S(8);a=N.27(a)}l.A(a,b,c)}});u 28=3n.y();u 53=L.y({V:q(c,d){l.2t=19(c,1f)?c:C 1f(c);x(H d!="q"){d=28.y(d)}l.5B=d;u e={};l.O=q(a){u b=1t(a);x(!e[b]){e[b]=12;d(1O.O(a))}};l.T()},5B:I,2t:I,T:1y.3D(q(){D(l.2t.17(P),l.O)}),O:q(a){},40:q(){l.T()},1v:q(){v Y(l.2t)}});u 4g=3F.y({V:q(a){l.A(a);l.5z()},5z:1y.3D(q(){u e=/\\s*,\\s*/;u f=/^#[\\w-]+$/;D(l,q(c,d){D(d.1A(e),q(a){x(f.18(a)){u b=3r.69(a.S(1));2P[b]=1F.1P(P,a)}})})},10),40:q(){l.3I("40")}},{1j:53});1h(l.1n)};C q(2D){1h(R.1J);u 1c="@0";u 1R=1B.1R;X=1B.y({V:q(a,b,c){l.1H=b||{};l.y(c);l.A(a)},1H:I,3o:4,1N:12,1W:q(){u a=l.A();a.1H=1W(l.1H);v a},17:q(a){a=l.A(l.2d(a));x(!B[1]){a=l.4a(a);x(l.1N)a=X.1N.17(a)}v l.2e(a)},2d:q(a){v Y(a).G(/</g,"\\5x").G(/&/g,"\\5w")},1M:q(c,d){x(!19(c,1B.1j)){x(H d=="1d"){d=d.G(/@(\\d)/,q(a,b){v F(X.$49,c,b)})}c=l.1H[c]||X.1H[c]||c;x(19(c,1k))c=c.3e;c=l.2d(c)}l.A(c,d)},2e:q(a){v a.G(/\\5x/g,"&44;").G(/\\5w/g,"&7o;")},4a:q(c){u d=l.3o;x(d>0){u e=1u(d+1).2G(" ");v c.G(X.5u,q(a){a=a.G(X.5t,e);x(d>1){u b=(a.E-1)%d;x(b)a=a.S(0,-b)}v a.G(/ /g,"&5s;")})}},"@15":{4a:q(a){v l.A(a).G(/\\r?\\n/g,"<7m>")}}},{$49:\'<1a 1T="%1">$%2</1a>\',1c:1c,1R:1R,5t:/\\t/g,5u:/\\n([\\t \\7l]+)/g,11:q(){D(l.1H,q(c,d,e){x(19(c,1u)){e[d]=2o(c,q(a,b){a.31(e[b]);v a},C 1B)}});l.1N=l.1H.1N.1W();l.1N.4F(0,\'<a 3a="7k:$0">$0</a>\');l.1N.4F(1,\'<a 3a="$0">$0</a>\')},1H:{4t:/\\/\\*[^*]*\\*+([^\\/][^*]*\\*+)*\\//,5r:/([\\w.+-]+@[\\w.-]+\\.\\w+)/,5C:/\\/\\/[^\\r\\n]*/,35:/\\b[+-]?(\\d*\\.?\\d+|\\d+\\.?\\d*)([7h][+-]?\\d+)?\\b/,5q:/\'(\\\\.|[^\'\\\\])*\'/,5A:/"(\\\\.|[^"\\\\])*"/,5p:/(7g:\\/\\/+[\\w\\/\\-%&#=.,?+$]+)/,1L:["4t","5C"],1d:["5q","5A"],1N:["5r","5p"]},1N:I,"@4K":{$49:\'<1a 1T="%1">$$%2</1a>\'}});X.5o=C X({1L:1c,5n:1R,5m:1c,3t:"$1@2",4s:\'@1=<1a 1T="4s 2Q">$2</1a>\',5l:1c,3W:1R},{4s:/(\\w+)=("[^"]*"|\'[^\']*\')/,5n:/<!\\[45\\[([^\\]]|\\][^\\]]|\\]\\][^>])*\\]\\]>/,1L:/<!\\s*(--([^-]|[\\r\\n]|-[^-])*--\\s*)>/,5l:/&#?\\w+;/,5m:/<\\?[\\w-]+[^>]+>/,3t:/(<\\/?)([\\w:-]+)/,3W:/[>;][^<>&]*/},{3o:1});X.21=C X({3k:1c,5k:1c,4w:q(a,b,c,d){v X.21.42(b,c,d)}},{3k:/<!(--)?\\[[^\\]]*\\]>|<!\\[7e\\](--)?>/,5k:/<!7d[^>]+>/,4w:/<(4G|1Y)([^>]*)>((\\\\.|[^\\\\])*)<\\/\\1>/},{3o:1,45:\'&44;<1a 1T="3t">%1</1a>%2&5j;%3&44;/<1a 1T="3t">%1</1a>&5j;\',42:q(a,b,c){v F(l.45,a,l.17(b,12),c)}});X.21.3H(X.5o);X.5i=C X({1L:1c,6e:1c,5h:1R,2t:"@1{",3i:"@1:",41:\'@1:<1a 1T="41 2Q">$2</1a>\'},{6e:/@[\\w\\s]+/,5h:/\\([^\'\\7b)]*\\)/,1L:X.1H.4t,41:/(\\w[\\w-]*\\s*):([^;}]+)/,3i:/(\\-[\\w-]*\\s*):/,2t:/([\\w-:\\[.#][^{};]*)\\{/});X.4D=C X({1d:1c,3k:1c,1L:1c,5f:"$1@2",35:1c,3i:1c,2u:1c,6a:1c},{3k:/\\/\\*@x\\s*\\([^\\)]*\\)|\\/\\*@[\\s\\w]*|@\\*\\/|\\/\\/@\\w+|@J[\\s\\w]*/,2u:/\\b(6d|7a|V|P|2d|79|5d|5U|78|77|3y|M|6g|4I|1v|2e|4O|2P)\\b/,6a:/\\b(&&|\\|\\||B|3g|14|3N|33|25|7Z|J|U|1e|q|x|2A|6D|C|I|v|2j|l|12|H|u|76|1q|75|1U)\\b/,5f:/([\\[(\\^=,{}:;&|!*?]\\s*)(\\/(\\\\\\/|[^\\/*])(\\\\.|[^\\/\\n\\\\])*\\/[74]*)/,3i:/\\b(73|3j|72|1h|71|6Z|2S|3v)\\b/});X["21-6C"]=X.21.6p({4w:q(a,b,c,d){u e=b=="1Y"?"5i":"4D";d=X[e].17(d,12);d=F(\'<1a 1T="%1">%2</1a>\',e,d);v X.21.42(b,c,d)}})};1h(R.1O.1J);1h(R.4i.1J);u 5b=/(\\w+)=([^"\'\\s]+)/g;u 6A=\'<6z 6B="#%1">\\n%3\\n<59>\'+\'<a 3a="#%1" 6Y="6X">%2</a></59>\\n</6z>\';u 6W=C 1B({"(<\\\\/?)(\\\\w+)([^>]*)":q($,c,d,e){v c+d.3Q()+e.G(5b,q($,a,b){v a.3Q()+\'"\'+b+\'"\'})},"&5s;":" "});X.4D.1M("\\\\b(1t|A|R|1S|46|y|5e|D|"+"F|1p|19|3I|K|2J|6V|2o|2z|S|6U|2i)\\\\b",\'<1a 1T="R">$0</1a>\');q 3Y(){l.4L.1Y.8K=l.2Q?"#8J":"#8I"};C 4g({"6T":{56:q(){u a=l.1z.1A(/\\s+/);1e(u i=0;i<a.E;i++){u b=a[i];u c=X[b];x(19(c,X)){u d=N.3X(l);l.4U("4X",d);l.6R=c.17(d);l.4k("8G");x(b=="21-6C")l.4k("21");3g}}}},"8F.6Q,6P.6Q":{56:3Y,8B:3Y,8A:3Y},"8z.1L:4y(.3u)":{56:q(){u j=l;u k=P.4v("50");N.54(k,"8x");j.8w(k);k.8v=q(){u b=P.1P("6P");u c=j.30;u d=j.1P("6B:3w-2y");u e=N.3X(d)||"1L #"+c;e=e.G(/(^\\s*1L(\\s+8u)?\\s)|(\\s\\W\\s.*$)/4m,"");u f="";x(2P.6I){f=Y(2P.6I())}J x(P.6K){f=P.6K.8t().3W}x(f){u g="<p>"+2i(f)+"</p>"}J{u h=j.1P("8s.1L-3W").8r(12);D(1G.2B(h,"6T"),q(a){N.54(a,a.3b("4X"));a.3A("4X");a.3A("1Y");a.3A("1S")});D(1G.2B(h,"8D"),q(a){a.3c.8E(P.8p(a.8o),a)});g=2i(6W.17(h.6R))}u i=F(6A,c,e,g);b.2Q=2i(b.2Q+"\\n"+i);b.5G()}},8n:q(){l.1P("50").1Y.6N="8m"},8L:q(){l.1P("50").1Y.6N=""}}});',62,544,'|||||||||||||||||||||this|||||function||||var|return||if|extend||base|arguments|new|forEach|length|format|replace|typeof|null|else||Base|prototype|Traversal|bind|document||base2|slice|apply|false|constructor||Colorizer|String|index||init|true|call|case|MSIE||exec|test|instanceOf|span|KEYS|DEFAULT|string|for|Selector|wild|eval|DOMContentLoaded|Item|RegExp|addEventListener|name|exports|BOM|implement|while|EventTarget|element|assignID|Array|toString|IArray|Module|System|className|split|RegGrp|Function|Array2|reg|Document|Element|patterns|contains|namespace|Enumerable|comment|store|urls|DOM|matchSingle|indexOf|IGNORE|base2ID|class|undefined|list|copy|all|style|Event|cache|html|closures|imports|Parser|delete|HASH|getOwnerDocument|Binding|MSIE5|Object|assert|Namespace|escape|unescape|VALUES|detect|fetch|trim|switch|_bind|push|sourceIndex||reduce|Interface|_deferred|exists|item|selector|global|indexed|fn|HTMLElement|child|rescape|in|matchAll|version|_|getDocument|fire|join|Legacy|createEvent|map|htmlAttributes|isElement|nodeType|parser|Node|window|value|ancestor|throw|StopIteration|ID|createDelegate|returnValue|match|error|INDEXED|id|add|splice|default|_prototyping|number|dup|sort|charAt|remove|href|getAttribute|parentNode|win|source|dispatchEvent|break|type|special|catch|conditional|AbstractView|ready|Abstract|tabStop|NodeSelector|DocumentEvent|ViewCSS|nodeName|tag|disabled|try|last|lang|parseInt|sorter|removeAttribute|ignoreCase|create|defer|getDefaultView|Collection|fired|merge|invoke|userAgent|Boolean|StaticNodeList|defaultView|continue|ownerDocument|TEXT|toLowerCase|tagName|getSourceIndex|getElementsByClassName|dispatch|Hash|text|getTextContent|updateFlag|getNextElementSibling|refresh|property|processCDATA|assertType|lt|CDATA|every|HTMLDocument|concat|FORMAT|_parseWhiteSpace|verify|DocumentSelector|attachEvent|cloneID|rank|RuleList|ElementSelector|JSB|bindings|addClass|activeElement|gi|_extend|Window|tags|childNodes|getElementById|attribute|block_comment|VAR|createElement|inline|_constructing|not|parse|replacement|b2_test|toUpperCase|javascript|operators|storeAt|script|onload|setTimeout|callee|KHTML|nextSibling|on|target|valueOf|preventDefault|cancelable|Number|initEvent|_bound|setAttribute|reverse|removeAt|originalText|src|insertAt|button|documentElement|isDocument|Rule|setTextContent|result|ondocumentready|getPreviousElementSibling|TypeError|address|previousSibling|ATTRIBUTE|getNodeIndex|Infinity|filter|regexp|Invalid|bracketed|css|gt|doctype|entity|pi|cdata|xml|url|string1|email|nbsp|TAB|TABS|Error|x02|x01|self|globalize|string2|binding|line_comment|PATTERN|Call|hasClass|focus|platform|children|register|navigator|body|e0|FN|STORE|cc_on|TEST|root|pseudoClasses|alpha|isNaN|_nthChild|WILD_CARD|IMPLIED_ASTERISK|IMPLIED_SPACE|WHITESPACE|ESCAPE|optimise|_strings|TRIM|evaluate|snapshotItem|matchesSelector||RESCAPE|toCamelCase|keyword|getComputedStyle|100|clearInterval|at_rule|checked|setInterval|complete|readyState|count|__ready|key|Duplicate|Date|load|union|createEventObject|Events|removeEventListener|Windows|values|stopPropagation|cancelBubble|keys|bubbles|blockquote|QUOTE|cite|multi|instanceof|nodeValue|specified|members|Math|getSelection|attributes|selection|combine|compareDocumentPosition|visibility|max|textarea|required|innerHTML|isEmpty|pre|some|pluck|TIDY|bookmark|rel|prompt||finally|confirm|alert|mgi|with|void|parseFloat|NaN|hasOwnProperty|clearTimeout|x22|object|DOCTYPE|endif|failed|http|eE|instantiated|Assertion|mailto|xa0|br|be|amp|cannot|Class|onunload|method|cancel|uniqueID|removeClass|htmlFor|nth|getElementsByTagName|_jscript_version|jscript|only|b2_|first|enabled|empty|odd|even|0n|verboten|is|snapshotLength|XPathResult|bounds|of|currentStyle|out|Index|loaded|removeNode|onreadystatechange|getTimezoneOffset|write|UIEvents|event|do|fireEvent|srcElement|Mac|bbase|longDesc|unshift|readOnly|maxLength|encType|tabIndex|shift|accessKey|dateTime|operand|vAlign|rowSpan|pop|colSpan|getAttributeNode|from|lastIndexOf|insertBefore|visible|onmouseover|alt|createTextNode|innerText|cloneNode|div|createRange|by|onclick|appendChild|Quote|textContent|li|ondocumentkeyup|ondocumentmouseup|parentWindow|img|replaceChild|input|highlight|firstChild|A03333|898E79|color|onmouseout'.split('|'),0,{}))
+// timestamp: Tue, 01 May 2007 23:37:24
+/*
+	base2.js - copyright 2007, Dean Edwards
+	http://www.opensource.org/licenses/mit-license
+*/
+
+var base2 = {};
+
+// You know, writing a javascript library is awfully time consuming.
+
+new function(_) { ////////////////////  BEGIN: CLOSURE  ////////////////////
+
+// =========================================================================
+// base2/Base.js
+// =========================================================================
+
+// version 1.1
+
+var Base = function() {
+	// call this method from any other method to invoke that method's ancestor
+};
+
+Base.prototype = {	
+	extend: function(source) {
+		if (arguments.length > 1) { // extending with a name/value pair
+			var ancestor = this[source];
+			var value = arguments[1];
+			if (typeof value == "function" && ancestor && /\bbase\b/.test(value)) {
+				var method = value;				
+				value = function() { // override
+					var previous = this.base;
+					this.base = ancestor;
+					var returnValue = method.apply(this, arguments);
+					this.base = previous;
+					return returnValue;
+				};
+				value.method = method;
+				value.ancestor = ancestor;
+			}
+			this[source] = value;
+		} else if (source) { // extending with an object literal
+			var extend = Base.prototype.extend;
+			if (Base._prototyping) {
+				var key, i = 0, members = ["constructor", "toString", "valueOf"];
+				while (key = members[i++]) if (source[key] != Object.prototype[key]) {
+					extend.call(this, key, source[key]);
+				}
+			} else if (typeof this != "function") {
+				// if the object has a customised extend() method then use it
+				extend = this.extend || extend;
+			}			
+			// copy each of the source object's properties to this object
+			for (key in source) if (!Object.prototype[key]) {
+				extend.call(this, key, source[key]);
+			}
+		}
+		return this;
+	},
+
+	base: Base
+};
+
+Base.extend = function(_instance, _static) { // subclass
+	var extend = Base.prototype.extend;
+	
+	// build the prototype
+	Base._prototyping = true;
+	var proto = new this;
+	extend.call(proto, _instance);
+	delete Base._prototyping;
+	
+	// create the wrapper for the constructor function
+	var constructor = proto.constructor;
+	var klass = proto.constructor = function() {
+		if (!Base._prototyping) {
+			if (this._constructing || this.constructor == klass) { // instantiation
+				this._constructing = true;
+				constructor.apply(this, arguments);
+				delete this._constructing;
+			} else { // casting
+				var object = arguments[0];
+				if (object != null) {
+					(object.extend || extend).call(object, proto);
+				}
+				return object;
+			}
+		}
+	};
+	
+	// build the class interface
+	for (var i in Base) klass[i] = this[i];
+	klass.ancestor = this;
+	klass.base = Base.base;
+	klass.prototype = proto;
+	klass.toString = this.toString;
+	extend.call(klass, _static);
+	// class initialisation
+	if (typeof klass.init == "function") klass.init();
+	return klass;
+};
+
+// initialise
+Base = Base.extend({
+	constructor: function() {
+		this.extend(arguments[0]);
+	}
+}, {
+	ancestor: Object,
+	base: Base,
+	
+	implement: function(_interface) {
+		if (typeof _interface == "function") {
+			// if it's a function, call it
+			_interface(this.prototype);
+		} else {
+			// add the interface using the extend() method
+			this.prototype.extend(_interface);
+		}
+		return this;
+	}
+});
+
+// =========================================================================
+// lang/main.js
+// =========================================================================
+
+var Legacy = typeof $Legacy == "undefined" ? {} : $Legacy;
+
+var K = function(k) {return k};
+
+var assert = function(condition, message, Err) {
+	if (!condition) {
+		throw new (Err || Error)(message || "Assertion failed.");
+	}
+};
+
+var assertType = function(object, type, message) {
+	if (type) {
+		var condition = typeof type == "function" ? instanceOf(object, type) : typeof object == type;
+		assert(condition, message || "Invalid type.", TypeError);
+	}
+};
+
+var copy = function(object) {
+	var fn = new Function;
+	fn.prototype = object;
+	return new fn;
+};
+
+var format = function(string) {
+	// replace %n with arguments[n]
+	// e.g. format("%1 %2%3 %2a %1%3", "she", "se", "lls");
+	// ==> "she sells sea shells"
+	// only supports nine replacements: %1 - %9
+	var args = arguments;
+	return String(string).replace(/%([1-9])/g, function(match, index) {
+		return index < args.length ? args[index] : match;
+	});
+};
+
+var $instanceOf = Legacy.instanceOf || new Function("o,k", "return o instanceof k");
+var instanceOf = function(object, klass) {
+	assertType(klass, "function", "Invalid 'instanceOf' operand.");
+	if ($instanceOf(object, klass)) return true;
+	// handle exceptions where the target object originates from another frame
+	//  this is handy for JSON parsing (amongst other things)
+	if (object != null) switch (klass) {
+		case Object:
+			return true;
+		case Number:
+		case Boolean:
+		case Function:
+		case String:
+			return typeof object == typeof klass.prototype.valueOf();
+		case Array:
+			// this is the only troublesome one
+			return !!(object.join && object.splice && !arguments.callee(object, Function));
+		case Date:
+			return !!object.getTimezoneOffset;
+		case RegExp:
+			return String(object.constructor.prototype) == String(new RegExp);
+	}
+	return false;
+};
+	
+var match = function(string, expression) {
+	// same as String.match() except that this function will return an empty 
+	// array if there is no match
+	return String(string).match(expression) || [];
+};
+
+var RESCAPE = /([\/()[\]{}|*+-.,^$?\\])/g;
+var rescape = function(string) {
+	// make a string safe for creating a RegExp
+	return String(string).replace(RESCAPE, "\\$1");
+};
+
+var $slice = Array.prototype.slice;
+var slice = function(object) {
+	// slice an array-like object
+	return $slice.apply(object, $slice.call(arguments, 1));
+};
+
+var TRIM = /^\s+|\s+$/g;
+var trim = function(string) {
+	return String(string).replace(TRIM, "");	
+};
+
+// =========================================================================
+// lang/extend.js
+// =========================================================================
+
+var base = function(object, args) {
+	// invoke the base method with all supplied arguments
+	return object.base.apply(object, args);
+};
+
+var extend = function(object) {
+	assert(object != Object.prototype, "Object.prototype is verboten!");
+	return Base.prototype.extend.apply(object, slice(arguments, 1));
+};
+
+// =========================================================================
+// lang/assignID.js
+// =========================================================================
+
+var $ID = 1;
+var assignID = function(object) {
+	// assign a unique id
+	if (!object.base2ID) object.base2ID = "b2_" + $ID++;
+	return object.base2ID;
+};
+
+// =========================================================================
+// lang/forEach.js
+// =========================================================================
+
+if (typeof StopIteration == "undefined") {
+	StopIteration = new Error("StopIteration");
+}
+
+var forEach = function(object, block, context) {
+	if (object == null) return;
+	if (typeof object == "function") {
+		// functions are a special case
+		var fn = Function;
+	} else if (typeof object.forEach == "function" && object.forEach != arguments.callee) {
+		// the object implements a custom forEach method
+		object.forEach(block, context);
+		return;
+	} else if (typeof object.length == "number") {
+		// the object is array-like
+		forEach.Array(object, block, context);
+		return;
+	}
+	forEach.Function(fn || Object, object, block, context);
+};
+
+// these are the two core enumeration methods. all other forEach methods
+//  eventually call one of these two.
+
+forEach.Array = function(array, block, context) {
+	var i, length = array.length; // preserve
+	if (typeof array == "string") {
+		for (i = 0; i < length; i++) {
+			block.call(context, array.charAt(i), i, array);
+		}
+	} else {
+		for (i = 0; i < length; i++) {
+			block.call(context, array[i], i, array);
+		}
+	}
+};
+
+forEach.Function = Legacy.forEach || function(fn, object, block, context) {
+	// enumerate an object and compare its keys with fn's prototype
+	for (var key in object) {
+		if (fn.prototype[key] === undefined) {
+			block.call(context, object[key], key, object);
+		}
+	}
+};
+
+// =========================================================================
+// base2/Base/forEach.js
+// =========================================================================
+
+Base.forEach = function(object, block, context) {
+	forEach.Function(this, object, block, context);
+};
+
+// =========================================================================
+// base2/../Function.js
+// =========================================================================
+
+// some browsers don't define this
+
+Function.prototype.prototype = {};
+
+
+// =========================================================================
+// base2/../String.js
+// =========================================================================
+
+// fix String.replace (Safari/IE5.0)
+
+if ("".replace(/^/, String)) {
+	extend(String.prototype, "replace", function(expression, replacement) {
+		if (typeof replacement == "function") { // Safari doesn't like functions
+			if (instanceOf(expression, RegExp)) {
+				var regexp = expression;
+				var global = regexp.global;
+				if (global == null) global = /(g|gi)$/.test(regexp);
+				// we have to convert global RexpExps for exec() to work consistently
+				if (global) regexp = new RegExp(regexp.source); // non-global
+			} else {
+				regexp = new RegExp(rescape(expression));
+			}
+			var match, string = this, result = "";
+			while (string && (match = regexp.exec(string))) {
+				result += string.slice(0, match.index) + replacement.apply(this, match);
+				string = string.slice(match.index + match[0].length);
+				if (!global) break;
+			}
+			return result + string;
+		} else {
+			return base(this, arguments);
+		}
+	});
+}
+
+// =========================================================================
+// base2/Abstract.js
+// =========================================================================
+
+var Abstract = Base.extend({
+	constructor: function() {
+		throw new TypeError("Class cannot be instantiated.");
+	}
+});
+
+// =========================================================================
+// base2/Module.js
+// =========================================================================
+
+// based on ruby's Module class and Mozilla's Array generics:
+//   http://www.ruby-doc.org/core/classes/Module.html
+//   http://developer.mozilla.org/en/docs/New_in_JavaScript_1.6#Array_and_String_generics
+
+// A Module is used as the basis for creating interfaces that can be
+// applied to other classes. *All* properties and methods are static.
+// When a module is used as a mixin, methods defined on what would normally be
+// the instance interface become instance methods of the target object.
+
+// Modules cannot be instantiated. Static properties and methods are inherited.
+
+var Module = Abstract.extend(null, {
+	extend: function(_interface, _static) {
+		// extend a module to create a new module
+		var module = this.base();
+		// inherit static methods
+		forEach (this, function(property, name) {
+			if (!Module[name] && name != "init") {
+				extend(module, name, property);
+			}
+		});
+		// implement module (instance AND static) methods
+		module.implement(_interface);
+		// implement static properties and methods
+		extend(module, _static);
+		// Make the submarine noises Larry!
+		if (typeof module.init == "function") module.init();
+		return module;
+	},
+	
+	implement: function(_interface) {
+		// implement an interface on BOTH the instance and static interfaces
+		var module = this;
+		if (typeof _interface == "function") {
+			module.base(_interface);
+			forEach (_interface, function(property, name) {
+				if (!Module[name] && name != "init") {
+					extend(module, name, property);
+				}
+			});
+		} else {
+			// create the instance interface
+			Base.forEach (extend({}, _interface), function(property, name) {
+				// instance methods call the equivalent static method
+				if (typeof property == "function") {
+					property = function() {
+						base; // force inheritance
+						return module[name].apply(module, [this].concat(slice(arguments)));
+					};
+				}
+				if (!Module[name]) extend(this, name, property);
+			}, module.prototype);
+			// add the static interface
+			extend(module, _interface);
+		}
+		return module;
+	}
+});
+
+
+// =========================================================================
+// base2/Enumerable.js
+// =========================================================================
+
+var Enumerable = Module.extend({
+	every: function(object, test, context) {
+		var result = true;
+		try {
+			this.forEach (object, function(value, key) {
+				result = test.call(context, value, key, object);
+				if (!result) throw StopIteration;
+			});
+		} catch (error) {
+			if (error != StopIteration) throw error;
+		}
+		return !!result; // cast to boolean
+	},
+	
+	filter: function(object, test, context) {
+		return this.reduce(object, function(result, value, key) {
+			if (test.call(context, value, key, object)) {
+				result[result.length] = value;
+			}
+			return result;
+		}, new Array2);
+	},
+
+	invoke: function(object, method) {
+		// apply a method to each item in the enumerated object
+		var args = slice(arguments, 2);
+		return this.map(object, (typeof method == "function") ? function(item) {
+			if (item != null) return method.apply(item, args);
+		} : function(item) {
+			if (item != null) return item[method].apply(item, args);
+		});
+	},
+	
+	map: function(object, block, context) {
+		var result = new Array2;
+		this.forEach (object, function(value, key) {
+			result[result.length] = block.call(context, value, key, object);
+		});
+		return result;
+	},
+	
+	pluck: function(object, key) {
+		return this.map(object, function(item) {
+			if (item != null) return item[key];
+		});
+	},
+	
+	reduce: function(object, block, result, context) {
+		this.forEach (object, function(value, key) {
+			result = block.call(context, result, value, key, object);
+		});
+		return result;
+	},
+	
+	some: function(object, test, context) {
+		return !this.every(object, function(value, key) {
+			return !test.call(context, value, key, object);
+		});
+	}
+}, {
+	forEach: forEach
+});
+
+// =========================================================================
+// base2/Array2.js
+// =========================================================================
+
+// The IArray module implements all Array methods.
+// This module is not public but its methods are accessible through the Array2 object (below). 
+
+var IArray = Module.extend({
+	combine: function(keys, values) {
+		// combine two arrays to make a hash
+		if (!values) values = keys;
+		return this.reduce(keys, function(object, key, index) {
+			object[key] = values[index];
+			return object;
+		}, {});
+	},
+	
+	copy: function(array) {
+		return this.concat(array);
+	},
+	
+	contains: function(array, item) {
+		return this.indexOf(array, item) != -1;
+	},
+	
+	forEach: forEach.Array,
+	
+	indexOf: function(array, item, fromIndex) {
+		var length = array.length;
+		if (fromIndex == null) {
+			fromIndex = 0;
+		} else if (fromIndex < 0) {
+			fromIndex = Math.max(0, length + fromIndex);
+		}
+		for (var i = fromIndex; i < length; i++) {
+			if (array[i] === item) return i;
+		}
+		return -1;
+	},
+	
+	insertAt: function(array, item, index) {
+		this.splice(array, index, 0, item);
+		return item;
+	},
+	
+	insertBefore: function(array, item, before) {
+		var index = this.indexOf(array, before);
+		if (index == -1) this.push(array, item);
+		else this.splice(array, index, 0, item);
+		return item;
+	},
+	
+	lastIndexOf: function(array, item, fromIndex) {
+		var length = array.length;
+		if (fromIndex == null) {
+			fromIndex = length - 1;
+		} else if (from < 0) {
+			fromIndex = Math.max(0, length + fromIndex);
+		}
+		for (var i = fromIndex; i >= 0; i--) {
+			if (array[i] === item) return i;
+		}
+		return -1;
+	},
+	
+	remove: function(array, item) {
+		var index = this.indexOf(array, item);
+		if (index != -1) this.removeAt(array, index);
+		return item;
+	},
+	
+	removeAt: function(array, index) {
+		var item = array[index];
+		this.splice(array, index, 1);
+		return item;
+	}
+});
+
+IArray.prototype.forEach = function(block, context) {
+	forEach.Array(this, block, context);
+};
+
+IArray.implement(Enumerable);
+
+forEach ("concat,join,pop,push,reverse,shift,slice,sort,splice,unshift".split(","), function(name) {
+	IArray[name] = function(array) {
+		return Array.prototype[name].apply(array, slice(arguments, 1));
+	};
+});
+
+// create a faux constructor that augments the built-in Array object
+var Array2 = function() {
+	return IArray(this.constructor == IArray ? Array.apply(null, arguments) : arguments[0]);
+};
+// expose IArray.prototype so that it can be extended
+Array2.prototype = IArray.prototype;
+
+forEach (IArray, function(method, name, proto) {
+	if (Array[name]) {
+		IArray[name] = Array[name];
+		delete IArray.prototype[name];
+	}
+	Array2[name] = IArray[name];
+});
+
+// =========================================================================
+// base2/Hash.js
+// =========================================================================
+
+var HASH = "#" + Number(new Date);
+var KEYS = HASH + "keys";
+var VALUES = HASH + "values";
+
+var Hash = Base.extend({
+	constructor: function(values) {
+		this[KEYS] = new Array2;
+		this[VALUES] = {};
+		this.merge(values);
+	},
+
+	copy: function() {
+		var copy = new this.constructor(this);
+		Base.forEach (this, function(property, name) {
+			if (typeof property != "function" && name.charAt(0) != "#") {
+				copy[name] = property;
+			}
+		});
+		return copy;
+	},
+
+	// ancient browsers throw an error when we use "in" as an operator 
+	//  so we must create the function dynamically
+	exists: Legacy.exists || new Function("k", format("return('%1'+k)in this['%2']", HASH, VALUES)),
+
+	fetch: function(key) {
+		return this[VALUES][HASH + key];
+	},
+
+	forEach: function(block, context) {
+		forEach (this[KEYS], function(key) {
+			block.call(context, this.fetch(key), key, this);
+		}, this);
+	},
+
+	keys: function(index, length) {
+		var keys = this[KEYS] || new Array2;
+		switch (arguments.length) {
+			case 0: return keys.copy();
+			case 1: return keys[index];
+			default: return keys.slice(index, length);
+		}
+	},
+
+	merge: function(values) {
+		forEach (arguments, function(values) {
+			forEach (values, function(value, key) {
+				this.store(key, value);
+			}, this);
+		}, this);
+		return this;
+	},
+
+	remove: function(key) {
+		var value = this.fetch(key);
+		this[KEYS].remove(String(key));
+		delete this[VALUES][HASH + key];
+		return value;
+	},
+
+	store: function(key, value) {
+		if (arguments.length == 1) value = key;
+		// only store the key for a new entry
+		if (!this.exists(key)) {
+			this[KEYS].push(String(key));
+		}
+		// create the new entry (or overwrite the old entry)
+		this[VALUES][HASH + key] = value;
+		return value;
+	},
+
+	toString: function() {
+		return String(this[KEYS]);
+	},
+
+	union: function(values) {
+		return this.merge.apply(this.copy(), arguments);
+	},
+
+	values: function(index, length) {
+		var values = this.map(K);
+		switch (arguments.length) {
+			case 0: return values;
+			case 1: return values[index];
+			default: return values.slice(index, length);
+		}
+	}
+});
+
+Hash.implement(Enumerable);
+
+// =========================================================================
+// base2/Collection.js
+// =========================================================================
+
+// A Hash that is more array-like (accessible by index).
+
+// Collection classes have a special (optional) property: Item
+// The Item property points to a constructor function.
+// Members of the collection must be an instance of Item.
+// e.g.
+//     var Dates = Collection.extend();                 // create a collection class
+//     Dates.Item = Date;                               // only JavaScript Date objects allowed as members
+//     var appointments = new Dates();                  // instantiate the class
+//     appointments.add(appointmentId, new Date);       // add a date
+//     appointments.add(appointmentId, "tomorrow");     // ERROR!
+
+// The static create() method is responsible for all construction of collection items.
+// Instance methods that add new items (add, store, insertAt, replaceAt) pass *all* of their arguments
+// to the static create() method. If you want to modify the way collection items are 
+// created then you only need to override this method for custom collections.
+
+var Collection = Hash.extend({
+	add: function(key, item) {
+		// Duplicates not allowed using add().
+		//  - but you can still overwrite entries using store()
+		assert(!this.exists(key), "Duplicate key.");
+		return this.store.apply(this, arguments);
+	},
+
+	count: function() {
+		return this[KEYS].length;
+	},
+
+	indexOf: function(key) {
+		return this[KEYS].indexOf(String(key));
+	},
+
+	insertAt: function(index, key, item) {
+		assert(!this.exists(key), "Duplicate key.");
+		this[KEYS].insertAt(index, String(key));
+		return this.store.apply(this, slice(arguments, 1));
+	},
+
+	item: function(index) {
+		return this.fetch(this[KEYS][index]);
+	},
+
+	removeAt: function(index) {
+		return this.remove(this[KEYS][index]);
+	},
+
+	reverse: function() {
+		this[KEYS].reverse();
+		return this;
+	},
+
+	sort: function(compare) {
+		if (compare) {
+			var self = this;
+			this[KEYS].sort(function(key1, key2) {
+				return compare(self.fetch(key1), self.fetch(key2), key1, key2);
+			});
+		} else this[KEYS].sort();
+		return this;
+	},
+
+	store: function(key, item) {
+		if (arguments.length == 1) item = key;
+		item = this.constructor.create.apply(this.constructor, arguments);
+		return this.base(key, item);
+	},
+
+	storeAt: function(index, item) {
+		//-dean: get rid of this?
+		assert(index < this.count(), "Index out of bounds.");
+		arguments[0] = this[KEYS][index];
+		return this.store.apply(this, arguments);
+	}
+}, {
+	Item: null, // if specified, all members of the Collection must be instances of Item
+	
+	create: function(key, item) {
+		if (this.Item && !instanceOf(item, this.Item)) {
+			item = new this.Item(key, item);
+		}
+		return item;
+	},
+	
+	extend: function(_instance, _static) {
+		var klass = this.base(_instance);
+		klass.create = this.create;
+		extend(klass, _static);
+		if (!klass.Item) {
+			klass.Item = this.Item;
+		} else if (typeof klass.Item != "function") {
+			klass.Item = (this.Item || Base).extend(klass.Item);
+		}
+		if (typeof klass.init == "function") klass.init();
+		return klass;
+	}
+});
+
+// =========================================================================
+// base2/RegGrp.js
+// =========================================================================
+
+var RegGrp = Collection.extend({
+	constructor: function(values, flags) {
+		this.base(values);
+		if (typeof flags == "string") {
+			this.global = /g/.test(flags);
+			this.ignoreCase = /i/.test(flags);
+		}
+	},
+
+	global: true, // global is the default setting
+	ignoreCase: false,
+
+	exec: function(string, replacement) {
+		if (arguments.length == 1) {
+			var keys = this[KEYS];
+			var values = this[VALUES];
+			replacement = function(match) {
+				if (!match) return "";
+				var offset = 1, i = 0;
+				// loop through the values
+				while (match = values[HASH + keys[i++]]) {
+					// do we have a result?
+					if (arguments[offset]) {
+						var replacement = match.replacement;
+						switch (typeof replacement) {
+							case "function":
+								return replacement.apply(null, slice(arguments, offset));
+							case "number":
+								return arguments[offset + replacement];
+							default:
+								return replacement;
+						}
+					// no? then skip over references to sub-expressions
+					} else offset += match.length + 1;
+				}
+			};
+		}
+		var flags = (this.global ? "g" : "") + (this.ignoreCase ? "i" : "");
+		return String(string).replace(new RegExp(this, flags), replacement);
+	},
+
+	test: function(string) {
+		return this.exec(string) != string;
+	},
+	
+	toString: function() {
+		var length = 0;
+		return "(" + this.map(function(item) {
+			// fix back references
+			var expression = String(item).replace(/\\(\d+)/g, function($, index) {
+				return "\\" + (1 + Number(index) + length);
+			});
+			length += item.length + 1;
+			return expression;
+		}).join(")|(") + ")";
+	}
+}, {
+	IGNORE: "$0",
+	
+	init: function() {
+		forEach ("add,exists,fetch,remove,store".split(","), function(name) {
+			extend(this, name, function(expression) {
+				if (instanceOf(expression, RegExp)) {
+					expression = expression.source;
+				}
+				return base(this, arguments);
+			});
+		}, this.prototype);
+	}
+});
+
+// =========================================================================
+// base2/RegGrp/Item.js
+// =========================================================================
+
+RegGrp.Item = Base.extend({
+	constructor: function(expression, replacement) {
+		var ESCAPE = /\\./g;
+		var STRING = /(['"])\1\+(.*)\+\1\1$/;
+	
+		expression = instanceOf(expression, RegExp) ? expression.source : String(expression);
+		
+		if (typeof replacement == "number") replacement = String(replacement);
+		else if (replacement == null) replacement = "";
+		
+		// count the number of sub-expressions
+		//  - add one because each pattern is itself a sub-expression
+		this.length = match(expression.replace(ESCAPE, "").replace(/\[[^\]]+\]/g, ""), /\(/g).length;
+		
+		// does the pattern use sub-expressions?
+		if (typeof replacement == "string" && /\$(\d+)/.test(replacement)) {
+			// a simple lookup? (e.g. "$2")
+			if (/^\$\d+$/.test(replacement)) {
+				// store the index (used for fast retrieval of matched strings)
+				replacement = parseInt(replacement.slice(1));
+			} else { // a complicated lookup (e.g. "Hello $2 $1")
+				// build a function to do the lookup
+				var i = this.length + 1;
+				var Q = /'/.test(replacement.replace(ESCAPE, "")) ? '"' : "'";
+				replacement = replacement.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\$(\d+)/g, Q +
+					"+(arguments[$1]||" + Q+Q + ")+" + Q);
+				replacement = new Function("return " + Q + replacement.replace(STRING, "$1") + Q);
+			}
+		}
+		this.replacement = replacement;
+		this.toString = function() {
+			return expression || "";
+		};
+	},
+	
+	length: 0,
+	replacement: ""
+});
+
+// =========================================================================
+// base2/Namespace.js
+// =========================================================================
+
+var Namespace = Base.extend({
+	constructor: function(_private, _public) {
+		this.extend(_public);
+		this.toString = function() {
+			return format("[base2.%1]", this.name);
+		};
+		
+		// initialise
+		if (typeof this.init == "function") this.init();
+		
+		if (this.name != "base2") {
+			this.namespace = format("var %1=base2.%1;", this.name);
+		}
+		
+		var namespace = "var base=" + base + ";";
+		var imports = ("base2,lang," + this.imports).split(",");
+		_private.imports = Enumerable.reduce(imports, function(namespace, name) {
+			if (base2[name]) namespace += base2[name].namespace;
+			return namespace;
+		}, namespace);
+		
+		var namespace = format("base2.%1=%1;", this.name);
+		var exports = this.exports.split(",");
+		_private.exports = Enumerable.reduce(exports, function(namespace, name) {
+			if (name) {
+				this.namespace += format("var %2=%1.%2;", this.name, name);
+				namespace += format("if(!%1.%2)%1.%2=%2;base2.%2=%1.%2;", this.name, name);
+			}
+			return namespace;
+		}, namespace, this);
+		
+		if (this.name != "base2") {
+			base2.namespace += format("var %1=base2.%1;", this.name);
+		}
+	},
+
+	exports: "",
+	imports: "",
+	namespace: "",
+	name: ""
+});
+
+base2 = new Namespace(this, {
+	name:    "base2",
+	version: "0.8 (alpha)",
+	exports: "Base,Abstract,Module,Enumerable,Array2,Hash,Collection,RegGrp,Namespace"
+});
+
+base2.toString = function() {
+	return "[base2]";
+};
+
+eval(this.exports);
+
+// =========================================================================
+// base2/lang/namespace.js
+// =========================================================================
+
+var lang = new Namespace(this, {
+	name:    "lang",
+	version: base2.version,
+	exports: "K,assert,assertType,assignID,copy,instanceOf,extend,format,forEach,match,rescape,slice,trim",
+	
+	init: function() {
+		this.extend = extend;
+		// add the Enumerable methods to the lang object
+		forEach (Enumerable.prototype, function(method, name) {
+			if (!Module[name]) {
+				this[name] = function() {
+					return Enumerable[name].apply(Enumerable, arguments);
+				};
+				this.exports += "," + name;
+			}
+		}, this);
+	}
+});
+
+eval(this.exports);
+
+base2.namespace += lang.namespace;
+
+}; ////////////////////  END: CLOSURE  /////////////////////////////////////
+
+new function(_) { ////////////////////  BEGIN: CLOSURE  ////////////////////
+
+// =========================================================================
+// BOM/object.js
+// =========================================================================
+
+// browser specific code
+
+var element = document.createElement("span");
+var jscript/*@cc_on=@_jscript_version@*/; // http://dean.edwards.name/weblog/2007/03/sniff/#comment85164
+
+var BOM = {
+	userAgent: "",
+
+	init: function() {
+		var MSIE/*@cc_on=true@*/;
+		// initialise the user agent string
+		var userAgent = navigator.userAgent;
+		// fix opera's (and others) user agent string
+		if (!MSIE) userAgent = userAgent.replace(/MSIE\s[\d.]+/, "");
+		// close up the space between name and version number
+		//  e.g. MSIE 6 -> MSIE6
+		userAgent = userAgent.replace(/([a-z])[\s\/](\d)/gi, "$1$2");
+		this.userAgent = navigator.platform + " " + userAgent;
+	},
+
+	detect: function(test) {
+		var r = false;
+		var not = test.charAt(0) == "!";
+		test = test
+			.replace(/^\!?(if\s*|platform\s+)?/, "")
+			.replace(/^(["']?)([^\(].*)(\1)$/, "/($2)/i.test(BOM.userAgent)");
+		try {
+			eval("r=!!" + test);
+		} catch (error) {
+			// the test failed
+		}
+		return Boolean(not ^ r);
+	}
+};
+
+// =========================================================================
+// BOM/namespace.js
+// =========================================================================
+
+// browser specific code
+base2.extend(BOM, {
+	name:    "BOM",
+	version: "0.9",
+	exports: "detect,Window"
+});
+BOM = new base2.Namespace(this, BOM);
+
+eval(this.imports);
+
+// =========================================================================
+// BOM/Base.js
+// =========================================================================
+
+var _extend = Base.prototype.extend;
+Base.prototype.extend = function(source, value) {
+	if (typeof source == "string" && source.charAt(0) == "@") {
+		return BOM.detect(source.slice(1)) ? _extend.call(this, value) : this;
+	}
+	return _extend.apply(this, arguments);
+};
+
+// =========================================================================
+// BOM/MSIE.js
+// =========================================================================
+
+// avoid memory leaks
+
+if (BOM.detect("MSIE.+win")) {
+	var $closures = {}; // all closures stored here
+	
+	BOM.$bind = function(method, element) {
+		if (!element || element.nodeType != 1) {
+			return method;
+		}
+		
+		// unique id's for element and function
+		var $element = element.uniqueID;
+		var $method = assignID(method);
+		
+		// store the closure in a manageable scope
+		$closures[$method] = method;			
+		if (!$closures[$element]) $closures[$element] = {};		
+		var closure = $closures[$element][$method];
+		if (closure) return closure; // already stored
+		
+		// reset pointers
+		element = null;
+		method = null;
+		
+		// return a new closure with a manageable scope 
+		var bound = function() {
+			var element = document.all[$element];
+			if (element) return $closures[$method].apply(element, arguments);
+		};
+		bound.cloneID = $method;
+		$closures[$element][$method] = bound;
+		return bound;
+	};
+	
+	attachEvent("onunload", function() {
+		$closures = null; // closures are destroyed when the page is unloaded
+	});
+}
+
+// =========================================================================
+// BOM/Window.js
+// =========================================================================
+
+var Window = Module.extend(null, {
+	verify: function(window) {
+		return (window && window.Infinity) ? window : null;
+	},
+	
+	"@MSIE": {
+		verify: function(window) {
+			// A very weird bug...
+			return (window == self) ? self : this.base();
+		}
+	}
+});
+
+eval(this.exports);
+
+}; ////////////////////  END: CLOSURE  /////////////////////////////////////
+
+new function(_) { ////////////////////  BEGIN: CLOSURE  ////////////////////
+
+// =========================================================================
+// DOM/namespace.js
+// =========================================================================
+
+var DOM = new base2.Namespace(this, {
+	name:    "DOM",
+	version: "0.9 (alpha)",
+	imports: "BOM",
+	exports: "Node,Document,Element,Traversal,AbstractView,Event,EventTarget,DocumentEvent,Selector,DocumentSelector,ElementSelector,StaticNodeList,ViewCSS,HTMLDocument,HTMLElement"
+});
+
+eval(this.imports);
+
+// =========================================================================
+// DOM/Interface.js
+// =========================================================================
+
+// The DOM.Interface module is the base module for defining DOM interfaces.
+// Interfaces are defined with reference to the original W3C IDL.
+// e.g. http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1950641247
+
+var Interface = Module.extend(null, {
+	createDelegate: function(name) {
+		// delegate a static method to the bound object
+		//  e.g. for most browsers:
+		//    EventTarget.addEventListener(element, type, func, capture) 
+		//  forwards to:
+		//    element.addEventListener(type, func, capture)
+		this[name] = function(object) {
+			var m = (object.base && object.base == object[name].ancestor) ? "base" : name;
+			return object[m].apply(object, slice(arguments, 1));
+		};
+	},
+	
+	extend: function(_interface, _static) {
+		// extend a module to create a new module
+		var module = this.base();
+		// implement delegates
+		forEach (_interface, function(source, name) {
+			if (typeof source == "function" && !module[name]) {
+				module.createDelegate(name);
+			} else if (name.charAt(0) == "@") {
+				forEach (source, arguments.callee);
+			}
+		});
+		// implement module (instance AND static) methods
+		module.implement(_interface);
+		// implement static properties and methods
+		extend(module, _static);
+		// Make the submarine noises Larry!
+		if (typeof module.init == "function") module.init();
+		return module;
+	},
+	
+	"@!(element.addEventListener.apply)": {
+		createDelegate: function(name) {
+			// can't invoke Function.apply on COM object methods. Shame.
+			//  (this is also required for Safari)
+			this[name] = function(object) {
+				var m = (object.base && object.base == object[name].ancestor) ? "base" : name;
+				// unroll for speed
+				switch (arguments.length) {
+					case 1: return object[m]();
+					case 2: return object[m](arguments[1]);
+					case 3: return object[m](arguments[1], arguments[2]);
+					case 4: return object[m](arguments[1], arguments[2], arguments[3]);
+				}
+				// use eval() if there are lots of arguments
+				var args = [], i = arguments.length;
+				while (i-- > 1) args[i - 1] = "arguments[" + i + "]";
+				eval("var returnValue=object[m](" + args + ")");
+				return returnValue;
+			};
+		}
+	}
+});
+
+// =========================================================================
+// DOM/Binding.js
+// =========================================================================
+
+var Binding = Interface.extend(null, {
+	extend: function(_interface, _static) {
+		// convoluted code here because some libraries add bind()
+		//  to the Prototype and base2 can't tell the difference
+		var bind = this.bind;
+		if (_static) {
+			bind = _static.bind || bind;
+			delete _static.bind;
+		}
+		var binding = this.base(_interface, _static);
+		extend(binding, "bind", bind);
+		return binding;
+	}
+});
+
+Binding.bind = function(object) {
+	return this(object); // cast
+};
+
+// =========================================================================
+// DOM/Traversal.js
+// =========================================================================
+
+// DOM Traversal. Just the basics.
+
+var Traversal = Module.extend({
+	getDefaultView: function(node) {
+		return this.getDocument(node).defaultView;
+	},
+	
+	getNextElementSibling: function(node) {
+		// return the next element to the supplied element
+		//  nextSibling is not good enough as it might return a text or comment node
+		while (node && (node = node.nextSibling) && !this.isElement(node)) continue;
+		return node;
+	},
+
+	getNodeIndex: function(node) {
+		var index = 0;
+		while (node && (node = node.previousSibling)) index++;
+		return index;
+	},
+	
+	getOwnerDocument: function(node) {
+		// return the node's containing document
+		return node.ownerDocument;
+	},
+	
+	getPreviousElementSibling: function(node) {
+		// return the previous element to the supplied element
+		while (node && (node = node.previousSibling) && !this.isElement(node)) continue;
+		return node;
+	},
+
+	getTextContent: function(node) {
+		return node[Traversal.$TEXT];
+	},
+
+	isEmpty: function(node) {
+		node = node.firstChild;
+		while (node) {
+			if (node.nodeType == 3 || this.isElement(node)) return false;
+			node = node.nextSibling;
+		}
+		return true;
+	},
+
+	setTextContent: function(node, text) {
+		return node[Traversal.$TEXT] = text;
+	},
+	
+	"@MSIE": {
+		getDefaultView: function(node) {
+			return this.getDocument(node).parentWindow;
+		},
+	
+		"@MSIE5": {
+			// return the node's containing document
+			getOwnerDocument: function(node) {
+				return node.ownerDocument || node.document;
+			}
+		}
+	}
+}, {
+	$TEXT: "textContent",
+	
+	contains: function(node, target) {
+		return this.isDocument(node) ? node == this.getOwnerDocument(target) : node != target && node.contains(target);
+	},
+	
+	getDocument: function(node) {
+		// return the document object
+		return this.isDocument(node) ? node : this.getOwnerDocument(node);
+	},
+	
+	isDocument: function(node) {
+		return Boolean(node && node.documentElement);
+	},
+	
+	isElement: function(node) {
+		return Boolean(node && node.attributes);
+	},
+	
+	"@!(element.contains)": {
+		contains: function(node, target) {
+			while (target && (target = target.parentNode) && node != target) continue;
+			return !!target;
+		}
+	},
+	
+	"@MSIE": {
+		$TEXT: "innerText"
+	},
+	
+	"@MSIE5": {
+		isElement: function(node) {
+			return this.base(node) && node.tagName != "!";
+		}
+	}
+});
+
+// =========================================================================
+// core/Node.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1950641247
+
+var Node = Binding.extend({	
+	"@!(element.compareDocumentPosition)" : {
+		compareDocumentPosition: function(node, other) {
+			// http://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-compareDocumentPosition
+			
+			if (Traversal.contains(node, other)) {
+				return 4|16; // following|contained_by
+			} else if (Traversal.contains(other, node)) {
+				return 2|8; // preceding|contains
+			}
+			
+			var nodeIndex = this.$getSourceIndex(node);
+			var otherIndex = this.$getSourceIndex(other);
+			
+			if (nodeIndex < otherIndex) {
+				return 4; // following
+			} else if (nodeIndex > otherIndex) {
+				return 2; // preceding
+			}			
+			return 0;
+		}
+	}
+}, {
+	$getSourceIndex: function(node) {
+		// return a key suitable for comparing nodes
+		var key = 0;
+		while (node) {
+			key = Traversal.getNodeIndex(node) + "." + key;
+			node = node.parentNode;
+		}
+		return key;
+	},
+	
+	"@(element.sourceIndex)": {	
+		$getSourceIndex: function(node) {
+			return node.sourceIndex;
+		}
+	}
+});
+
+	
+
+// =========================================================================
+// core/Document.js
+// =========================================================================
+
+var Document = Node.extend(null, {
+	bind: function(document) { //-dean
+		this.base(document);
+//-		// automatically bind elements that are created using createElement()
+//-		extend(document, "createElement", function(tagName) {
+//-			return _bind(this.base(tagName));
+//-		});
+		AbstractView.bind(document.defaultView);
+		return document;
+	}
+});
+
+// provide these as pass-through methods
+Document.createDelegate("createElement");
+
+// =========================================================================
+// core/Element.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-745549614
+
+// I'm going to fix getAttribute() for IE here instead of HTMLElement.
+
+// getAttribute() will return null if the attribute is not specified. This is
+//  contrary to the specification but has become the de facto standard.
+
+var Element = Node.extend({
+	"@MSIE[67]": {
+		getAttribute: function(element, name) {
+			if (element.className === undefined || name == "href" || name == "src") {
+				return this.base(element, name, 2);
+			}
+			var attribute = element.getAttributeNode(name);
+			return attribute && attribute.specified ? attribute.nodeValue : null;
+		}
+	},
+	
+	"@MSIE5.+win": {
+		getAttribute: function(element, name) {
+			if (element.className === undefined || name == "href" || name == "src") {
+				return this.base(element, name, 2);
+			}
+			var attribute = element.attributes[this.$htmlAttributes[name.toLowerCase()] || name];
+			return attribute ? attribute.specified ? attribute.nodeValue : null : this.base(element, name);
+		}
+	}
+}, {
+	$htmlAttributes: "",
+	
+	init: function() {
+		// these are the attributes that IE is case-sensitive about
+		// convert the list of strings to a hash, mapping the lowercase name to the camelCase name.
+		// combine two arrays to make a hash
+		var keys = this.$htmlAttributes.toLowerCase().split(",");
+		var values = this.$htmlAttributes.split(",");
+		this.$htmlAttributes = Array2.combine(keys, values);
+	},
+	
+	"@MSIE5.+win": {
+		$htmlAttributes: "colSpan,rowSpan,vAlign,dateTime,accessKey,tabIndex,encType,maxLength,readOnly,longDesc"
+	}
+});
+
+Element.createDelegate("setAttribute");
+
+// =========================================================================
+// core/bind.js
+// =========================================================================
+
+extend(DOM, {
+	bind: function(node) {
+		// apply a base2 DOM Binding to a native DOM node
+		switch (node.nodeType) {
+			case 1: return Element.bind(node);
+			case 9: return Document.bind(node);
+			default: return Node.bind(node);
+		}
+		return node;
+	}
+});
+
+var _bound = {}; // nodes that have already been extended (keep this private)
+var _bind = function(node) {
+	if (node) {
+		var uid = assignID(node);
+		if (!_bound[uid]) {
+			DOM.bind(node);
+			_bound[uid] = true;
+		}
+	}
+	return node;
+};
+
+// =========================================================================
+// views/AbstractView.js
+// =========================================================================
+
+// This is just fluff for now.
+
+var AbstractView = Binding.extend();
+
+
+// =========================================================================
+// events/Event.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Event
+
+var Event = Binding.extend({	
+	"@!(document.createEvent)": {
+		initEvent: function(event, type, bubbles, cancelable) {
+			event.type = type;
+			event.bubbles = bubbles;
+			event.cancelable = cancelable;
+		},
+		
+		"@MSIE": {
+			initEvent: function(event) {
+				base(this, arguments);
+				event.cancelBubble = !event.bubbles;
+			},
+			
+			preventDefault: function(event) {
+				if (event.cancelable !== false) {
+					event.returnValue = false;
+				}
+			},
+		
+			stopPropagation: function(event) {
+				event.cancelBubble = true;
+			}
+		}
+	}
+}, {
+	"@MSIE": {
+/*		bind: function(event) {
+			//-dean: put more fixes here
+			return this.base(event);
+		}, */
+		
+		"Mac": {
+			bind: function(event) {
+				// Mac IE5 does not allow expando properties on the event object so
+				//  we copy the object instead.
+				return this.base(extend({
+					preventDefault: function() {
+						if (this.cancelable !== false) {
+							this.returnValue = false;
+						}
+					}
+				}, event));
+			}
+		},
+		
+		"Windows": {
+			bind: function(event) {
+				this.base(event);
+				event.target = event.srcElement;
+				return event;
+			}
+		}
+	}
+});
+
+// =========================================================================
+// events/EventTarget.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Registration-interfaces
+
+var EventTarget = Interface.extend({
+	"@!(element.addEventListener)": {
+		addEventListener: function(target, type, listener) {
+			// assign a unique id to both objects
+			var $target = assignID(target);
+			var $listener = listener.cloneID || assignID(listener);
+			// create a hash table of event types for the target object
+			var events = this.$all[$target];
+			if (!events) events = this.$all[$target] = {};
+			// create a hash table of event listeners for each object/event pair
+			var listeners = events[type];
+			var current = target["on" + type];
+			if (!listeners) {
+				listeners = events[type] = {};
+				// store the existing event listener (if there is one)
+				if (current) listeners[0] = current;
+			}
+			// store the event listener in the hash table
+			listeners[$listener] = listener;
+			if (current !== undefined) {
+				target["on" + type] = this.$dispatch;
+			}
+		},
+	
+		dispatchEvent: function(target, event) {
+			this.$dispatch.call(target, event);
+		},
+	
+		removeEventListener: function(target, type, listener) {
+			// delete the event listener from the hash table
+			var events = this.$all[target.base2ID];
+			if (events && events[type]) {
+				delete events[type][listener.base2ID];
+			}
+		},
+		
+		"@MSIE.+win": {
+			addEventListener: function(target, type, listener) {
+				// avoid memory leaks
+				this.base(target, type, this._bind(listener, target));
+			},
+			
+			dispatchEvent: function(target, event) {
+				event.target = target;
+				try {
+					target.fireEvent(event.type, event);
+				} catch (error) {
+					// the event type is not supported
+					this.base(target, event);
+				}
+			}
+		}
+	}
+}, {
+	_bind: function(listener, context) {
+		var bound = function() {
+			return listener.apply(context, arguments);
+		};
+		bound.cloneID = assignID(listener);
+		return bound;
+	},
+	
+	// support event dispatch	
+	"@!(element.addEventListener)": {
+		$all : {},
+		
+		$dispatch: function(event) {
+			var returnValue = true;
+			// get a reference to the hash table of event listeners
+			var events = EventTarget.$all[this.base2ID];
+			if (events) {
+				event = Event.bind(event); // fix the event object
+				var listeners = events[event.type];
+				// execute each event listener
+				for (var i in listeners) {
+					returnValue = listeners[i].call(this, event);
+					if (event.returnValue === false) returnValue = false;
+					if (returnValue === false) break;
+				}
+			}
+			return returnValue;
+		},
+	
+		"@MSIE": {
+			$dispatch: function(event) {
+				if (!event) {
+					var window = Window.verify(this) || Traversal.getDefaultView(this);
+					event = window.event;
+				}
+				return this.base(event);
+			},
+			
+			"Windows": {
+				_bind: function(listener, context) {
+					return BOM.$bind(listener, context);
+				}
+			}
+		}
+	}
+});
+
+// sprinkle some sugar on the static methods
+
+extend(EventTarget, {
+	addEventListener: function(target, type, listener, context) {
+		// useCapture is not allowed as it not cross-platform
+		//  (although there may be a way to mimic it for IE)
+		
+		// allow a different execution context for the event listener
+		if (context) listener = this._bind(listener, context);
+		// call the default method
+		this.base(target, type, listener, false);
+	},
+
+	dispatchEvent: function(target, event) {
+		// allow the second argument to be a string identifying the type of
+		//  event and construct an event object automatically, this is handy for
+		//  custom events
+		if (typeof event == "string") {
+			var type = event;
+			var document = Traversal.getDocument(target);
+			event = DocumentEvent.createEvent(document, "Events");
+			Event.initEvent(event, type, false, false);
+		}
+		// call the default method
+		this.base(target, event);
+	}
+});
+
+// =========================================================================
+// events/DocumentEvent.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-DocumentEvent
+var DocumentEvent = Interface.extend({	
+	"@!(document.createEvent)": {
+		createEvent: function(document) {
+			return Event.bind({});
+		},
+	
+		"@(document.createEventObject)": {
+			createEvent: function(document) {
+				return Event.bind(document.createEventObject());
+			}
+		}
+	},
+	
+	"@KHTML": {
+		createEvent: function(document, type) {
+			// a type of "Events" throws an error on Safari (need to check current builds)
+			return this.base(document, type == "Events" ? "UIEvents" : type);
+		}
+	}
+});
+
+// =========================================================================
+// events/DOMContentLoaded.js
+// =========================================================================
+
+// http://dean.edwards.name/weblog/2006/06/again
+
+var DOMContentLoaded = new Base({
+	fired: false,
+	
+	fire: function() {
+		if (!DOMContentLoaded.fired) {
+			DOMContentLoaded.fired = true;
+			// this function might be called from another event handler so we'll user a timer
+			//  to drop out of any current event.
+			// eval a string for ancient browsers
+			setTimeout("base2.EventTarget.dispatchEvent(document,'DOMContentLoaded')", 0);
+		}
+	},
+	
+	init: function() {
+		// use the real event for browsers that support it (opera & firefox)
+		EventTarget.addEventListener(document, "DOMContentLoaded", function() {
+			DOMContentLoaded.fired = true;
+		});
+		// if all else fails fall back on window.onload
+		EventTarget.addEventListener(window, "load", DOMContentLoaded.fire);
+	},
+
+	"@(addEventListener)": {
+		init: function() {
+			this.base();
+			addEventListener("load", DOMContentLoaded.fire, false);
+		}
+	},
+
+	"@(attachEvent)": {
+		init: function() {
+			this.base();
+			attachEvent("onload", DOMContentLoaded.fire);
+		}
+	},
+
+	"@MSIE.+win": {
+		init: function() {
+			this.base();
+			// Matthias Miller/Mark Wubben/Paul Sowden/Me
+			document.write("<script id=__ready defer src=//:><\/script>");
+			document.all.__ready.onreadystatechange = function() {
+				if (this.readyState == "complete") {
+					this.removeNode(); // tidy
+					DOMContentLoaded.fire();
+				}
+			};
+		}
+	},
+	
+	"@KHTML": {
+		init: function() {
+			this.base();
+			// John Resig
+			var timer = setInterval(function() {
+				if (/loaded|complete/.test(document.readyState)) {
+					clearInterval(timer);
+					DOMContentLoaded.fire();
+				}
+			}, 100);
+		}
+	}
+});
+
+DOMContentLoaded.init();
+
+// =========================================================================
+// style/ViewCSS.js
+// =========================================================================
+
+// http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-ViewCSS
+
+var ViewCSS = Interface.extend({
+	"@!(getComputedStyle)": {
+		getComputedStyle: function(view, element) {
+			// pseudoElement parameter is not supported
+			return element.currentStyle; //-dean - fix this object too
+		}
+	}
+}, {
+	toCamelCase: function(string) {
+		return String(string).replace(/\-([a-z])/g, function(match, chr) {
+			return chr.toUpperCase();
+		});
+	}
+});
+
+// =========================================================================
+// style/bind.js
+// =========================================================================
+
+extend(Document, {
+	"@!(document.defaultView)": {
+		bind: function(document) {
+			this.base(document);
+			document.defaultView = Traversal.getDefaultView(document);
+			return document;
+		}
+	}
+});
+
+// =========================================================================
+// selectors-api/NodeSelector.js
+// =========================================================================
+
+// http://www.w3.org/TR/selectors-api/
+
+var NodeSelector = Interface.extend({
+	"@!(element.matchSingle)": { // future-proof
+		matchAll: function(node, selector) {
+			return new Selector(selector).exec(node);
+		},
+		
+		matchSingle: function(node, selector) {
+			return new Selector(selector).exec(node, 1);
+		}
+	}
+});
+
+// automatically bind objects retrieved using the Selectors API
+
+extend(NodeSelector.prototype, {
+	matchAll: function(selector) {
+		return extend(this.base(selector), "item", function(index) {
+			return _bind(this.base(index));
+		});
+	},
+	
+	matchSingle: function(selector) {
+		return _bind(this.base(selector));
+	}
+});
+
+// =========================================================================
+// selectors-api/DocumentSelector.js
+// =========================================================================
+
+// http://www.w3.org/TR/selectors-api/#documentselector
+
+var DocumentSelector = NodeSelector.extend();
+
+
+// =========================================================================
+// selectors-api/ElementSelector.js
+// =========================================================================
+
+// more Selectors API sensibleness
+
+var ElementSelector = NodeSelector.extend({
+	"@!(element.matchesSelector)": { // future-proof
+		matchesSelector: function(element, selector) {
+			return new Selector(selector).test(element);
+		}
+	}
+});
+
+
+// =========================================================================
+// selectors-api/StaticNodeList.js
+// =========================================================================
+
+// http://www.w3.org/TR/selectors-api/#staticnodelist
+
+// A wrapper for an array of elements or an XPathResult.
+// The item() method provides access to elements.
+// Implements Enumerable so you can forEach() to your heart's content... :-)
+
+var StaticNodeList = Base.extend({
+	constructor: function(nodes) {
+		nodes = nodes || [];
+		this.length = nodes.length;
+		this.item = function(index) {
+			return nodes[index];
+		};
+	},
+	
+	length: 0,
+	
+	forEach: function(block, context) {
+		var length = this.length; // preserve
+		for (var i = 0; i < length; i++) {
+			block.call(context, this.item(i), i, this);
+		}
+	},
+	
+	item: function(index) {
+		// defined in the constructor function
+	},
+	
+	"@(XPathResult)": {
+		constructor: function(nodes) {
+		//-	if (nodes instanceof XPathResult) { // doesn't work in Safari
+			if (nodes && nodes.snapshotItem) {
+				this.length = nodes.snapshotLength;
+				this.item = function(index) {
+					return nodes.snapshotItem(index);
+				};
+			} else this.base(nodes);
+		}
+	}
+});
+
+StaticNodeList.implement(Enumerable);
+
+// =========================================================================
+// selectors-api/Selector.js
+// =========================================================================
+
+// This object can be instantiated, however it is probably better to use
+// the matchAll/matchSingle methods on DOM nodes.
+
+// There is no public standard for this object. It just separates the NodeSelector
+//  interface from the complexity of the Selector parsers.
+
+var Selector = Base.extend({
+	constructor: function(selector) {
+		this.toString = function() {
+			return trim(selector);
+		};
+	},
+	
+	exec: function(context, single) {
+	//	try {
+			var result = this.$evaluate(context || document, single);
+	//	} catch (error) { // probably an invalid selector =)
+	//		throw new SyntaxError(format("'%1' is not a valid CSS selector.", this));
+	//	}
+		return single ? result : new StaticNodeList(result);
+	},
+	
+	test: function(element) {
+		//-dean: improve this for simple selectors
+		element.setAttribute("b2_test", true);
+		var selector = new Selector(this + "[b2_test]");
+		var result = selector.exec(Traversal.getOwnerDocument(element), 1);
+		element.removeAttribute("b2_test");
+		return result == element;
+	},
+	
+	$evaluate: function(context, single) {
+		return Selector.parse(this)(context, single);
+	}
+});
+
+// =========================================================================
+// selectors-api/Parser.js
+// =========================================================================
+	
+var Parser = RegGrp.extend({
+	constructor: function() {
+		base(this, arguments);
+		this.cache = {};
+		this.sorter = new RegGrp;
+		this.sorter.add(/:not\([^)]*\)/, RegGrp.IGNORE);
+		this.sorter.add(/([ >](\*|[\w-]+))([^: >+~]*)(:\w+-child(\([^)]+\))?)([^: >+~]*)/, "$1$3$6$4");
+	},
+	
+	cache: null,
+	ignoreCase: true,
+	
+	escape: function(selector) {
+		// remove strings
+		var strings = this._strings = [];
+		return this.optimise(this.format(String(selector).replace(Parser.ESCAPE, function(string) {
+			strings.push(string.slice(1, -1));
+			return "%" + strings.length;
+		})));
+	},
+	
+	format: function(selector) {
+		return selector
+			.replace(Parser.WHITESPACE, "$1")
+			.replace(Parser.IMPLIED_SPACE, "$1 $2")
+			.replace(Parser.IMPLIED_ASTERISK, "$1*$2");
+	},
+	
+	optimise: function(selector) {
+		// optimise wild card descendant selectors
+		return this.sorter.exec(selector.replace(Parser.WILD_CARD, ">* "));
+	},
+	
+	parse: function(selector) {
+		return this.cache[selector] ||
+			(this.cache[selector] = this.unescape(this.exec(this.escape(selector))));
+	},
+	
+	unescape: function(selector) {
+		// put string values back
+		return format(selector, this._strings);
+	}
+}, {
+	ESCAPE:           /(["'])[^\1]*\1/g,
+	IMPLIED_ASTERISK: /([\s>+~,]|[^(]\+|^)([#.:@])/g,
+	IMPLIED_SPACE:    /(^|,)([^\s>+~])/g,
+	WHITESPACE:       /\s*([\s>+~(),]|^|$)\s*/g,
+	WILD_CARD:        /\s\*\s/g,
+	
+	_nthChild: function(match, args, position, last, not, and, mod, equals) {
+		// ugly but it works
+		last = /last/i.test(match) ? last + "+1-" : "";
+		if (!isNaN(args)) args = "0n+" + args;
+		else if (args == "even") args = "2n";
+		else if (args == "odd") args = "2n+1";
+		args = args.split(/n\+?/);
+		var a = (args[0] == "") ? 1 : (args[0] == "-") ? -1 : parseInt(args[0]);
+		var b = parseInt(args[1]) || 0;
+		var not = a < 0;
+		if (not) {
+			a = -a;
+			if (a == 1) b++;
+		}
+		var query = format(a == 0 ? "%3%7" + (last + b) : "(%4%3-%2)%6%1%70%5%4%3>=%2", a, b, position, last, and, mod, equals);
+		if (not) query = not + "(" + query + ")";
+		return query;
+	}
+});
+
+// =========================================================================
+// selectors-api/Selector/operators.js
+// =========================================================================
+
+Selector.operators = {
+	"=":  "%1=='%2'",
+	"~=": /(^| )%1( |$)/,
+	"|=": /^%1(-|$)/,
+	"^=": /^%1/,
+	"$=": /%1$/,
+	"*=": /%1/
+};
+
+Selector.operators[""] = "%1!=null";
+
+// =========================================================================
+// selectors-api/Selector/pseudoClasses.js
+// =========================================================================
+
+Selector.pseudoClasses = { //-dean: lang()
+	"checked":     "e%1.checked",	
+	"contains":    "Traversal.getTextContent(e%1).indexOf('%2')!=-1",	
+	"disabled":    "e%1.disabled",	
+	"empty":       "Traversal.isEmpty(e%1)",	
+	"enabled":     "e%1.disabled===false",	
+	"first-child": "!Traversal.getPreviousElementSibling(e%1)",
+	"last-child":  "!Traversal.getNextElementSibling(e%1)",	
+	"only-child":  "!Traversal.getPreviousElementSibling(e%1)&&!Traversal.getNextElementSibling(e%1)",	
+	"root":        "e%1==Traversal.getDocument(e%1).documentElement"	
+/*	"lang": function(element, lang) {
+		while (element && !element.getAttribute("lang")) {
+			element = element.parentNode;
+		}
+		return element && lang.indexOf(element.getAttribute("lang")) == 0;
+	}, */
+};
+
+// =========================================================================
+// selectors-api/Selector/parse.js
+// =========================================================================
+
+// CSS parser - converts CSS selectors to DOM queries.
+
+// Hideous code but it produces fast DOM queries.
+// Respect due to Alex Russell and Jack Slocum for inspiration.
+
+// TO DO:
+// * sort nodes into document order (comma separated queries only)
+
+new function(_) {	
+	// some constants
+	var MSIE = BOM.detect("MSIE");
+	var MSIE5 = BOM.detect("MSIE5");
+	var INDEXED = BOM.detect("(element.sourceIndex)") ;
+	var VAR = "var p%2=0,i%2,e%2,n%2=e%1.";
+	var ID = INDEXED ? "e%1.sourceIndex" : "assignID(e%1)";
+	var TEST = "var g=" + ID + ";if(!p[g]){p[g]=1;";
+	var STORE = "r[r.length]=e%1;if(s)return e%1;";
+	var FN = "fn=function(e0,s){indexed={};var r=[],p={},reg=[%1]," +
+		"d=Traversal.getDocument(e0),c=d.body?'toUpperCase':'toString';";
+	
+	// IE confuses the name attribute with id for form elements,
+	// use document.all to retrieve all elements with name/id instead
+	var getElementById = MSIE ? function(document, id) {
+		var result = document.all[id] || null;
+		// returns a single element or a collection
+		if (!result || result.id == id) return result;
+		// document.all has returned a collection of elements with name/id
+		for (var i = 0; i < result.length; i++) {
+			if (result[i].id == id) return result[i];
+		}
+		return null;
+	} : function(document, id) {
+		return document.getElementById(id);
+	};
+	
+	// register a node and index its children
+	//  store the indexes in a hash, it is faster to augment the element itself but
+	//  that just seems dirty
+	var indexed = {};
+	function register(element) {
+		var uid = INDEXED ? element.sourceIndex : assignID(element);
+		if (!indexed[uid]) {
+			var elements = indexed[uid] = {};
+			var children = MSIE ? element.children || element.childNodes : element.childNodes;
+			var index = 0;
+			var child;
+			for (var i = 0; (child = children[i]); i++) {
+				if (Traversal.isElement(child)) {
+					elements[INDEXED ? child.sourceIndex : assignID(child)] = ++index;
+				}
+			}
+			elements.length = index;
+		}
+		return uid;
+	};
+	
+	// variables used by the parser
+	var fn;
+	var index; 
+	var reg; // a store for RexExp objects
+	var wild; // need to flag certain wild card selectors as MSIE includes comment nodes
+	var list; // are we processing a node list?
+	var dup; // possible duplicates?
+	var cache = {}; // store parsed selectors
+	
+	// a hideous parser
+	var parser = new Parser({
+		"^ \\*:root": function(match) {
+			wild = false;
+			var replacement = "e%2=d.documentElement;if(Traversal.contains(e%1,e%2)){";
+			return format(replacement, index++, index);
+		},
+		" (\\*|[\\w-]+)#([\\w-]+)": function(match, tagName, id) {
+			wild = false;
+			var replacement = "var e%2=getElementById(d,'%4');if(";
+			if (tagName != "*") replacement += "e%2.nodeName=='%3'[c]()&&";
+			replacement += "Traversal.contains(e%1,e%2)){";
+			if (list) replacement += format("i%1=n%1.length;", list);
+			return format(replacement, index++, index, tagName, id);
+		},
+		" (\\*|[\\w-]+)": function(match, tagName) {
+			dup++; // this selector may produce duplicates
+			wild = tagName == "*";
+			var replacement = VAR;
+			// IE5.x does not support getElementsByTagName("*");
+			replacement += (wild && MSIE5) ? "all" : "getElementsByTagName('%3')";
+			replacement += ";for(i%2=0;(e%2=n%2[i%2]);i%2++){";
+			return format(replacement, index++, list = index, tagName);
+		},
+		">(\\*|[\\w-]+)": function(match, tagName) {
+			var children = MSIE && list;
+			wild = tagName == "*";
+			var replacement = VAR;
+			// use the children property for MSIE as it does not contain text nodes
+			//  (but the children collection still includes comments).
+			// the document object does not have a children collection
+			replacement += children ? "children": "childNodes";
+			if (!wild && children) replacement += ".tags('%3')";
+			replacement += ";for(i%2=0;(e%2=n%2[i%2]);i%2++){";
+			if (wild) {
+				replacement += "if(e%2.nodeType==1){";
+				wild = MSIE5;
+			} else {
+				if (!children) replacement += "if(e%2.nodeName=='%3'[c]()){";
+			}
+			return format(replacement, index++, list = index, tagName);
+		},
+		"([+~])(\\*|[\\w-]+)": function(match, combinator, tagName) {
+			var replacement = "";
+			if (wild && MSIE) replacement += "if(e%1.tagName!='!'){";
+			wild = false;
+			var direct = combinator == "+";
+			if (!direct) {
+				replacement += "while(";		
+				dup = 2; // this selector may produce duplicates
+			}
+			replacement += "e%1=Traversal.getNextElementSibling(e%1)";
+			replacement += (direct ? ";" : "){") + "if(e%1";
+			if (tagName != "*") replacement += "&&e%1.nodeName=='%2'[c]()";
+			replacement += "){";
+			return format(replacement, index, tagName);
+		},
+		"#([\\w-]+)": function(match, id) {
+			wild = false;
+			var replacement = "if(e%1.id=='%2'){";		
+			if (list) replacement += format("i%1=n%1.length;", list);
+			return format(replacement, index, id);
+		},
+		"\\.([\\w-]+)": function(match, className) {
+			wild = false;
+			// store RegExp objects - slightly faster on IE
+			reg.push(new RegExp("(^|\\s)" + rescape(className) + "(\\s|$)"));
+			return format("if(reg[%2].test(e%1.className)){", index, reg.length - 1);
+		},
+		":not\\((\\*|[\\w-]+)?([^)]*)\\)": function(match, tagName, filters) {
+			var replacement = (tagName && tagName != "*") ? format("if(e%1.nodeName=='%2'[c]()){", index, tagName) : "";
+			replacement += parser.exec(filters);
+			return "if(!" + replacement.slice(2, -1).replace(/\)\{if\(/g, "&&") + "){";
+		},
+		":nth(-last)?-child\\(([^)]+)\\)": function(match, last, args) {
+			wild = false;
+			last = format("indexed[p%1].length", index);
+			var replacement = "if(p%1!==e%1.parentNode.";
+			replacement += INDEXED ? "sourceIndex" : "base2ID";
+			replacement += ")p%1=register(e%1.parentNode);var i=indexed[p%1][" + ID + "];if(";
+			return format(replacement, index) + Parser._nthChild(match, args, "i", last, "!", "&&", "%", "==") + "){";
+		},
+		":([\\w-]+)(\\(([^)]+)\\))?": function(match, pseudoClass, $2, args) {
+			return "if(" + format(Selector.pseudoClasses[pseudoClass], index, args || "") + "){";
+		},
+		"\\[([\\w-]+)\\s*([^=]?=)?\\s*([^\\]]*)\\]": function(match, attr, operator, value) {
+			if (operator) {
+				if (attr == "class") attr == "className";
+				else if (attr == "for") attr == "htmlFor";
+				attr = format("(e%1.getAttribute('%2')||e%1['%2'])", index, attr);
+			} else {
+				attr = format("Element.getAttribute(e%1,'%2')", index, attr);
+			} 
+			var replacement = Selector.operators[operator || ""];
+			if (instanceOf(replacement, RegExp)) {
+				reg.push(new RegExp(format(replacement.source, rescape(parser.unescape(value)))));
+				replacement = "reg[%2].test(%1)";
+				value = reg.length - 1;
+			}
+			return "if(" + format(replacement, attr, value) + "){";
+		}
+	});
+	
+	// return the parse() function
+	Selector.parse = function(selector) {
+		if (!cache[selector]) {
+			reg = []; // store for RegExp objects
+			fn = "";
+			var selectors = parser.escape(selector).split(",");
+			forEach(selectors, function(selector, label) {
+				index = list = dup = 0; // reset
+				var block = parser.exec(selector);
+				if (wild && MSIE) { // IE's pesky comment nodes
+					block += format("if(e%1.tagName!='!'){", index);
+				}
+				var store = (label || dup > 1) ? TEST : "";
+				block += format(store + STORE, index);
+				var braces = match(block, /\{/g).length;
+				while (braces--) block += "}";
+				fn += block;
+			});
+			eval(format(FN, reg) + parser.unescape(fn) + "return s?null:r}");
+			cache[selector] = fn;
+		}
+		return cache[selector];
+	};
+};
+
+// =========================================================================
+// DOM/implementations.js
+// =========================================================================
+
+AbstractView.implement(ViewCSS);
+
+Document.implement(DocumentSelector);
+Document.implement(DocumentEvent);
+Document.implement(EventTarget);
+
+Element.implement(ElementSelector);
+Element.implement(EventTarget);
+
+// =========================================================================
+// html/HTMLDocument.js
+// =========================================================================
+
+// http://www.whatwg.org/specs/web-apps/current-work/#htmldocument
+// http://www.whatwg.org/specs/web-apps/current-work/#getelementsbyclassname
+
+var HTMLDocument = Document.extend({
+	"@!(document.nodeType)": {
+		nodeType: 9
+	},
+	
+	"@!(document.getElementsByClassName)": { // firefox3?
+		getElementsByClassName: function(document, classNames) {
+			return this.matchAll(document, "." + classNames.join("."));
+		}
+	}
+}, {
+	// http://www.whatwg.org/specs/web-apps/current-work/#activeelement	
+	"@(document.activeElement===undefined)": {
+		bind: function(document) {
+			this.base(document);
+			document.activeElement = null;
+			document.addEventListener("focus", function(event) { //-dean: is onfocus good enough?
+				document.activeElement = event.target;
+			}, false);
+			return document;
+		}
+	}
+});
+
+// =========================================================================
+// html/HTMLElement.js
+// =========================================================================
+
+// http://www.whatwg.org/specs/web-apps/current-work/#getelementsbyclassname
+
+var HTMLElement = Element.extend({
+	addClass: function(element, className) {
+		if (!this.hasClass(element, className)) {
+			element.className += (element.className ? " " : "") + className;
+			return className;
+		}
+	},
+	
+	hasClass: function(element, className) {
+		var regexp = new RegExp("(^|\\s)" + className + "(\\s|$)");
+		return regexp.test(element.className);
+	},
+
+	removeClass: function(element, className) {
+		var regexp = new RegExp("(^|\\s)" + className + "(\\s|$)");
+		element.className = element.className.replace(regexp, "$2");
+		return className;
+	},
+	
+	"@!(element.getElementsByClassName)": { // firefox3?
+		getElementsByClassName: function(element, classNames) {
+			return this.matchAll(element, "." + classNames.join("."));
+		}
+	}	
+}, {
+	bindings: {},
+	tags: "*",
+	
+	extend: function() {
+		// maintain HTML element bindings.
+		// this allows us to map specific interfaces to elements by reference
+		// to tag name.
+		var binding = base(this, arguments);
+		var tags = (binding.tags || "").toUpperCase().split(",");
+		forEach (tags, function(tagName) {
+			HTMLElement.bindings[tagName] = binding;
+		});
+		return binding;
+	},
+	
+	"@!(element.ownerDocument)": {
+		bind: function(element) {
+			this.base(element);
+			element.ownerDocument = Traversal.getOwnerDocument(element);
+			return element;
+		}
+	}
+});
+
+// =========================================================================
+// html/bind.js
+// =========================================================================
+
+extend(DOM, "bind", function(node) {
+	if (typeof node.className == "string") {
+		// it's an HTML element, use bindings based on tag name
+		(HTMLElement.bindings[node.tagName] || HTMLElement).bind(node);
+	} else if (node.body !== undefined) {
+		HTMLDocument.bind(node);
+	} else {
+		this.base(node);
+	}
+	return node;
+});
+
+eval(this.exports);
+
+}; ////////////////////  END: CLOSURE  /////////////////////////////////////
+
+new function(_) { ////////////////////  BEGIN: CLOSURE  ////////////////////
+
+// =========================================================================
+// JSB/namespace.js
+// =========================================================================
+
+var JSB = new base2.Namespace(this, {
+	name:    "JSB",
+	version: "0.6",
+	imports: "DOM",
+	exports: "Binding,Rule,RuleList"
+});
+
+eval(this.imports);
+
+// =========================================================================
+// JSB/Call.js
+// =========================================================================
+	
+var Call = function(context, method, args, rank) {		
+	this.call = function() {
+		method.apply(context, args);
+	};
+	this.rank = rank || 100;
+};
+
+// =========================================================================
+// JSB/System.js
+// =========================================================================
+
+var System = new Base({
+	ready: false,
+	_deferred: new Array2,
+
+	defer: function(method, rank) {
+		// defers a method call until DOMContentLoaded
+		var deferred = function() {
+			if (System._deferred) {
+				System._deferred.push(new Call(this, method, arguments, rank));				
+			} else {
+				method.apply(this, arguments);
+			}
+		};
+		return deferred;
+	},
+	
+	onload: function() {
+		// call deferred calls
+		if (!System.ready) {
+			System.ready = true;
+			DOM.bind(document);
+			System._deferred.sort(function(a, b) {
+				return a.rank - b.rank;
+			});
+			System._deferred.invoke("call");
+			delete System._deferred;
+			setTimeout(function() { // jump out of the current event
+				EventTarget.dispatchEvent(document, "ready");
+			}, 0);
+		}
+	}
+});
+
+// initialise the system
+EventTarget.addEventListener(document, "DOMContentLoaded", System.onload);
+
+// =========================================================================
+// JSB/Event.js
+// =========================================================================
+
+extend(Event, {
+	PATTERN: /^on(DOMContentLoaded|[a-z]+)$/,
+	
+	cancel: function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		return false;
+	}
+});
+
+// =========================================================================
+// JSB/HTMLElement.js
+// =========================================================================
+
+extend(HTMLElement.prototype, "extend", function(name, value) {
+	// automatically attach event handlers when extending
+	if (!Base._prototyping && Event.PATTERN.test(name) && typeof value == "function") {
+		EventTarget.addEventListener(this, name.slice(2), value);
+		return this;
+	}
+	if (arguments.length == 2 && name == "style") {
+		extend(this.style, value);
+		return this;
+	}
+	return base(this, arguments);
+});
+
+// =========================================================================
+// JSB/EventTarget.js
+// =========================================================================
+
+extend(EventTarget, {	
+	addEventListener: function(target, type, listener, context) {
+		// allow elements to pick up document events (e.g. ondocumentclick)
+		if (type.indexOf("document") == 0) {
+			type = type.slice(8);
+			context = target;
+			target = Traversal.getOwnerDocument(target);
+		}
+		// call the default method
+		this.base(target, type, listener, context);
+	},
+
+	removeEventListener: function(target, type, listener) {
+		if (type.indexOf("document") == 0) {
+			type = type.slice(8);
+			target = Traversal.getOwnerDocument(target);
+		}
+		this.base(target, type, listener);
+	}
+});
+
+
+// =========================================================================
+// JSB/Binding.js
+// =========================================================================
+
+// Remember: a binding is a function
+
+var Binding = Abstract.extend();
+
+
+// =========================================================================
+// JSB/Rule.js
+// =========================================================================
+
+var Rule = Base.extend({
+	constructor: function(selector, binding) {
+		// create the selector object
+		this.selector = instanceOf(selector, Selector) ?
+			selector : new Selector(selector);
+		// create the binding
+		if (typeof binding != "function") {
+			binding = Binding.extend(binding);
+		}
+		this.binding = binding;
+		// create the bind method
+		var bound = {}; // don't bind more than once
+		this.bind = function(element) {
+			var uid = assignID(element);
+			if (!bound[uid]) {
+				bound[uid] = true;
+				binding(DOM.bind(element));
+			}
+		};
+		this.apply();
+	},
+	
+	binding: null,
+	selector: null,
+	
+	apply: System.defer(function() {
+		// execution of this method is deferred until the DOMContentLoaded event
+		forEach (this.selector.exec(document), this.bind);
+	}),
+	
+	bind: function(element) {
+		// defined in the constructor function
+	},
+	
+	refresh: function() {
+		this.apply();
+	},
+	
+	toString: function() {
+		return String(this.selector);
+	}
+});
+
+// =========================================================================
+// JSB/RuleList.js
+// =========================================================================
+
+// A collection of Rule objects
+
+var RuleList = Collection.extend({
+	constructor: function(rules) {
+		this.base(rules);
+		this.globalize(); //-dean: make this optional
+	},
+	
+	globalize: System.defer(function() {
+		var COMMA = /\s*,\s*/;
+		var ID = /^#[\w-]+$/;
+		// execution of this method is deferred until the DOMContentLoaded event
+		forEach (this, function(rule, selector) {
+			// add all ID selectors to the global namespace
+			forEach (selector.split(COMMA), function(selector) {
+				if (ID.test(selector)) {
+					var name = ViewCSS.toCamelCase(selector.slice(1));
+					window[name] = Document.matchSingle(document, selector);
+				}
+			});
+		});
+	}, 10),
+	
+	refresh: function() {
+		this.invoke("refresh");
+	}
+}, {
+	Item: Rule
+});
+
+eval(this.exports);
+
+}; ////////////////////  END: CLOSURE  /////////////////////////////////////
+
+new function(_) { ////////////////////  BEGIN: CLOSURE  ////////////////////
+
+// =========================================================================
+// /Colorizer.js
+// =========================================================================
+
+eval(base2.namespace);
+
+var DEFAULT = "@0";
+var IGNORE  = RegGrp.IGNORE;
+
+Colorizer = RegGrp.extend({
+	constructor: function(values, patterns, properties) {
+		this.patterns = patterns || {};
+		this.extend(properties);
+		this.base(values);
+	},
+	
+	patterns: null,
+	tabStop: 4,
+	urls: true,
+
+	copy: function() {
+		var colorizer = this.base();
+		colorizer.patterns = copy(this.patterns);
+		return colorizer;
+	},
+	
+	exec: function(text) {
+		text = this.base(this.escape(text));
+		if (!arguments[1]) {
+			text = this._parseWhiteSpace(text);
+			if (this.urls) text = Colorizer.urls.exec(text);
+		}
+		return this.unescape(text);
+	},
+
+	escape: function(text) {
+		return String(text).replace(/</g, "\x01").replace(/&/g, "\x02");
+	},
+
+	store: function(pattern, replacement) {
+		if (!instanceOf(pattern, RegGrp.Item)) {
+			if (typeof replacement == "string") {
+				replacement = replacement.replace(/@(\d)/, function(match, index) {
+					return format(Colorizer.$FORMAT, pattern, index);
+				});
+			}
+			pattern = this.patterns[pattern] || Colorizer.patterns[pattern] || pattern;
+			if (instanceOf(pattern, RegExp)) pattern = pattern.source;
+			pattern = this.escape(pattern);
+		}
+		this.base(pattern, replacement);
+	},
+
+	unescape: function(text) {
+		return text.replace(/\x01/g, "&lt;").replace(/\x02/g, "&amp;");
+	},
+
+	_parseWhiteSpace: function(text) {
+		// fix tabs and spaces
+		var tabStop = this.tabStop;
+		if (tabStop > 0) {
+			var tab = Array(tabStop + 1).join(" ");
+			return text.replace(Colorizer.TABS, function(match) {
+				match = match.replace(Colorizer.TAB, tab);
+				if (tabStop > 1) {
+					var padding = (match.length - 1) % tabStop;
+					if (padding) match = match.slice(0, -padding);
+				}
+				return match.replace(/ /g, "&nbsp;");
+			});
+		}
+	},
+
+	"@MSIE": {
+		_parseWhiteSpace: function(text) {
+			return this.base(text).replace(/\r?\n/g, "<br>");
+		}
+	}
+}, {
+	$FORMAT: '<span class="%1">$%2</span>',
+	DEFAULT: DEFAULT,
+	IGNORE:  IGNORE,	
+	TAB:     /\t/g,
+	TABS:    /\n([\t \xa0]+)/g,
+	
+	init: function() {
+		// patterns that are defined as Arrays represent
+		//  groups of other patterns. Build those groups.
+		forEach (this.patterns, function(pattern, name, patterns) {
+			if (instanceOf(pattern, Array)) {
+				patterns[name] = reduce(pattern, function(group, name) {
+					group.add(patterns[name]);
+					return group;
+				}, new RegGrp);
+			}
+		});
+		this.urls = this.patterns.urls.copy();
+		this.urls.storeAt(0, '<a href="mailto:$0">$0</a>');
+		this.urls.storeAt(1, '<a href="$0">$0</a>');
+	},
+	
+	patterns: {
+		block_comment: /\/\*[^*]*\*+([^\/][^*]*\*+)*\//,
+		email:         /([\w.+-]+@[\w.-]+\.\w+)/,
+		line_comment:  /\/\/[^\r\n]*/,
+		number:        /\b[+-]?(\d*\.?\d+|\d+\.?\d*)([eE][+-]?\d+)?\b/,
+		string1:       /'(\\.|[^'\\])*'/,
+		string2:       /"(\\.|[^"\\])*"/,
+		url:           /(http:\/\/+[\w\/\-%&#=.,?+$]+)/,
+		
+		comment:       ["block_comment", "line_comment"],
+		string:        ["string1", "string2"],
+		urls:          ["email", "url"]
+	},
+	
+	urls: null,
+	
+	"@KHTML": {
+		$FORMAT: '<span class="%1">$$%2</span>'
+	}
+});
+
+// =========================================================================
+// /schemes/xml.js
+// =========================================================================
+
+Colorizer.xml = new Colorizer({
+	comment:       DEFAULT,
+	cdata:         IGNORE,
+	pi:            DEFAULT,
+	tag:           "$1@2",
+	attribute:     '@1=<span class="attribute value">$2</span>',
+	entity:        DEFAULT,
+	text:          IGNORE
+}, {
+	attribute:     /(\w+)=("[^"]*"|'[^']*')/,
+	cdata:         /<!\[CDATA\[([^\]]|\][^\]]|\]\][^>])*\]\]>/,
+	comment:       /<!\s*(--([^-]|[\r\n]|-[^-])*--\s*)>/,
+	entity:        /&#?\w+;/,
+	pi:            /<\?[\w-]+[^>]+>/, // processing instruction
+	tag:           /(<\/?)([\w:-]+)/,
+	text:          /[>;][^<>&]*/
+}, {
+	tabStop:       1
+});
+
+// =========================================================================
+// /schemes/html.js
+// =========================================================================
+
+Colorizer.html = new Colorizer({
+	conditional:   DEFAULT,
+	doctype:       DEFAULT,
+	inline:        function(match, tagName, attributes, cdata) {
+		// ignore text contained between <script> and <style> tags
+		return Colorizer.html.processCDATA(tagName, attributes, cdata);
+	}
+}, {
+	conditional:   /<!(--)?\[[^\]]*\]>|<!\[endif\](--)?>/, // conditional comments
+	doctype:       /<!DOCTYPE[^>]+>/,
+	inline:        /<(script|style)([^>]*)>((\\.|[^\\])*)<\/\1>/
+}, {
+	tabStop:       1,
+	CDATA:         '&lt;<span class="tag">%1</span>%2&gt;%3&lt;/<span class="tag">%1</span>&gt;',
+	processCDATA:  function(tagName, attributes, cdata) {
+		return format(this.CDATA, tagName, this.exec(attributes, true), cdata);
+	}
+});
+
+Colorizer.html.merge(Colorizer.xml);
+
+// =========================================================================
+// /schemes/css.js
+// =========================================================================
+
+Colorizer.css = new Colorizer({
+	comment:       DEFAULT,
+	at_rule:       DEFAULT,
+	bracketed:     IGNORE,
+	selector:      "@1{",
+	special:       "@1:",
+	property:      '@1:<span class="property value">$2</span>'
+}, {
+	at_rule:       /@[\w\s]+/,
+	bracketed:     /\([^'\x22)]*\)/,
+	comment:       Colorizer.patterns.block_comment,
+	property:      /(\w[\w-]*\s*):([^;}]+)/,
+	special:       /(\-[\w-]*\s*):/,
+	selector:      /([\w-:\[.#][^{};]*)\{/
+});
+
+// =========================================================================
+// /schemes/javascript.js
+// =========================================================================
+
+Colorizer.javascript = new Colorizer({
+	string:        DEFAULT,
+	conditional:   DEFAULT,
+	comment:       DEFAULT,
+	regexp:        "$1@2",
+	number:        DEFAULT,
+	special:       DEFAULT,
+	global:        DEFAULT,
+	keyword:       DEFAULT
+}, {
+	conditional:   /\/\*@if\s*\([^\)]*\)|\/\*@[\s\w]*|@\*\/|\/\/@\w+|@else[\s\w]*/, // conditional comments
+	global:        /\b(clearInterval|clearTimeout|constructor|document|escape|hasOwnProperty|Infinity|isNaN|NaN|parseFloat|parseInt|prototype|setInterval|setTimeout|toString|unescape|valueOf|window)\b/,
+	keyword:       /\b(&&|\|\||arguments|break|case|continue|default|delete|do|else|false|for|function|if|in|instanceof|new|null|return|switch|this|true|typeof|var|void|while|with|undefined)\b/,
+	regexp:        /([\[(\^=,{}:;&|!*?]\s*)(\/(\\\/|[^\/*])(\\.|[^\/\n\\])*\/[mgi]*)/, /* -- */
+	special:       /\b(alert|catch|confirm|eval|finally|prompt|throw|try)\b/
+});
+
+// =========================================================================
+// /schemes/html-multi.js
+// =========================================================================
+
+Colorizer["html-multi"] = Colorizer.html.union({
+	inline: function(match, tagName, attributes, cdata) {
+		// highlight text contained between <script> and <style> tags
+		var engine = tagName == "style" ? "css" : "javascript";
+		cdata = Colorizer[engine].exec(cdata, true);
+		cdata = format('<span class="%1">%2</span>', engine, cdata);
+		return Colorizer.html.processCDATA(tagName, attributes, cdata);
+	}
+});
+
+}; ////////////////////  END: CLOSURE  /////////////////////////////////////
+
+// =========================================================================
+// /bindings.js
+// =========================================================================
+eval(base2.namespace);
+eval(DOM.namespace);
+eval(JSB.namespace);
+
+var ATTRIBUTE = /(\w+)=([^"'\s]+)/g;
+var QUOTE = '<blockquote cite="#%1">\n%3\n<address>' +
+	'<a href="#%1" rel="bookmark">%2</a></address>\n</blockquote>';
+var TIDY = new RegGrp({
+    "(<\\/?)(\\w+)([^>]*)": function($, lt, tagName, attributes) {
+    	return lt + tagName.toLowerCase() + attributes.replace(ATTRIBUTE, function($, attribute, value) {
+			return attribute.toLowerCase() + '"' + value + '"';
+		});
+	},
+    "&nbsp;": " "
+});
+
+Colorizer.javascript.store("\\b(assignID|base|base2|base2ID|every|extend|filter|forEach|" +
+	"format|implement|instanceOf|invoke|K|map|pluck|reduce|rescape|slice|some|trim)\\b",
+		'<span class="base2">$0</span>');
+
+function updateFlag() {
+	// update the "required" flag adjacent to an <input> or <textrea>
+	this.nextSibling.style.color = this.value ? "#898E79" : "#A03333";
+};
+
+new RuleList({
+	"pre": {
+		ondocumentready: function() {
+			var names = this.className.split(/\s+/);
+			for (var i = 0; i < names.length; i++) {
+				// use the first class name that matches a highlighter
+				var engine = names[i];
+				var colorizer = Colorizer[engine];
+				if (instanceOf(colorizer, Colorizer)) {
+					var textContent = Traversal.getTextContent(this);
+					this.setAttribute("originalText", textContent);
+					this.innerHTML = colorizer.exec(textContent);
+					this.addClass("highlight");
+					if (engine == "html-multi") this.addClass("html");
+					break;
+				}
+			}
+		}
+	},
+	
+	"input.required,textarea.required": {
+		ondocumentready: updateFlag,		
+		ondocumentmouseup: updateFlag,		
+		ondocumentkeyup: updateFlag
+	},
+	
+	"li.comment:not(.disabled)": {
+		ondocumentready: function() {
+			// create the <button> element
+			var comment = this;
+			var button = document.createElement("button");
+			Traversal.setTextContent(button, "Quote");
+			comment.appendChild(button);
+			button.onclick = function() {
+				var textarea = document.matchSingle("textarea");
+				var id = comment.id;
+				var cite = comment.matchSingle("cite:last-child");
+				var author = Traversal.getTextContent(cite) || "comment #" + id;
+				// tidy the WordPress formatted text
+				author = author.replace(/(^\s*comment(\s+by)?\s)|(\s\W\s.*$)/gi, "");
+				// grab text text selection (if any)
+				var selectedText = "";
+				if (window.getSelection) {
+					selectedText = String(window.getSelection());
+				} else if (document.selection) {
+					selectedText = document.selection.createRange().text;
+				}
+				if (selectedText) {
+					// use the selected text
+			    	var quote = "<p>" + trim(selectedText) + "</p>";
+				} else {
+					// grab the entire comment's html
+					var text = comment.matchSingle("div.comment-text").cloneNode(true);
+					// strip syntax-highlighting
+					forEach (Element.matchAll(text, "pre"), function(pre) {
+						Traversal.setTextContent(pre, pre.getAttribute("originalText"));
+						pre.removeAttribute("originalText");
+						pre.removeAttribute("style");
+						pre.removeAttribute("base2ID");
+					});
+					// remove smilies
+					forEach (Element.matchAll(text, "img"), function(img) {
+						img.parentNode.replaceChild(document.createTextNode(img.alt), img);
+					});
+					// tidy the html
+			    	quote = trim(TIDY.exec(text.innerHTML));
+				}
+				// create <blockquote> html
+				var html = format(QUOTE, id, author, quote);
+				// update the comment form
+				textarea.value = trim(textarea.value + "\n" + html);
+				textarea.focus();
+			};
+		},
+		
+		onmouseover: function() {
+			this.matchSingle("button").style.visibility = "visible";
+		},
+		
+		onmouseout: function() {
+			this.matchSingle("button").style.visibility = "";
+		}
+	}
+});
