@@ -51,7 +51,7 @@
 	color: orangered;
 }
 
-.highlight .pi { /* processing instruction */
+.highlight .processing-instruction {
 	color: orchid;
 	font-style: italic;
 }
