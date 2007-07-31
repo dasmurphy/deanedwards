@@ -1,0 +1,16 @@
+@namespace xh url(http://www.w3.org/1999/xhtml);
+@namespace xul yrl(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+xh|datalist {display: none;}
+
+form {-moz-binding: url(wf2-gui.xml#form);}
+xh|* > input {-moz-binding: url(wf2-gui.xml#input-text);}
+input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-number);}
+input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-datetime);}
+input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-date);}
+input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-month);}
+input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-time);}
+input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-week);}
+input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range);}
+input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range-readonly);}
+input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-list);}
+input[type=hidden] {-moz-binding: none;}

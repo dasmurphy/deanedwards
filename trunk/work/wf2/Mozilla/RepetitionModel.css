@@ -1,0 +1,10 @@
+
+/*
+*/
+
+[repeat]                    {-moz-binding: url(RepetitionModel.xml#RepetitionBlock);}
+[repeat=template]           {-moz-binding: url(RepetitionModel.xml#RepetitionTemplate); display: none;}
+button[type=add]            {-moz-binding: url(RepetitionModel.xml#RepetitionButtonAdd);}
+button[type=remove]         {-moz-binding: url(RepetitionModel.xml#RepetitionButtonRemove);}
+button[type=move-up]        {-moz-binding: url(RepetitionModel.xml#RepetitionButtonMoveUp);}
+button[type=move-down]      {-moz-binding: url(RepetitionModel.xml#RepetitionButtonMoveDown);}

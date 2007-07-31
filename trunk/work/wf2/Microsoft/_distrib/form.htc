@@ -1,0 +1,36 @@
+<!-- Web Forms 2.0 (for Internet Explorer) version 0.0.6 -->
+<component lightweight="true">
+<property name="accept" get="get_accept" put="set_accept"/>
+<property name="data" get="get_data" put="set_data"/>
+<property name="elements" get="get_elements"/>
+<property name="length" get="get_length"/>
+<property name="replace" get="get_replace" put="set_replace"/>
+<property name="templateElements" get="get_templateElements"/>
+<method name="checkValidity"/>
+<method name="dispatchFormChange"/>
+<method name="dispatchFormInput"/>
+<method name="resetFromData"/>
+<method name="submit"/>
+<event name="onformchange" id="onformchange"/>
+<event name="onforminput" id="onforminput"/>
+<event name="onreceived" id="onreceived"/>
+<attach event="oncontentready" onevent="e.oncontentready()"/>
+<attach event="ondetach" onevent="e.ondetach()"/>
+<script language="jscript">
+var e = wf2.bind(this);
+function get_accept(){return e.get_accept()};
+function set_accept(v){e.set_accept(v)};
+function get_data(){return e.get_data()};
+function set_data(v){e.set_data(v)};
+function get_elements(){return e.get_elements()};
+function get_length(){return e.get_length()};
+function get_replace(){return e.get_replace()};
+function set_replace(v){e.set_replace(v)};
+function get_templateElements(){return e.get_templateElements()};
+function checkValidity(){return e.checkValidity()}
+function dispatchFormChange(){e.dispatchFormChange()}
+function dispatchFormInput(){e.dispatchFormInput()}
+function resetFromData(data){e.resetFromData(data)}
+function submit(){e.submit()}
+</script>
+</component>
