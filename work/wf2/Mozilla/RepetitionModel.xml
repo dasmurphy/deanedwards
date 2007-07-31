@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml">
+
+<binding id="RepetitionElement">
+ <implementation>
+  <property name="REPETITION_NONE">
+   <getter>return 0</getter>
+  </property>
+  <property name="REPETITION_TEMPLATE">
+   <getter>return 1</getter>
+  </property>
+  <property name="REPETITION_BLOCK">
+   <getter>return 2</getter>
+  </property>
+  
+  <property name="repetitionType">
+   <getter><![CDATA[
+    if (this.hasAttribute("repeat")) {
+      var repeat = this.getAttribute("repeat");
+      if (repeat == "template") {
+        return this.REPETITION_TEMPLATE;
+      }
+      var UBOUND = Math.pow(2, 32) - 1;
+      var INTEGER = /^\-?\d+$/;
+      if (INTEGER.test(repeat) && repeat < UBOUND) {
+        return this.REPETITION_BLOCK;
+      }
+    }
+    return this.REPETITION_NONE;
+   ]]></getter>
+   <setter>
+    switch (val) {
+      case this.REPETITION_NONE:
+        this.removeAttribute("repeat");
+        break;
+      case this.REPETITION_TEMPLATE:
+        this.setAttribute("repeat", "template");
+        break;
+      case this.REPETITION_BLOCK:
+        this.setAttribute("repeat", this.repetitionIndex);
+        break;
+      default:
+        throw new Error("NOT_SUPPORTED_ERR");
+    }
+    return val;
+   </setter>  
+  </property>
+  
+  <property name="repetitionIndex">
+   <getter><![CDATA[
+    var UBOUND = Math.pow(2, 32) - 1;
+    if (this.hasAttribute("repeat")) {
+      var value = Number(this.getAttribute("repeat"));
+      if (value && !isNaN(value) && value > 0 && value < UBOUND) {
+        return value;
+      }
+    }
+    return 0;
+   ]]></getter>
+   <setter>
+    this.setAttribute("repeat", val);
+    return val;
+   </setter>
+  </property>
+  
+  <property name="repetitionTemplate">
+   <getter>return null</getter>
+  </property>
+  
+  <property name="repetitionBlocks">
+   <getter>return null</getter>
+  </property>
+  
+  <property name="repeat"/>
+  
+  <property name="repeatStart"/>
+  
+  <property name="repeatMin"/>
+  
+  <property name="repeatMax"/>
+  
+  <method name="addRepetitionBlock">
+   <parameter name="refNode"/>
+   <body><![CDATA[
+    if (arguments.length < 1) {
+      throw new SyntaxError("not enough arguments");
+    }
+    return null;
+   ]]></body>
+  </method>
+  
+  <method name="addRepetitionBlockByIndex">
+   <parameter name="refNode"/>
+   <parameter name="index"/>
+   <body><![CDATA[
+    if (arguments.length < 2) {
+      throw new SyntaxError("not enough arguments");
+    }
+    return this.addRepetitionBlock(refNode, index);
+   ]]></body>
+  </method>
+  
+  <method name="moveRepetitionBlock">
+   <parameter name="distance"/>
+   <body><![CDATA[
+    if (arguments.length < 1) {
+      throw new SyntaxError("not enough arguments");
+    }
+    return null;
+   ]]></body>
+  </method>
+  
+  <method name="removeRepetitionBlock">
+   <parameter name="distance"/>
+   <body><![CDATA[
+    if (arguments.length < 1) {
+      throw new SyntaxError("not enough arguments");
+    }
+    return null;
+   ]]></body>
+  </method>
+ </implementation>
+</binding>
+
+<binding id="RepetitionTemplate" extends="#RepetitionElement">
+ <content>
+  <children />
+  <html:span anonid="repetitionIndex" style="display:none">0</html:span>
+ </content>
+ <implementation>
+  <constructor><![CDATA[
+   if (this.parentNode && this.parentNode.nodeType == this.ELEMENT_NODE) {
+     // maintain the mimimum number of blocks
+     var i = 0;
+     var start = Math.min(this.repeatStart, this.repeatMax);
+     while (i++ < start) {
+       this.addRepetitionBlock(null);
+     };
+     i = this.repetitionBlocks.length;
+     while (i++ < this.repeatMin) {
+       this.addRepetitionBlock(null);
+     }
+     setTimeout(function(template) {
+       template.repeat = "template"; // initialise button states
+     }, 0, this);
+   }
+  ]]></constructor>
+  
+  <!--       
+    This is an XBL frig.
+    
+    We don't want to add a public method to maintain the disabled state
+    of the repetition buttons (add, remove etc).
+    So we achieve this with a pointless setter.    
+  -->  
+  <property name="repeat">
+   <setter><![CDATA[
+     if (val == "template") {
+       var REPETITION_BLOCK = this.REPETITION_BLOCK;
+       function getRepetitionBlock(button) {
+         var block = button;
+         while (block && (block.repetitionType != REPETITION_BLOCK || !block.repetitionTemplate)) {
+           block = block.parentNode;
+         }
+         return block;
+       };
+       setTimeout(function(template) {
+         var blocks = template.repetitionBlocks;
+         for (var i = 0; i < blocks.length; i++) {
+           var query = ".//button[@type='move-up' or @type='move-down' or @type='add']" +
+             " | //button[@type='add' and @template='" + template.id.replace(/'/g, "\\'") + "']";
+           var type = XPathResult.ORDERED_NODE_SNAPSHOT_TYPE;
+           var buttons = template.ownerDocument.evaluate(query, blocks[i], null, type, null);
+           for (var j = 0; j < buttons.snapshotLength; j++) {
+             var button = buttons.snapshotItem(j);
+             if (button.htmlTemplate == template) {
+                 button.disabled = (blocks.length >= template.repeatMax);
+             } else if (blocks[i] == getRepetitionBlock(button)) {
+               switch (button.type) {
+                 case "move-up":
+                    button.disabled = (i == 0);
+                   break;
+                 case "move-down":
+                   button.disabled = (i == blocks.length - 1);
+                   break;
+                 case "add":
+                   button.disabled = (blocks.length >= template.repeatMax);
+                   break;
+               }
+             }
+             if (button.disabled) {
+               button.blur();
+             }
+           }
+         } 
+       }, 0, this);
+     } else {
+       this.setAttribute("repeat", val);
+     }
+     return val;
+   ]]></setter>
+  </property>
+  
+  <property name="repetitionIndex">
+   <getter>
+    var index = document.getAnonymousElementByAttribute(this, "anonid", "repetitionIndex");
+    return Number(index.textContent || 0);
+   </getter>
+   <setter>
+    var index = document.getAnonymousElementByAttribute(this, "anonid", "repetitionIndex");
+    index.textContent = val;
+    return val;
+   </setter>
+  </property>
+  
+  <!--    
+    This property should return a live HTMLCollection.
+    
+    This can't be created with JavaScript so we create
+    a simple JavaScript object to contain the elements.
+    
+    THIS IS NOT A LIVE COLLECTION.    
+  -->
+  <property name="repetitionBlocks">
+   <getter>
+    var blocks = {
+      get length() {
+        return length;
+      }
+    };
+    var length = 0;
+    var block = this.parentNode.firstChild;
+    while (block) {
+      if (block.repetitionTemplate == this) {
+        blocks[length++] = block;
+      }
+      block = block.nextSibling;
+    }
+    return blocks;
+   </getter>
+  </property>
+  
+  <property name="repeatStart">
+   <getter><![CDATA[
+    var UBOUND = Math.pow(2, 32) - 1;
+    if (this.hasAttribute("repeat-start")) {
+      var value = Number(this.getAttribute("repeat-start"));
+      if (!isNaN(value) && value >= 0 && value < UBOUND) {
+        return value;
+      }
+    }
+    return 1;
+   ]]></getter>
+   <setter>
+    if (val == 1) {
+      this.removeAttribute("repeat-start");
+    } else {
+      this.setAttribute("repeat-start", val);
+    }
+    return val;
+   </setter>
+  </property>
+  
+  <property name="repeatMin">
+   <getter><![CDATA[
+    var UBOUND = Math.pow(2, 32) - 1;
+    if (this.hasAttribute("repeat-min")) {
+      var value = Number(this.getAttribute("repeat-min"));
+      if (value && !isNaN(value) && value > 0 && value < UBOUND) {
+        return value;
+      }
+    }
+    return 0;
+   ]]></getter>
+   <setter>
+    if (val == 0) {
+      this.removeAttribute("repeat-min");
+    } else {
+      this.setAttribute("repeat-min", val);
+    }
+    return val;
+   </setter>
+  </property>
+  
+  <property name="repeatMax">
+   <getter><![CDATA[
+    var UBOUND = Math.pow(2, 32) - 1;
+    if (this.hasAttribute("repeat-max")) {
+      var value = Number(this.getAttribute("repeat-max"));
+      if (value && !isNaN(value) && value > 0 && value < UBOUND) {
+        return value;
+      }
+    }
+    return Number.UBOUND;
+   ]]></getter>
+   <setter>
+    var UBOUND = Math.pow(2, 32) - 1;
+    if (val == UBOUND) {
+      this.removeAttribute("repeat-max");
+    } else {
+      this.setAttribute("repeat-max", val);
+    }
+    return val;
+   </setter>
+  </property>
+  
+  <method name="addRepetitionBlock">
+   <parameter name="refNode"/>
+   <body><![CDATA[
+    if (arguments.length < 1) {
+      throw new SyntaxError("not enough arguments");
+    }
+    if (this.parentNode && this.parentNode.nodeType == this.ELEMENT_NODE) {
+      var repetitionIndex = this.repetitionIndex;
+      // grab the preceding repetition blocks
+      var blocks = [], block = this;
+      while (block = block.previousSibling) {
+        if (block.repetitionTemplate == this) {
+          if (block.repetitionIndex >= repetitionIndex) {
+            repetitionIndex = block.repetitionIndex + 1;
+          }
+          blocks.push(block);
+        }
+      }
+     
+      // quit if we have reached the maximum limit
+      if (blocks.length >= this.repeatMax) {
+        return null;
+      }
+      
+      // if this method was called by addRepetitionBlockByIndex()
+      // then use its index
+      if (arguments.callee.caller == this.addRepetitionBlockByIndex) {
+        var index = arguments[1];
+        if (index > repetitionIndex) {
+          repetitionIndex = index;
+        }
+      }
+     
+      // clone this template and initialise the new block
+      var block = this.cloneNode(true);
+      block.removeAttribute("repeat-start");
+      block.removeAttribute("repeat-min");
+      block.removeAttribute("repeat-max");
+      block.setAttribute("repeat", repetitionIndex);
+      
+      // replace [indexed] expressions
+      // we have to this for all attribute nodes
+      var name = /[\[\u02d1\u00b7\]]/.test(this.id) ? "" : this.id;
+      if (name) {
+        var attribute;
+        var safeName = name.replace(/([\/(){}|*+-.,^$?\\])/g, "\\$1");
+        var pattern = new RegExp("[\\[\\u02d1]" + safeName + "[\\u00b7\\]]", "g");
+        var query = ".//attribute::*[contains(translate(.,'\u02d1','['), '[')]";
+        var type = XPathResult.UNORDERED_NODE_ITERATOR_TYPE;
+        var attributes = this.ownerDocument.evaluate(query, block, null, type, null);
+        while (attribute = attributes.iterateNext()) {
+          attribute.value = attribute.value.replace(pattern, repetitionIndex);
+        }
+        block.setAttribute("repeat-template", name);
+        block.removeAttribute("id");
+      }
+      // insert the node
+      if (refNode == null) {
+        refNode = this;
+        while (refNode.previousSibling && refNode.previousSibling.repetitionType != this.REPETITION_BLOCK) {
+          refNode = refNode.previousSibling
+        }
+      } else {
+        refNode = refNode.nextSibling;
+      }
+      refNode.parentNode.insertBefore(block, refNode);
+      
+      // maintain the index
+      this.repetitionIndex = ++repetitionIndex;
+     
+      // fire the "added" event
+      var event = this.ownerDocument.createEvent("Events");
+      event.initEvent("added", true, false);
+      event.element = block;
+      this.dispatchEvent(event);
+      
+      // return the newly created block
+      return block;
+    }
+    return null;
+   ]]></body>
+  </method>
+ </implementation>
+</binding>
+
+<binding id="RepetitionBlock" extends="#RepetitionElement">
+ <implementation>
+  <property name="repetitionTemplate">
+   <getter><![CDATA[
+    if (this.repetitionType == this.REPETITION_BLOCK) {
+      if (this.hasAttribute("repeat-template")) {
+        var templateId = this.getAttribute("repeat-template");
+        var template = this.ownerDocument.getElementById(templateId);
+      } else {
+        template = this;
+        while ((template = template.nextSibling) && template.repetitionType != this.REPETITION_TEMPLATE) {
+          continue;
+        }
+      }
+    }
+    if (template && template.repetitionType == this.REPETITION_TEMPLATE) {
+       return template;
+    }
+    return null;
+   ]]></getter>
+  </property>
+  
+  <method name="removeRepetitionBlock">
+   <body><![CDATA[
+    if (this.repetitionType == this.REPETITION_BLOCK) {   
+      var template = this.repetitionTemplate;
+      
+      this.parentNode.removeChild(this);
+     
+      if (template) { // not an orphan
+        // fire the "removed" event on the template
+        var event = this.ownerDocument.createEvent("Events");
+        event.initEvent("removed", true, false);
+        event.element = this;
+        template.dispatchEvent(event);
+        
+        // maintain the mimimum number of blocks
+        var length = template.repetitionBlocks.length;
+        while (length++ < template.repeatMin) {
+          template.addRepetitionBlock(null);
+        }
+      }
+    }
+   ]]></body>
+  </method>
+  
+  <method name="moveRepetitionBlock">
+   <parameter name="distance"/>
+   <body><![CDATA[
+    if (arguments.length < 1) {
+      throw new SyntaxError("not enough arguments");
+    }
+    if (this.repetitionType == this.REPETITION_BLOCK) {    
+      if (!distance) return;
+     
+      var target = this;
+      var template = this.repetitionTemplate;
+     
+      if (distance < 0) {
+        while (distance < 0 && target.previousSibling && target.previousSibling.repetitionType != this.REPETITION_TEMPLATE) {
+          target = target.previousSibling;
+          if (target.repetitionType == this.REPETITION_BLOCK) {
+            distance++;
+          }
+        }
+      } else {
+        while (distance > 0 && target.nextSibling && target.nextSibling.repetitionType != this.REPETITION_TEMPLATE) {
+          target = target.nextSibling;
+          if (target.repetitionType == this.REPETITION_BLOCK) {
+            distance--;
+          }
+        }
+        target = target.nextSibling;
+      }
+     
+      // move the block
+      this.parentNode.insertBefore(this, target);
+     
+      if (template) { // not an orphan
+        // fire the "moved" event on the template
+        var event = this.ownerDocument.createEvent("Events");
+        event.initEvent("moved", true, false);
+        event.element = this;
+        template.dispatchEvent(event);
+      }
+    }
+   ]]></body>
+  </method>
+ </implementation>
+</binding>
+
+<binding id="RepetitionButtonElement" extends="#RepetitionElement">
+ <implementation>
+  <constructor><![CDATA[
+   setTimeout(function(button) {
+     var block = button;
+     while (block && (block.repetitionType != button.REPETITION_BLOCK || !block.repetitionTemplate)) {
+       block = block.parentNode;
+     }
+     button.disabled = !block;
+   }, 0, this);
+  ]]></constructor>
+  
+  <property name="template"/>
+  
+  <property name="htmlTemplate">
+   <getter><![CDATA[
+    if (this.hasAttribute("template")) {
+      var templateId = this.getAttribute("template");
+      var template = this.ownerDocument.getElementById(templateId);
+      if (template && template.repetitionType == this.REPETITION_TEMPLATE) {
+        return template;
+      }
+    }
+    return null;
+   ]]></getter>
+  </property>
+ </implementation>
+ 
+ <handlers>
+  <handler event="click">
+   event.preventDefault();
+  </handler>
+ </handlers>
+</binding>
+
+<binding id="RepetitionButtonAdd" extends="#RepetitionButtonElement">
+ <implementation>
+  <constructor><![CDATA[
+   setTimeout(function(button) {
+     if (button.hasAttribute("template")) {
+       var template = button.htmlTemplate;
+     } else {
+       var block = button;
+       while (block && (block.repetitionType != button.REPETITION_BLOCK || !block.repetitionTemplate)) {
+         block = block.parentNode;
+       }
+       if (block) {
+         template = block.repetitionTemplate;
+       }
+     }
+     button.disabled = !template;
+   }, 0, this);
+  ]]></constructor>
+  
+  <property name="template">
+   <setter>
+    this.setAttribute("template", val);
+    this.disabled = !this.htmlTemplate;
+    return val;
+   </setter>
+  </property>
+ </implementation>
+ 
+ <handlers>
+  <handler event="click"><![CDATA[
+   if (this.hasAttribute("template")) {
+     var template = this.htmlTemplate;
+     var block = null;
+   } else {
+     block = this;
+     while (block && (block.repetitionType != this.REPETITION_BLOCK || !block.repetitionTemplate)) {
+       block = block.parentNode;
+     }
+     if (block) {
+       template = block.repetitionTemplate;
+     }
+   }
+   if (template) {
+     template.addRepetitionBlock(block);
+     template.repeat = "template"; // refresh button states
+   }
+  ]]></handler>
+ </handlers>
+</binding>
+
+<binding id="RepetitionButtonRemove" extends="#RepetitionButtonElement">
+ <handlers>
+  <handler event="click"><![CDATA[
+   var block = this;
+   while (block && (block.repetitionType != this.REPETITION_BLOCK || !block.repetitionTemplate)) {
+     block = block.parentNode;
+   }
+   if (block) {
+     var template = block.repetitionTemplate;
+     block.removeRepetitionBlock();
+     template.repeat = "template"; // refresh button states
+   }
+  ]]></handler>
+ </handlers>
+</binding>
+
+<binding id="RepetitionButtonMoveUp" extends="#RepetitionButtonElement">
+ <handlers>
+  <handler event="click"><![CDATA[
+   var block = this;
+   while (block && (block.repetitionType != this.REPETITION_BLOCK || !block.repetitionTemplate)) {
+     block = block.parentNode;
+   }
+   if (block) {
+     block.moveRepetitionBlock(-1);
+     block.repetitionTemplate.repeat = "template"; // refresh button states
+   }
+  ]]></handler>
+ </handlers>
+</binding>
+
+<binding id="RepetitionButtonMoveDown" extends="#RepetitionButtonElement">
+ <handlers>
+  <handler event="click"><![CDATA[
+   var block = this;
+   while (block && (block.repetitionType != this.REPETITION_BLOCK || !block.repetitionTemplate)) {
+     block = block.parentNode;
+   }
+   if (block) {
+     block.moveRepetitionBlock(+1);     
+     block.repetitionTemplate.repeat = "template"; // refresh button states
+   }
+  ]]></handler>
+ </handlers>
+</binding>
+
+</bindings>

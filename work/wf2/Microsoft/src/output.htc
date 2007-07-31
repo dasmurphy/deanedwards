@@ -1,0 +1,31 @@
+<!-- Web Forms 2.0 (for Internet Explorer) version 0.0.6 -->
+<component lightweight="true">
+<property name="defaultValue" get="get_defaultValue" put="set_defaultValue"/>
+<property name="form" get="get_form" put="set_form"/>
+<property name="forms" get="get_forms"/>
+<property name="labels" get="get_labels"/>
+<property name="validationMessage" get="get_validationMessage"/>
+<property name="validity" get="get_validity"/>
+<property name="value" get="get_value" put="set_value"/>
+<property name="willValidate" get="get_willValidate"/>
+<method name="checkValidity"/>
+<method name="setCustomValidity"/>
+<attach event="oncontentready" onevent="e.oncontentready()"/>
+<attach event="ondetach" onevent="e.ondetach()"/>
+<script language="jscript">
+var e = wf2.bind(this);
+function get_defaultValue(){return e.get_defaultValue()};
+function set_defaultValue(v){e.set_defaultValue(v)};
+function get_form(){return e.get_form()};
+function set_form(v){e.set_form(v)};
+function get_forms(){return e.get_forms()};
+function get_labels(){return e.get_labels()};
+function get_validationMessage(){return e.get_validationMessage()};
+function get_validity(){return e.get_validity()};
+function get_value(){return e.get_value()};
+function set_value(v){e.set_value(v)};
+function get_willValidate(){return e.get_willValidate()};
+function checkValidity(){return e.checkValidity()};
+function setCustomValidity(error){e.setCustomValidity(error)}
+</script>
+</component>

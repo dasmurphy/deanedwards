@@ -1,0 +1,15 @@
+<!-- Web Forms 2.0 (for Internet Explorer) version 0.0.6 -->
+<component lightweight="true">
+<property name="elements" get="get_elements"/>
+<property name="form" get="get_form" put="set_form"/>
+<property name="forms" get="get_forms"/>
+<attach event="oncontentready" onevent="e.oncontentready()"/>
+<attach event="ondetach" onevent="e.ondetach()"/>
+<script language="jscript">
+var e = wf2.bind(this);
+function get_elements(){return e.get_elements()};
+function get_form(){return e.get_form()};
+function set_form(v){e.set_form(v)};
+function get_forms(){return e.get_forms()};
+</script>
+</component>

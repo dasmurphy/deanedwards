@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>dean.edwards.name/something</title>
+  <style type="text/css">
+   @namespace xh url(http://www.w3.org/1999/xhtml);
+   iframe {width: 100%;}
+   span.dummy {-moz-binding: url(wf2-gui.xml#input-number); display:inline}
+  </style>
+  <link rel="stylesheet" href="wf2.css" type="text/css">
+  <script type="text/javascript">
+  </script>
+ </head>
+ <body>
+  <form enctype="multipart/form-data" method="post" action="http://software.hixie.ch/utilities/cgi/test-tools/echo" target="iframe">
+   <fieldset class="test[1]">
+    <input name="required1" type="text" required>
+   </fieldset>
+   <fieldset>
+    <input name="text1" type="text" value="text">
+    <input name="number1" type="number" min="0" max="10" value="4" step="2">
+    <input name="date1"  type="date" value="2002-07-25">
+    <input name="range1" type="range" value="10">
+    <input name="range2" type="range" readonly value="42">
+    <input name="time1" type="time" value="12:40">
+    <input name="list1" type="text" value="Bats" list="picker">
+    <input name="datetime1" type="datetime" value="2002-07-25T12:40">
+    <span class="dummy">Some text</span>
+    <span class="dummy">Some text</span>
+    <span class="dummy">Some text</span>
+   </fieldset>
+   <p><button name="submit1" type="submit">Submit</button></p>
+  </form>
+  <iframe name="iframe" src="http://software.hixie.ch/utilities/cgi/test-tools/echo" height="320px"></iframe>
+ </body>
+</html>

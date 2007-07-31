@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<bindings id="wf2-bindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+
+<binding id="wf2-form">
+ <implementation>
+  <property name="accept"/>
+  <property name="data"/>
+  <property name="elements" readonly="true"/>
+  <property name="length" readonly="true"/>
+  <property name="replace"/>
+  <property name="templateElements" readonly="true"/>
+  <method name="checkValidity"/>
+  <method name="dispatchFormChange"/>
+  <method name="dispatchFormInput"/>
+  <method name="resetFromData"/>
+  <method name="submit"/>
+ </implementation>
+</binding>
+
+<binding id="wf2-output">
+ <implementation>
+  <property name="defaultValue"/>
+  <property name="form"/>
+  <property name="forms" readonly="true"/>
+  <property name="labels" readonly="true"/>
+  <property name="validationMessage" readonly="true"/>
+  <property name="validity" readonly="true"/>
+  <property name="value"/>
+  <property name="willValidate" readonly="true"/>
+  <method name="checkValidity"/>
+  <method name="setCustomValidity"/>
+ </implementation>
+</binding>
+
+<binding id="wf2-input">
+ <implementation>
+  <property name="autofocus" readonly="true"/>
+  <property name="disabled"/>
+  <property name="form" readonly="true"/>
+  <property name="forms" readonly="true"/>
+  <property name="labels" readonly="true"/>
+  <property name="htmlTemplate" readonly="true"/>
+  <property name="list"/>
+  <property name="max"/>
+  <property name="min"/>
+  <property name="pattern"/>
+  <property name="readOnly"/>
+  <property name="required"/>
+  <property name="selectedOption" readonly="true"/>
+  <property name="step"/>
+  <property name="type" readonly="true"/>
+  <property name="validationMessage" readonly="true"/>
+  <property name="validity" readonly="true"/>
+  <property name="value"/>
+  <property name="valueAsDate"/>
+  <property name="valueAsNumber"/>
+  <property name="willValidate" readonly="true"/>
+  <method name="checkValidity"/>
+  <method name="dispatchChange"/>
+  <method name="dispatchFormChange"/>
+  <method name="setCustomValidity"/>
+  <method name="stepDown"/>
+  <method name="stepUp"/>
+ </implementation>
+</binding>
+
+<!--
+<binding id="wf2-control" extends="wf2-form-item">
+ <implementation>
+  <property name="labels" readonly="true"/>
+  <property name="validationMessage" readonly="true"/>
+  <property name="validity" readonly="true"/>
+  <property name="value"/>
+  <property name="willValidate" readonly="true"/>
+  <method name="checkValidity"/>
+  <method name="setCustomValidity"/>
+ </implementation>
+</binding>
+
+<binding id="wf2-input" extends="wf2-control">
+ <implementation>
+  <property name="autofocus" readonly="true"/>
+  <property name="disabled"/>
+  <property name="list" readonly="true"/>
+  <property name="max"/>
+  <property name="min"/>
+  <property name="pattern"/>
+  <property name="readOnly"/>
+  <property name="required"/>
+  <property name="step"/>
+  <property name="valueAsDate"/>
+  <property name="valueAsNumber"/>
+  <method name="dispatchChange"/>
+  <method name="dispatchFormChange"/>
+  <method name="stepDown"/>
+  <method name="stepUp"/>
+ </implementation>
+</binding>
+
+<binding id="wf2-button" extends="wf2-input"/>
+<binding id="wf2-submit" extends="wf2-button"/>
+<binding id="wf2-image" extends="wf2-submit"/>
+<binding id="wf2-data" extends="wf2-input"/>
+<binding id="wf2-boolean" extends="wf2-data"/>
+<binding id="wf2-checkbox" extends="wf2-boolean"/>
+<binding id="wf2-radio" extends="wf2-boolean"/>
+<binding id="wf2-file" extends="wf2-data"/>
+<binding id="wf2-hidden" extends="wf2-data"/>
+<binding id="wf2-scalar" extends="wf2-data"/>
+<binding id="wf2-number" extends="wf2-scalar"/>
+<binding id="wf2-date-time" extends="wf2-number"/>
+<binding id="wf2-date" extends="wf2-date-time"/>
+<binding id="wf2-month" extends="wf2-date"/>
+<binding id="wf2-week" extends="wf2-date"/>
+<binding id="wf2-date-time-local" extends="wf2-date-time"/>
+<binding id="wf2-time" extends="wf2-date-time"/>
+<binding id="wf2-range" extends="wf2-number"/>
+<binding id="wf2-text" extends="wf2-scalar"/>
+<binding id="wf2-email" extends="wf2-text"/>
+<binding id="wf2-password" extends="wf2-text"/>
+<binding id="wf2-textarea" extends="wf2-text"/>
+<binding id="wf2-url" extends="wf2-text"/>
+<binding id="wf2-select" extends="wf2-data"/>
+
+<binding id="wf2-output" extends="wf2-control"/>
+-->
+</bindings>

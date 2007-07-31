@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<bindings id="wf2-bindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+
+<binding id="form">
+ <handlers>
+  <handler event="submit">
+   for each (var element in this.elements) {
+     if (element.willValidate) element.checkValidity();
+   }
+  </handler>
+ </handlers>
+</binding>
+
+<binding id="input-text">
+ <implementation>
+  <constructor>
+   if (this.hasAttribute("autofocus")) {
+  	this.focus();
+   }
+   //this.style.display = "inline-block";
+  </constructor>
+ </implementation>
+ <handlers>
+  <handler event="invalid">
+   var hint = document.getAnonymousElementByAttribute(this, "anonid", "hint");
+   hint.firstChild.textContent = this.validationMessage;
+   hint.showPopup();
+  </handler>
+ </handlers>
+ <content>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="-input-text-value" extends="#input-text">
+ <handlers>
+  <handler event="input">
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   this.value = extended.value;
+  </handler>
+
+  <handler event="change">
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   if (event.originalTarget == extended) {
+     this.value = extended.value;
+   }
+  </handler>
+ </handlers>
+ <content>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-list" extends="#-input-text-value">
+ <handlers>
+  <handler event="ValueChange">
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   if (event.originalTarget == extended) {
+     this.value = extended.value;
+   }
+  </handler>
+ </handlers>
+ <content>
+  <html:span html:style="display:none"><children /></html:span>
+  <xul:menulist anonid="extended-gui" editable="true"
+   xbl:inherits="onfocus,onblur,disabled,value,readonly,tabindex,accesskey"
+   style="margin:0; padding:0">
+   <xul:menupopup>
+    <!-- TO DO: fill list -->
+    <xul:menuitem label="Elephants" value="Elephants"/>
+    <xul:menuitem label="Kangaroos" value="Kangaroos"/>
+    <xul:menuitem label="Bats" value="Bats"/>
+   </xul:menupopup>
+  </xul:menulist>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-number" extends="#-input-text-value">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:textbox anonid="extended-gui" type="number"
+   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"
+   style="margin:0;border:none"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-range" extends="#input-number">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:scale anonid="extended-gui" orient="horizontal" style="cursor:default;vertical-align:top;"
+   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey" />
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-range-readonly" extends="#input-range">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:progressmeter anonid="extended-gui" orient="horizontal" style="cursor:default;margin-left:0;margin-right:0"
+   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-datetime" extends="#input-text">
+ <implementation>
+  <constructor>
+   setTimeout(function(self) {
+     try {
+       var extended = document.getAnonymousElementByAttribute(self, "anonid", "extended-gui");
+       if (extended) extended.value = self.value.split("-").join("/");
+     } catch (error) {
+       // ignore
+     }
+    }, 0, this);
+  </constructor>
+ </implementation>
+ <handlers>
+  <handler event="input">
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   if (extended) this.value = extended.value.split("/").join("-");
+  </handler>
+
+  <handler event="change">
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   if (event.originalTarget == extended) {
+     this.value = extended.value.split("/").join("-");
+   }
+  </handler>
+ </handlers>
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:datepicker anonid="extended-gui" type="popup"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
+   style="margin:0;padding:0;border:none"/>
+  <xul:timepicker anonid="extended-time" type="number"
+   xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"
+   style="margin:0;padding:0;border:none;margin-left:1ex"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-date" extends="#input-datetime">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:datepicker anonid="extended-gui" type="popup"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
+   style="margin:0;padding:0;border:none"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-time" extends="#input-datetime">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:timepicker anonid="extended-gui" type="number"
+   xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"
+   style="margin:0;padding:0;border:none"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-week" extends="#input-date">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:datepicker anonid="extended-gui" type="popup"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
+   style="margin:0; padding:0"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+<binding id="input-month" extends="#input-date">
+ <content>
+  <html:span style="display:none"><children /></html:span>
+  <xul:datepicker anonid="extended-gui" type="popup"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
+   style="margin:0; padding:0"/>
+  <xul:popup anonid="hint">
+   <xul:description anonid="text"/>
+  </xul:popup>
+ </content>
+</binding>
+
+</bindings>

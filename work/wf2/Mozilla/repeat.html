@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Form Repeat Demo</title>
+  <link rel="stylesheet" href="wf2.css" type="text/css">
+  <link rel="stylesheet" href="RepetitionModel.css" type="text/css">  
+ </head>
+ <body>
+  <form action="http://software.hixie.ch/utilities/cgi/test-tools/echo" method="post" enctype="multipart/form-data">
+   <table>
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Number of Cats</th>
+      <th></th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr repeat="0">
+      <td><input type="text" name="name_0" value="John Smith"></td>
+      <td><input type="text" name="count_0" value="2"></td>
+      <td><button type="remove">Delete Row</button></td>
+      <td><button type="move-up">Move Up</button></td>
+      <td><button type="move-down">Move Down</button></td>
+      <td><button type="add">Add Row</button></td>
+     </tr>
+     <tr repeat="template" id="row" repeat-start="3" repeat-min="2" repeat-max="6">
+      <td><input type="text" name="name_[row]" value="" autofocus></td>
+      <td><input type="text" name="count_[row]" value="1"></td>
+      <td><button type="remove">Delete Row</button></td>
+      <td><button type="move-up">Move Up</button></td>
+      <td><button type="move-down">Move Down</button></td>
+      <td><button type="add">Add Row</button></td>
+     </tr>
+    </tbody>
+   </table>
+   <p>
+    <button type="add" template="row">Add Row</button>
+    <button id="adder" type="remove" template="row">Delete Row</button>
+    <button type="move-up" template="row">Move Up</button>
+    <button type="move-down" template="row">Move Down</button>
+    <button type="submit">Submit</button>
+    <button type="button" onclick="alert(document.getElementsByTagName('tbody')[0].innerHTML)">Show HTML</button>
+    <button type="button" onclick="alert(document.getElementById('row').repetitionIndex)">Show Index</button>
+   </p>
+  </form>
+ </body>
+</html>

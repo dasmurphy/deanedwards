@@ -1,0 +1,102 @@
+<!-- Web Forms 2.0 (for Internet Explorer) version 0.0.6 -->
+<component lightweight="true">
+<property name="autofocus" id="autofocus" get="get_autofocus" put="set_autofocus"/>
+<property name="disabled" get="get_disabled" put="set_disabled"/>
+<property name="form" get="get_form" put="set_form"/>
+<property name="forms" get="get_forms"/>
+<property name="labels" get="get_labels"/>
+<property name="htmlTemplate" get="get_htmlTemplate"/>
+<property name="list" id="list" get="get_list" put="set_list"/>
+<property name="max" id="max" get="get_max" put="set_max"/>
+<property name="min" id="min" get="get_min" put="set_min"/>
+<property name="pattern" id="pattern" get="get_pattern" put="set_pattern"/>
+<property name="readOnly" get="get_readOnly" put="set_readOnly"/>
+<property name="required" id="required" get="get_required" put="set_required"/>
+<property name="selectedOption" get="get_selectedOption"/>
+<property name="step" id="step" get="get_step" put="set_step"/>
+<property name="type" get="get_type"/>
+<property name="validationMessage" get="get_validationMessage"/>
+<property name="validity" get="get_validity"/>
+<property name="value" id="value" get="get_value" put="set_value"/>
+<property name="valueAsDate" get="get_valueAsDate" put="set_valueAsDate"/>
+<property name="valueAsNumber" get="get_valueAsNumber" put="set_valueAsNumber"/>
+<property name="willValidate" get="get_willValidate"/>
+<method name="checkValidity"/>
+<method name="dispatchChange"/>
+<method name="dispatchFormChange"/>
+<method name="setCustomValidity"/>
+<method name="stepDown"/>
+<method name="stepUp"/>
+<event name="onDOMControlValueChanged" id="onDOMControlValueChanged"/>
+<event name="oninvalid" id="oninvalid"/>
+<event name="onforminput" id="onforminput"/>
+<event name="onformchange" id="onformchange"/>
+<event name="oninput" id="oninput"/>
+<attach event="onactivate" onevent="e.onactivate()"/>
+<attach event="onblur" onevent="e.onblur()"/>
+<attach event="onchange" onevent="e.onchange()"/>
+<attach event="oncontentready" onevent="e.oncontentready()"/>
+<attach event="ondocumentready" onevent="e.ondocumentready()"/>
+<attach event="onclick" onevent="e.onclick()"/>
+<attach event="ondblclick" onevent="e.ondblclick()"/>
+<attach event="ondeactivate" onevent="e.ondeactivate()"/>
+<attach event="ondetach" onevent="e.ondetach()"/>
+<attach event="onfocus" onevent="e.onfocus()"/>
+<attach event="onkeydown" onevent="e.onkeydown()"/>
+<attach event="onkeypress" onevent="e.onkeypress()"/>
+<attach event="onkeyup" onevent="e.onkeyup()"/>
+<attach event="onlosecapture" onevent="e.onlosecapture()"/>
+<attach event="onmousedown" onevent="e.onmousedown()"/>
+<attach event="onmousemove" onevent="e.onmousemove()"/>
+<attach event="onmouseout" onevent="e.onmouseout()"/>
+<attach event="onmouseover" onevent="e.onmouseover()"/>
+<attach event="onmouseup" onevent="e.onmouseup()"/>
+<attach event="onmousewheel" onevent="e.onmousewheel()"/>
+<attach event="onpaste" onevent="e.onpaste()"/>
+<attach event="onpropertychange" onevent="e.onpropertychange()"/>
+<attach event="onresize" onevent="e.onresize()"/>
+<attach event="onscroll" onevent="e.onscroll()"/>
+<script language="jscript">
+var e = wf2.bind(this);
+function get_autofocus(){return e.get_autofocus()};
+function set_autofocus(v){e.set_autofocus(v)};
+function get_disabled(){return e.get_disabled()};
+function set_disabled(v){e.set_disabled(v)};
+function get_step(){return e.get_step()};
+function set_step(v){e.set_step(v)};
+function get_form(){return e.get_form()};
+function set_form(v){e.set_form(v)};
+function get_forms(){return e.get_forms()};
+function get_htmlTemplate(){return e.get_htmlTemplate()};
+function get_labels(){return e.get_labels()};
+function get_list(){return e.get_list()};
+function set_list(v){e.set_list(v)}
+function get_max(){return e.get_max()};
+function set_max(v){e.set_max(v)};
+function get_min(){return e.get_min()};
+function set_min(v){e.set_min(v)};
+function get_pattern(){return e.get_pattern()};
+function set_pattern(v){e.set_pattern(v)}
+function get_readOnly(){return e.get_readOnly()};
+function set_readOnly(v){e.set_readOnly(v)};
+function get_required(){return e.get_required()};
+function set_required(v){e.set_required(v)};
+function get_type(){return e.get_type()};
+function get_selectedOption(){return e.get_selectedOption()};
+function get_validationMessage(){return e.get_validationMessage()};
+function get_validity(){return e.get_validity()};
+function get_value(){return e.get_value()};
+function set_value(v){e.set_value(v)};
+function get_valueAsDate(){return e.get_valueAsDate()};
+function set_valueAsDate(v){e.set_valueAsDate(v)};
+function get_valueAsNumber(){return e.get_valueAsNumber()};
+function set_valueAsNumber(v){e.set_valueAsNumber(v)};
+function get_willValidate(){return e.get_willValidate()};
+function checkValidity(){return e.checkValidity()};
+function dispatchChange(){e.dispatchChange()};
+function dispatchFormChange(){e.dispatchFormChange()};
+function setCustomValidity(error){e.setCustomValidity(error)};
+function stepDown(n){e.stepDown(n)};
+function stepUp(n){e.stepUp(n)};
+</script>
+</component>
