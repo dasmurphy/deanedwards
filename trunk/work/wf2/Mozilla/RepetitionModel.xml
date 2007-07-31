@@ -125,6 +125,7 @@
 <binding id="RepetitionTemplate" extends="#RepetitionElement">
  <content>
   <children />
+  <!-- Private data stored on an anonymous node. -->
   <html:span anonid="repetitionIndex" style="display:none">0</html:span>
  </content>
  <implementation>
@@ -132,7 +133,7 @@
    if (this.parentNode && this.parentNode.nodeType == this.ELEMENT_NODE) {
      // maintain the mimimum number of blocks
      var i = 0;
-     var start = Math.min(this.repeatStart, this.repeatMax);
+     var start = this.repeatStart;
      while (i++ < start) {
        this.addRepetitionBlock(null);
      };
@@ -147,7 +148,7 @@
   ]]></constructor>
   
   <!--       
-    This is an XBL frig.
+    Maintain button states with a phoney setter.
     
     We don't want to add a public method to maintain the disabled state
     of the repetition buttons (add, remove etc).
@@ -155,7 +156,7 @@
   -->  
   <property name="repeat">
    <setter><![CDATA[
-     if (val == "template") {
+     if (val == "template") { // refresh button states
        var REPETITION_BLOCK = this.REPETITION_BLOCK;
        function getRepetitionBlock(button) {
          var block = button;
@@ -167,9 +168,9 @@
        setTimeout(function(template) {
          var blocks = template.repetitionBlocks;
          for (var i = 0; i < blocks.length; i++) {
-           var query = ".//button[@type='move-up' or @type='move-down' or @type='add']" +
-             " | //button[@type='add' and @template='" + template.id.replace(/'/g, "\\'") + "']";
-           var type = XPathResult.ORDERED_NODE_SNAPSHOT_TYPE;
+           var query = "./descendant::button[@type='move-up' or @type='move-down' or @type='add']" +
+             " | /descendant::button[@type='add' and @template='" + template.id.replace(/'/g, "\\'") + "']";
+           var type = XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE;
            var buttons = template.ownerDocument.evaluate(query, blocks[i], null, type, null);
            for (var j = 0; j < buttons.snapshotLength; j++) {
              var button = buttons.snapshotItem(j);
@@ -201,10 +202,11 @@
    ]]></setter>
   </property>
   
+  <!-- Private data stored on an anonymous node. -->
   <property name="repetitionIndex">
    <getter>
     var index = document.getAnonymousElementByAttribute(this, "anonid", "repetitionIndex");
-    return Number(index.textContent || 0);
+    return Number(index.textContent) || 0;
    </getter>
    <setter>
     var index = document.getAnonymousElementByAttribute(this, "anonid", "repetitionIndex");
@@ -213,7 +215,7 @@
    </setter>
   </property>
   
-  <!--    
+  <!--
     This property should return a live HTMLCollection.
     
     This can't be created with JavaScript so we create
@@ -304,6 +306,7 @@
    </setter>
   </property>
   
+  <!-- http://www.whatwg.org/specs/web-forms/current-work/#addition -->
   <method name="addRepetitionBlock">
    <parameter name="refNode"/>
    <body><![CDATA[
@@ -345,13 +348,15 @@
       block.setAttribute("repeat", repetitionIndex);
       
       // replace [indexed] expressions
-      // we have to this for all attribute nodes
+      // we have to do this for all attribute nodes
+      // special characters used by the repetiton model:
+      //    '[', '\u02d1', '\u00b7', ']'
       var name = /[\[\u02d1\u00b7\]]/.test(this.id) ? "" : this.id;
       if (name) {
         var attribute;
         var safeName = name.replace(/([\/(){}|*+-.,^$?\\])/g, "\\$1");
         var pattern = new RegExp("[\\[\\u02d1]" + safeName + "[\\u00b7\\]]", "g");
-        var query = ".//attribute::*[contains(translate(.,'\u02d1','['), '[')]";
+        var query = "./descendant::*/attribute::*[contains(translate(.,'\u02d1','['), '[')]";
         var type = XPathResult.UNORDERED_NODE_ITERATOR_TYPE;
         var attributes = this.ownerDocument.evaluate(query, block, null, type, null);
         while (attribute = attributes.iterateNext()) {
@@ -372,7 +377,7 @@
       refNode.parentNode.insertBefore(block, refNode);
       
       // maintain the index
-      this.repetitionIndex = ++repetitionIndex;
+      this.repetitionIndex = repetitionIndex + 1;
      
       // fire the "added" event
       var event = this.ownerDocument.createEvent("Events");
@@ -411,6 +416,7 @@
    ]]></getter>
   </property>
   
+  <!-- http://www.whatwg.org/specs/web-forms/current-work/#removal -->
   <method name="removeRepetitionBlock">
    <body><![CDATA[
     if (this.repetitionType == this.REPETITION_BLOCK) {   
@@ -435,6 +441,7 @@
    ]]></body>
   </method>
   
+  <!-- http://www.whatwg.org/specs/web-forms/current-work/#movement -->
   <method name="moveRepetitionBlock">
    <parameter name="distance"/>
    <body><![CDATA[
