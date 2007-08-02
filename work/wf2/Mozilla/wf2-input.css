@@ -1,75 +1,69 @@
 
-@namespace xh url(http://www.w3.org/1999/xhtml);
+@namespace html url(http://www.w3.org/1999/xhtml);
 @namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
 /* bindings */
 
-xh|form {-moz-binding: url(wf2-input.xml#form);}
-xh|* > input {-moz-binding: url(wf2-input.xml#input-text);}
-xh|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-number);}
-xh|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-datetime);}
-xh|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-date);}
-xh|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-month);}
-xh|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-time);}
-xh|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-week);}
-xh|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range);}
-xh|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range-readonly);}
-xh|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-list);}
-xh|input[type=hidden] {-moz-binding: none;}
+html|* > input {-moz-binding: url(wf2-input.xml#input-text);}
+html|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-number);}
+html|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-datetime);}
+html|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-date);}
+html|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-month);}
+html|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-time);}
+html|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-week);}
+html|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range);}
+html|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range-readonly);}
+html|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-list);}
+html|input[type=hidden] {-moz-binding: none;}
 
 xul|datetimepicker {-moz-binding: url(wf2-datetimepicker.xml#datetimepicker);}
 
-/* display */
-
-xh|datalist {display: none;}
-
-xh|input[type=number],
-xh|input[type=datetime],
-xh|input[type=date],
-xh|input[type=month],
-xh|input[type=time],
-xh|input[type=week],
-xh|input[type=range],
-xh|input[list] {
+html|input[type=number],
+html|input[type=datetime],
+html|input[type=date],
+html|input[type=month],
+html|input[type=time],
+html|input[type=week],
+html|input[type=range],
+html|input[list] {
   padding: 0;
 }
 
-
-xh|input > xul|* {
+html|input > xul|* {
   margin-left: 0;
 }
 
 /* input[type=date|time|datetime|week|month] */
 
-xh|input[type=date] xul|datepicker,
-#test xh|input[type=date] * {
+html|input[type=date] xul|datepicker,
+#test html|input[type=date] * {
   background-color: red !important;
 }
 
 /* input[type=number] */
 
-xh|input[type=number] .numberbox-input-box, 
-xh|input[type=number] xul|textbox[type=number] {
+html|input[type=number] .numberbox-input-box, 
+html|input[type=number] xul|textbox[type=number] {
   background-color: inherit;
 }
 
-xh|input[type=number] .spinbuttons-button {
+html|input[type=number] .spinbuttons-button {
   min-height: 8px;
 }
 
-xh|input[type=number] xul|hbox.numberbox-input-box {
+html|input[type=number] xul|hbox.numberbox-input-box {
   width: 6.4em;
 }
 
 /* range */
 
-xh|input[type=range] {
+html|input[type=range] {
   cursor: default;
 }
 
 
 /* list */
 
-xh|input[list] {
+html|input[list] {
   cursor: default;
 }

@@ -39,6 +39,7 @@
  */
 
 #include "domstubs.idl"
+#include "nsIDOMHTMLOptionElement.idl"
 #include "nsIXPConnect.idl"
 #include "nsIDOMWF2ValidityState.idl"
 
