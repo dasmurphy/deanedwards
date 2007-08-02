@@ -3,7 +3,6 @@ const nsISupports                   = Components.interfaces.nsISupports;
 const DOM_OBJECT                    = Components.interfaces.nsIClassInfo.DOM_OBJECT
 const JAVASCRIPT                    = Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT
 const nsIDOMWF2Inner                = Components.interfaces.nsIDOMWF2Inner;
-const nsIDOMWF2InputElementTearoff  = Components.interfaces.nsIDOMWF2InputElementTearoff;
 const nsIDOMWF2ValidityState        = Components.interfaces.nsIDOMWF2ValidityState;
 
 const TYPE_VALID                   = /^(button|checkbox|date|datetime|datetime\-local|email|file|hidden|image|month|number|password|radio|range|reset|submit|text|time|url|week|add|remove|move\-up|move\-down)$/;
@@ -346,11 +345,10 @@ function WF2InputElement() {
 };
 
 WF2InputElement.prototype = new _WF2FormControl()._extend({
-
+  tearoff:               Components.interfaces.nsIDOMWF2InputElementTearoff,
   classID: Components.ID("{5b01e95f-d87d-4763-89cc-560a91a5311f}"),
   contractID:            "@mozilla.org/wf2/input-element-tearoff;1",
   classDescription:      "WF2 Input Element Tearoff",
-  tearoff:               Components.interfaces.nsIDOMWF2InputElementTearoff,
 
   /* public properties */
 
