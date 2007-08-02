@@ -83,7 +83,7 @@ WF2FieldsetElement.prototype = new _WF2FormControl()._extend({
   get elements() {
     return null;
   }
-};
+});
 
 
 // ==========================================================================
@@ -128,7 +128,7 @@ WF2FormElement.prototype = new _WF2Tearoff()._extend({
   resetFromData: function(data) {
     assertArity(arguments);
   }
-};
+});
 
 
 // ==========================================================================
@@ -154,7 +154,7 @@ WF2LabelElement.prototype = new _WF2FormItem()._extend({
     } 
     return control || null;
   }
-};
+});
 
 
 // ==========================================================================
@@ -170,7 +170,7 @@ WF2LegendElement.prototype = new _WF2FormItem()._extend({
   classID: Components.ID("{6db8dc08-3b22-4cb3-b2fe-b4f783260461}"),
   contractID:            "@mozilla.org/wf2/legend-element-tearoff;1",
   classDescription:      "WF2 Legend Element Tearoff"
-};
+});
 
 
 // ==========================================================================
@@ -186,7 +186,7 @@ WF2OptionElement.prototype = new _WF2FormItem()._extend({
   classID: Components.ID("{bd611113-ee51-4a0d-8026-84a0a8b1e92d}"),
   contractID:            "@mozilla.org/wf2/option-element-tearoff;1",
   classDescription:      "WF2 Option Element Tearoff"
-};
+});
 
 
 // ==========================================================================
@@ -274,7 +274,7 @@ WF2SelectElement.prototype = new _WF2FormControl()._extend({
   dispatchFormChange: function() {
     this._dispatchEvent("formchange");
   }
-};
+});
 
 
 // ==========================================================================
@@ -290,4 +290,4 @@ WF2TextAreaElement.prototype = new WF2InputElement()._extend({
   classID: Components.ID("{bf573705-9b17-4e75-a957-b0ad45678e7b}"),
   contractID:            "@mozilla.org/wf2/textarea-element-tearoff;1",
   classDescription:      "WF2 TextArea Element Tearoff"
-};
+});

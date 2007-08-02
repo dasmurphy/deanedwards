@@ -70,15 +70,7 @@
  </content>
 </binding>
 
-<binding id="input-number" extends="#-input-text-extended" inheritstyle="true">
- <implementation>
-  <constructor>
-   setTimeout(function(element) {
-     var extended = document.getAnonymousElementByAttribute(element, "anonid", "extended");
-     extended.orientation = (this.offsetHeight > this.offsetWidth) ? "verical" : "horizontal";
-    }, 0, this);
-  </constructor>
- </implementation>
+<binding id="input-number" extends="#-input-text-extended">
  <content>
   <xul:textbox anonid="extended" type="number"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
@@ -89,6 +81,14 @@
 </binding>
 
 <binding id="input-range" extends="#input-number">
+ <implementation>
+  <constructor>
+   setTimeout(function(element) {
+     var extended = document.getAnonymousElementByAttribute(element, "anonid", "extended");
+     extended.orient = (this.offsetHeight > this.offsetWidth) ? "vertical" : "horizontal";
+    }, 0, this);
+  </constructor>
+ </implementation>
  <content>
   <xul:scale anonid="extended" orient="horizontal"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>

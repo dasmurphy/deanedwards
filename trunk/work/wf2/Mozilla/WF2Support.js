@@ -101,14 +101,15 @@ var WF2DOMException = Array.reduce([
   "INVALID_MODIFICATION_ERR",
   "NAMESPACE_ERR",
   "INVALID_ACCESS_ERR"
-], function(WF2DOMException, name, code) {
+], function(DOMException, name, code) {
   var Exception = function(message) {
     this.message = message || name;
   };
   Exception.prototype = new Error(name);
   Exception.prototype.code = code + 1;
-  Exception.prototype.name = "WF2DOMException";
-  WF2DOMException[name] = Exception;
+  Exception.prototype.name = "DOMException";
+  DOMException[name] = Exception;
+  return DOMException;
 }, {});
 
 
@@ -128,7 +129,7 @@ _WF2Tearoff.prototype = {
   },
   
   QueryInterface: function(iid) {
-    if (iid.equals(this.interfaceId) || iid.equals(nsIDOMWF2Inner)) {
+    if (iid.equals(this.tearoff) || iid.equals(nsIDOMWF2Inner)) {
       return this;
     }
     throw Components.results.NS_ERROR_NO_INTERFACE;
@@ -158,6 +159,7 @@ _WF2Tearoff.prototype = {
         this[i] = source[i];
       }
     }
+    return this;
   },
 
   _dispatchEvent: function(type, bubbles, cancelable) {
@@ -215,7 +217,7 @@ _WF2FormItem.prototype = new _WF2Tearoff()._extend({
     }
     return forms;
   }
-};
+});
 
 
 // ==========================================================================
@@ -332,7 +334,7 @@ _WF2FormControl.prototype = new _WF2FormItem()._extend({
   get _tooLong()          { return false; },
   get _typeMismatch()     { return false; },
   get _valueMissing()     { return false; }
-};
+});
 
 
 // ==========================================================================
