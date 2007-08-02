@@ -7,18 +7,24 @@ const nsIDOMWF2InputElementTearoff  = Components.interfaces.nsIDOMWF2InputElemen
 const nsIDOMWF2OutputElementTearoff = Components.interfaces.nsIDOMWF2OutputElementTearoff;
 const nsIDOMWF2ValidityState        = Components.interfaces.nsIDOMWF2ValidityState;
 
+var console = {
+  console: Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
+  log: function(message) {
+    this.console.logStringMessage(message);
+  }
+};
+
 function NOT_SUPPORTED_ERR() {};
-NOT_SUPPORTED_ERR.prototype = new SyntaxError("NOT_SUPPORTED_ERR");
-NOT_SUPPORTED_ERR.prototype.code = 9; // DOMException.NOT_SUPPORTED_ERR;
+NOT_SUPPORTED_ERR.prototype = new Error("NOT_SUPPORTED_ERR");
+NOT_SUPPORTED_ERR.prototype.code = 9;
+NOT_SUPPORTED_ERR.prototype.name = "DOMException";
 
 function INVALID_STATE_ERR() {};
-INVALID_STATE_ERR.prototype = new SyntaxError("INVALID_STATE_ERR");
-INVALID_STATE_ERR.prototype.code = 11; // DOMException.NOT_SUPPORTED_ERR;
+INVALID_STATE_ERR.prototype = new Error("INVALID_STATE_ERR");
+INVALID_STATE_ERR.prototype.code = 11;
+INVALID_STATE_ERR.prototype.name = "DOMException";
 
-const TYPE_VALID =
-/^(button|checkbox|date|datetime|datetime\-local|email|file|hidden|image|month|\
-number|password|radio|range|reset|submit|text|time|url|week)$/;
-
+const TYPE_VALID                   = /^(button|checkbox|date|datetime|datetime\-local|email|file|hidden|image|month|number|password|radio|range|reset|submit|text|time|url|week)$/;
 const TYPE_NO_VALIDATION           = /^(hidden|button|reset)$/
 const TYPE_BOOLEAN                 = /^(checkbox|radio)$/;
 const TYPE_BUTTON                  = /^(button|image|reset|submit)$/;
@@ -34,10 +40,11 @@ const VALID_EMAIL                  = /^("[^"]*"|[^\s\.]\S*[^\s\.])@[^\s\.]+(\.[^
 const VALID_URL                    = /^[a-zA-Z][a-zA-Z0-9+-.]*:[^\s]+$/;                    // And this.
 const VALID_LIST                   = /^(DATALIST|SELECT)$/;
 
-const XPATH_IS_DISABLED            = ".[@disabled] | ./ancestor::fieldset[@disabled]";             // TYPE_BOOLEAN
-const XPATH_DATALIST_ANCESTOR      = ".[not(ancestor::datalist)]";                                 // TYPE_BOOLEAN
-const XPATH_ANCESTOR_FORMS         = "./ancestor::form";                                           // TYPE_ORDERED_NODE_SNAPSHOT
-const XPATH_FORMS_BY_ID            = "/descendant::form[contains(' %ID% ', concat(' ',@id,' '))]"; // TYPE_ORDERED_NODE_SNAPSHOT
+const XPATH_IS_DISABLED            = ".[@disabled] | ./ancestor::fieldset[@disabled]";             // BOOLEAN_TYPE
+const XPATH_DATALIST_ANCESTOR      = ".[not(ancestor::datalist)]";                                 // BOOLEAN_TYPE
+const XPATH_ANCESTOR_FORMS         = "./ancestor::form";                                           // UNORDERED_NODE_SNAPSHOT_TYPE
+const XPATH_FORMS_BY_ID            = "/descendant::form[contains(' %ID% ', concat(' ',@id,' '))]"; // UNORDERED_NODE_SNAPSHOT_TYPE
+const XPATH_LABELS                 = "/descendant::label[@for='%ID%']";                            // UNORDERED_NODE_ITERATOR_TYPE
 
 const WF2DefaultValues = {
   "max":  {
@@ -98,22 +105,22 @@ WF2FormControl.prototype = {
     } else {
       forms = this._getAncestorsByTagName("FORM");
     }
-    return (arguments.length == 0) ? forms : forms[index];
+    return forms;
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#labels
   get labels() {
     var element = this.outerElement;
-    var labels = [], i = 0;
-    if (element.hasAttribute("id")) {
-      var allLabels = element.ownerDocument.getElementsByTagName("LABEL");
-      for each (var label in allLabels) {
-        if (label && label.control == element) {
+    var labels = [], label;
+    if (this.outerElement.hasAttribute("id")) {
+      var allLabels = this._evaluate(XPATH_LABELS, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+      while (label = allLabels.iterateNext()) {
+        if (label.control == this.outerElement) {
           labels[i++] = label;
         }
       }
     }
-    return (arguments.length == 0) ? labels : labels[index];
+    return labels;
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#vailidtystate
@@ -126,6 +133,7 @@ WF2FormControl.prototype = {
 
   // http://www.whatwg.org/specs/web-forms/current-work/#validationmessage
   get validationMessage() {
+    // TO DO: localisation
     if (this._isButton) {
       return "";
     }
@@ -206,7 +214,7 @@ WF2FormControl.prototype = {
   _evaluate: function(query, type) {
     // might use this later
     var result = this.outerElement.ownerDocument.evaluate(query, this.outerElement, null, type, null);
-    return (type == XPathResult.TYPE_BOOLEAN) ? result.booleanValue : result;
+    return (type == XPathResult.BOOLEAN_TYPE) ? result.booleanValue : result;
   },
 
   _dispatchEvent: function(type) {
@@ -218,11 +226,11 @@ WF2FormControl.prototype = {
   _getAncestorsByTagName: function(tagName) {
     var ancestors = [], i = 0;
     var element = this.outerElement;
-		while (element && (element = element.parentNode)) {
+    while (element && (element = element.parentNode)) {
       if (element.nodeType == element.ELEMENT_NODE && element.localName.toUpperCase() == tagName) {
         ancestors[i++] = element;
       }
-		}
+    }
     return ancestors;
   }
 };
@@ -374,15 +382,29 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
 
   // http://www.whatwg.org/specs/web-forms/current-work/#valueasdate
   get valueAsDate() {
-    if (this._isDateType) {
-      return DateParser[this.type](this.outerElement.value);
+    if (this._isTypeDate) {
+      try {
+        return DateParser[this.type](this.outerElement.value);
+      } catch (error) {
+        if (error != ERR_INVALID_DATE) {
+           throw error;
+        }
+      }
     }
-    return NaN;
+    return new Date(NaN);
   },
   set valueAsDate(val) {
-    if (this._isDateType) {
-      this.outerElement.value = DateFormatter[this.type](val);
+    console.log("valueAsDate: value=" + val);
+    if (this._isTypeDate) {
+      console.log("valueAsDate: isDate!");
+      var date = Date(val);
+      if (!isNaN(date)) {
+        console.log("valueAsDate: !isNaN");
+        this.outerElement.value = DateFormatter[this.type](date);
+      }
+      console.log("valueAsDate: after isDate");
     }
+    console.log("valueAsDate: this.value=" + this.outerElement.value);
     return val;
   },
 
@@ -394,11 +416,15 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
     return Number(this.outerElement.value);
   },
   set valueAsNumber(val) {
+    console.log("valueAsNumber: value=" + val);
     if (this._isTypeDate) {
+      console.log("valueAsNumber: isDate!");
       this.valueAsDate = Date(Number(val));
+      console.log("valueAsNumber: after isDate");
     } else {
       this.outerElement.value = val;
     }
+    console.log("valueAsNumber: this.value=" + this.outerElement.value);
     return val;
   },
 
@@ -409,7 +435,7 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
     &&  this.form
     && !this._isDisabled
     && !this.outerElement.readOnly
-    && !this._getAncestorsByTagName("DATALIST").length) {
+    && !this._hasAncestorDataList) {
       return true;
     }
     return false;
@@ -474,6 +500,11 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
 
   /* private properties */
   
+  get _hasAncestorDataList() {
+    // return this._evaluate(XPATH_DATALIST_ANCESTOR, XPathResult.BOOLEAN_VALUE);
+    return this._getAncestorsByTagName("DATALIST").length > 0;
+  },
+  
   get _isActive() {
     return this.outerElement == this.outerElement.ownerDocument.activeElement;
   },
@@ -503,7 +534,7 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
     && !this._isDisabled
     && (!TYPE_BOOLEAN.test(type) || this.outerElement.checked)
     && (!TYPE_SUBMIT.test(type) || this._isActive)
-    && !this._getAncestorsByTagName("DATALIST").length) {
+    && !this._hasAncestorDataList) {
       return true;
     }
     return false;
@@ -802,58 +833,63 @@ function extend(target, source) {
 // Date/Time Parsing
 // ==========================================================================
 
-const MILLISECONDS_IN_A_WEEK  = 604800000;
-const PATTERN_WEEK            = /^\d{4}-W([0-4]\d|5[0-3])$/;
+const ERR_INVALID_DATE        = "Invalid date.";
 
-const DATE_ERROR_INVALID      = "'%1' is not a valid ISO date.";
-const DATE_ERROR_OUT_OF_RANGE = " %2 out of range.";
+const MILLISECONDS_IN_A_WEEK  = 7 * 24 * 60 * 60;
+const PATTERN_WEEK            = /^\d{4}-W([0-4]\d|5[0-3])$/;
 
 // big, ugly, regular expression
 const ISO_DATE_PATTERN = /^((-\d+|\d{4,})(-(\d{2})(-(\d{2}))?)?)?T((\d{2})(:(\d{2})(:(\d{2})(\.(\d{1,3})(\d)?\d*)?)?)?)?(([+-])(\d{2})(:(\d{2}))?|Z)?$/;
-const ISO_DATE_PARTS = { // indexes to the sub-expressions of the RegExp above
-	FullYear: 2,
-	Month: 4,
-	Date: 6,
-	Hours: 8,
-	Minutes: 10,
-	Seconds: 12,
-	Milliseconds: 14
+
+const DATE_PARTS = { // indexes to the sub-expressions of the RegExp above
+  FullYear: 2,
+  Month: 4,
+  Date: 6,
+  Hours: 8,
+  Minutes: 10,
+  Seconds: 12,
+  Milliseconds: 14
 };
-const TZ_DATE_PARTS = { // idem, but without the getter/setter usage on Date object
-	HectoMicroseconds: 15, // :-P
-	TzUtc: 16,
-	TzSign: 17,
-	TzHours: 18,
-	TzMinutes: 20
+const TIMEZONE_PARTS = {
+  Hectomicroseconds: 15, // :-P
+  UTC: 16,
+  Sign: 17,
+  Hours: 18,
+  Minutes: 20
 };
 
 var DateParser = {
-  parse: function(string, defaultDate) {
-  	// parse ISO date
-  	var match = String(string).match(ISO_DATE_PATTERN);
-		assert(match, DATE_ERROR_INVALID, SyntaxError);
-		match[ISO_DATE_PARTS.Month]--; // js months start at zero
-		// round milliseconds on 3 digits
-		if (match[TZ_DATE_PARTS.HectoMicroseconds] >= 5) match[ISO_DATE_PARTS.Milliseconds]++;
-		var date = new Date(defaultDate || 0);
-		var prefix = match[TZ_DATE_PARTS.TzUtc] || match[TZ_DATE_PARTS.TzHours] ? "UTC" : "";
-		for (var part in ISO_DATE_PARTS) {
-			var value = match[ISO_DATE_PARTS[part]];
-			if (!value) continue; // empty value
-			// set a date part
-			date["set" + prefix + part](value);
-			// make sure that this setting does not overflow
-			assert(date["get" + prefix + part]() == match[ISO_DATE_PARTS[part]],
-		  	format(DATE_ERROR_INVALID + DATE_ERROR_OUT_OF_RANGE, string, part), SyntaxError);
-		}
-		// timezone can be set, without time being available
-		// also, without timezone, local timezone is respected
-		if (match[TZ_DATE_PARTS.TzHours]) {
-			var tzHours = Number(match[TZ_DATE_PARTS.TzSign] + match[TZ_DATE_PARTS.TzHours]);
-			var tzMinutes = Number(match[TZ_DATE_PARTS.TzSign] + (match[TZ_DATE_PARTS.TzMinutes] || 0));
-			date.setUTCMinutes(date.getUTCMinutes() + tzHours * 60 + tzMinutes);
-		}
-		return date;
+  parse: function(string) {
+  // parse ISO date
+    var match = String(string).match(ISO_DATE_PATTERN);
+    if (!match) {
+      throw ERR_INVALID_DATE;
+    }
+    if (match[DATE_PARTS.Month]) {
+      match[DATE_PARTS.Month]--; // js months start at zero
+    }
+    // round milliseconds on 3 digits
+    if (match[TIMEZONE_PARTS.Hectomicroseconds] >= 5) {
+      match[DATE_PARTS.Milliseconds]++;
+    }
+    var date = new Date(0);
+    var prefix = match[TIMEZONE_PARTS.UTC] || match[TIMEZONE_PARTS.Hours] ? "UTC" : "";
+    for (var part in DATE_PARTS) {
+      var value = match[DATE_PARTS[part]];
+      if (!value) continue; // empty value
+      // set a date part
+      date["set" + prefix + part](value);
+      // make sure that this setting does not overflow
+      if (date["get" + prefix + part]() != match[DATE_PARTS[part]]) {
+        throw ERR_INVALID_DATE;
+      }
+    }
+    if (match[TIMEZONE_PARTS.Hours]) {
+      var Hours = Number(match[TIMEZONE_PARTS.Sign] + match[TIMEZONE_PARTS.Hours]);
+      var Minutes = Number(match[TIMEZONE_PARTS.Sign] + (match[TIMEZONE_PARTS.Minutes] || 0));
+      date.setUTCMinutes(date.getUTCMinutes() + Hours * 60 + Minutes);
+    } 
+    return date;
   },
   "datetime": function(string) {
     return this.parse(string);
@@ -869,6 +905,7 @@ var DateParser = {
   },
   "week": function(string, firstDayOfWeek) {
     if (!PATTERN_WEEK.test(string)) return NaN;
+    if (!firstDayOfWeek) firstDayOfWeek = 1;
     var parts = String(string).split("-W");
     var date = new Date(1970, 0, 1);
     date.setFullYear(parts[0]);
@@ -881,19 +918,18 @@ var DateParser = {
 };
 
 var DateFormatter = {  
-	toISOString: function(date) {
-	  date = Date(date);
-		var string = "####-##-##T##:##:##.###";
-		for (var part in ISO_DATE_PARTS) {
-			string = string.replace(/#+/, function(digits) {
-				var value = date["getUTC" + part]();
-				if (part == "Month") value++; // js month starts at zero
-				return ("000" + value).slice(-digits.length); // pad
-			});
-		}
-		// remove trailing zeroes, and remove UTC timezone, when time's absent
-		return string.replace(/(((00)?:0+)?:0+)?\.0+$/, "").replace(/(T[0-9:.]+)$/, "$1Z");
-	},
+  toISOString: function(date) {
+    var string = "####-##-##T##:##:##.###";
+    for (var part in DATE_PARTS) {
+      string = string.replace(/#+/, function(digits) {
+        var value = date["getUTC" + part]();
+        if (part == "Month") value++; // js month starts at zero
+        return ("000" + value).slice(-digits.length); // pad
+      });
+    }
+    // remove trailing zeroes, and remove UTC timezone, when time's absent
+    return string.replace(/(((00)?:0+)?:0+)?\.0+$/, "").replace(/(T[0-9:.]+)$/, "$1Z"); 
+  },
   "datetime": function(date) {
     return this.toISOString(date);
   },  
@@ -926,3 +962,5 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([
   WF2InputElement,
   WF2ValidityState
 ]);
+
+console.log("Web Forms 2.0 loaded.");

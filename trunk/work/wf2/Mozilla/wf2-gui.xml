@@ -52,11 +52,6 @@
    }
   </handler>
  </handlers>
- <content>
-  <xul:popup anonid="hint">
-   <xul:description anonid="text"/>
-  </xul:popup>
- </content>
 </binding>
 
 <binding id="input-list" extends="#-input-text-value">
@@ -71,8 +66,7 @@
  <content>
   <html:span html:style="display:none"><children /></html:span>
   <xul:menulist anonid="extended-gui" editable="true"
-   xbl:inherits="onfocus,onblur,disabled,value,readonly,tabindex,accesskey"
-   style="margin:0; padding:0">
+   xbl:inherits="onfocus,onblur,disabled,value,readonly,tabindex,accesskey">
    <xul:menupopup>
     <!-- TO DO: fill list -->
     <xul:menuitem label="Elephants" value="Elephants"/>
@@ -86,12 +80,10 @@
  </content>
 </binding>
 
-<binding id="input-number" extends="#-input-text-value">
+<binding id="input-number" extends="#-input-text-value" inheritstyle="true">
  <content>
-  <html:span style="display:none"><children /></html:span>
   <xul:textbox anonid="extended-gui" type="number"
-   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"
-   style="margin:0;border:none"/>
+   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -100,9 +92,8 @@
 
 <binding id="input-range" extends="#input-number">
  <content>
-  <html:span style="display:none"><children /></html:span>
-  <xul:scale anonid="extended-gui" orient="horizontal" style="cursor:default;vertical-align:top;"
-   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey" />
+  <xul:scale anonid="extended-gui" orient="horizontal"
+   xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -111,8 +102,7 @@
 
 <binding id="input-range-readonly" extends="#input-range">
  <content>
-  <html:span style="display:none"><children /></html:span>
-  <xul:progressmeter anonid="extended-gui" orient="horizontal" style="cursor:default;margin-left:0;margin-right:0"
+  <xul:progressmeter anonid="extended-gui" orient="horizontal"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -124,36 +114,34 @@
  <implementation>
   <constructor>
    setTimeout(function(self) {
-     try {
-       var extended = document.getAnonymousElementByAttribute(self, "anonid", "extended-gui");
-       if (extended) extended.value = self.value.split("-").join("/");
-     } catch (error) {
-       // ignore
-     }
+     var extended = document.getAnonymousElementByAttribute(self, "anonid", "extended-gui");
+     if (extended) extended.dateValue = new Date(self.valueAsNumber);
     }, 0, this);
   </constructor>
  </implementation>
  <handlers>
   <handler event="input">
+   netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+   var console = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+   console.logStringMessage("input");
    var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
-   if (extended) this.value = extended.value.split("/").join("-");
+   if (extended) this.valueAsNumber = Number(extended.dateValue);
   </handler>
 
   <handler event="change">
+   netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+   var console = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
    var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
    if (event.originalTarget == extended) {
-     this.value = extended.value.split("/").join("-");
+   console.logStringMessage("change");
+     this.valueAsNumber = Number(extended.dateValue);
    }
   </handler>
  </handlers>
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:datepicker anonid="extended-gui" type="popup"
-   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
-   style="margin:0;padding:0;border:none"/>
-  <xul:timepicker anonid="extended-time" type="number"
-   xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"
-   style="margin:0;padding:0;border:none;margin-left:1ex"/>
+  <xul:datetimepicker anonid="extended-gui"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -162,10 +150,8 @@
 
 <binding id="input-date" extends="#input-datetime">
  <content>
-  <html:span style="display:none"><children /></html:span>
   <xul:datepicker anonid="extended-gui" type="popup"
-   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
-   style="margin:0;padding:0;border:none"/>
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -176,8 +162,7 @@
  <content>
   <html:span style="display:none"><children /></html:span>
   <xul:timepicker anonid="extended-gui" type="number"
-   xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"
-   style="margin:0;padding:0;border:none"/>
+   xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -188,8 +173,7 @@
  <content>
   <html:span style="display:none"><children /></html:span>
   <xul:datepicker anonid="extended-gui" type="popup"
-   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
-   style="margin:0; padding:0"/>
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
@@ -199,9 +183,8 @@
 <binding id="input-month" extends="#input-date">
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:datepicker anonid="extended-gui" type="popup"
-   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"
-   style="margin:0; padding:0"/>
+  <xul:datepicker anonid="extended-gui"
+   xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
   </xul:popup>
