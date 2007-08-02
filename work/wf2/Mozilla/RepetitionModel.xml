@@ -40,7 +40,9 @@
         this.setAttribute("repeat", this.repetitionIndex);
         break;
       default:
-        throw new Error("NOT_SUPPORTED_ERR");
+        var error = new SyntaxError("NOT_SUPPORTED_ERR");
+        error.code = DOMException.NOT_SUPPORTED_ERR;
+        throw error;
     }
     return val;
    </setter>  
@@ -491,11 +493,18 @@
  <implementation>
   <constructor><![CDATA[
    setTimeout(function(button) {
-     var block = button;
-     while (block && (block.repetitionType != button.REPETITION_BLOCK || !block.repetitionTemplate)) {
-       block = block.parentNode;
+     if (this.type == "add" && button.hasAttribute("template")) {
+       var template = button.htmlTemplate;
+     } else {
+       var block = button;
+       while (block && (block.repetitionType != button.REPETITION_BLOCK || !block.repetitionTemplate)) {
+         block = block.parentNode;
+       }
+       if (block) {
+         template = block.repetitionTemplate;
+       }
      }
-     button.disabled = !block;
+     button.disabled = !template;
    }, 0, this);
   ]]></constructor>
   
@@ -524,23 +533,6 @@
 
 <binding id="RepetitionButtonAdd" extends="#RepetitionButtonElement">
  <implementation>
-  <constructor><![CDATA[
-   setTimeout(function(button) {
-     if (button.hasAttribute("template")) {
-       var template = button.htmlTemplate;
-     } else {
-       var block = button;
-       while (block && (block.repetitionType != button.REPETITION_BLOCK || !block.repetitionTemplate)) {
-         block = block.parentNode;
-       }
-       if (block) {
-         template = block.repetitionTemplate;
-       }
-     }
-     button.disabled = !template;
-   }, 0, this);
-  ]]></constructor>
-  
   <property name="template">
    <setter>
     this.setAttribute("template", val);

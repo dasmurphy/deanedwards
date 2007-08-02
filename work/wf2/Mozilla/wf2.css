@@ -1,16 +1,75 @@
+
 @namespace xh url(http://www.w3.org/1999/xhtml);
-@namespace xul yrl(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* bindings */
+
+xh|form {-moz-binding: url(wf2-gui.xml#form);}
+xh|* > input {-moz-binding: url(wf2-gui.xml#input-text);}
+xh|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-number);}
+xh|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-datetime);}
+xh|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-date);}
+xh|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-month);}
+xh|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-time);}
+xh|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-week);}
+xh|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range);}
+xh|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range-readonly);}
+xh|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-list);}
+xh|input[type=hidden] {-moz-binding: none;}
+
+xul|datetimepicker {-moz-binding: url(datetimepicker.xml#datetimepicker);}
+
+/* display */
+
 xh|datalist {display: none;}
 
-form {-moz-binding: url(wf2-gui.xml#form);}
-xh|* > input {-moz-binding: url(wf2-gui.xml#input-text);}
-input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-number); border: none;}
-input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-datetime); border: none;}
-input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-date); border: none;}
-input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-month); border: none;}
-input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-time); border: none;}
-input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-week); border: none;}
-input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range); border: none;}
-input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range-readonly); border: none;}
-input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-list);}
-input[type=hidden] {-moz-binding: none;}
+xh|input[type=number],
+xh|input[type=datetime],
+xh|input[type=date],
+xh|input[type=month],
+xh|input[type=time],
+xh|input[type=week],
+xh|input[type=range],
+xh|input[list] {
+  padding: 0;
+}
+
+
+xh|input > xul|* {
+  margin-left: 0;
+}
+
+/* input[type=date|time|datetime|week|month] */
+
+xh|input[type=date] xul|datepicker,
+#test xh|input[type=date] * {
+  background-color: red !important;
+}
+
+/* input[type=number] */
+
+xh|input[type=number] .numberbox-input-box, 
+xh|input[type=number] xul|textbox[type=number] {
+  background-color: inherit;
+}
+
+xh|input[type=number] .spinbuttons-button {
+  min-height: 8px;
+}
+
+xh|input[type=number] xul|hbox.numberbox-input-box {
+  width: 6.4em;
+}
+
+/* range */
+
+xh|input[type=range] {
+  cursor: default;
+}
+
+
+/* list */
+
+xh|input[list] {
+  cursor: default;
+}

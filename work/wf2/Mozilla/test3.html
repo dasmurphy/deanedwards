@@ -5,13 +5,14 @@
   <style type="text/css">
    @namespace xh url(http://www.w3.org/1999/xhtml);
    iframe {width: 100%;}
-   span.dummy {-moz-binding: url(wf2-gui.xml#input-number); display:inline}
+   span.dummy {-moz-binding: url(wf2-gui.xml#input-number); display: inline}
+   input {background-color: pink; border: 1px solid red;}
   </style>
   <link rel="stylesheet" href="wf2.css" type="text/css">
   <script type="text/javascript">
   </script>
  </head>
- <body>
+ <body id="test">
   <form enctype="multipart/form-data" method="post" action="http://software.hixie.ch/utilities/cgi/test-tools/echo" target="iframe">
    <fieldset class="test[1]">
     <input name="required1" type="text" required>
@@ -20,14 +21,16 @@
     <input name="text1" type="text" value="text">
     <input name="number1" type="number" min="0" max="10" value="4" step="2">
     <input name="date1"  type="date" value="2002-07-25">
+    <input name="month1"  type="month" value="2002-07">
     <input name="range1" type="range" value="10">
     <input name="range2" type="range" readonly value="42">
     <input name="time1" type="time" value="12:40">
-    <input name="list1" type="text" value="Bats" list="picker">
+    <input name="list1" type="text" value="Bats" list="picker"><select>
+     <option>Bats</option><option>Elephants</option><option>Kangaroos</option>
+    </select>
     <input name="datetime1" type="datetime" value="2002-07-25T12:40">
-    <span class="dummy">Some text</span>
-    <span class="dummy">Some text</span>
-    <span class="dummy">Some text</span>
+    <input name="datetime2" type="datetime" value="2002-01-14T22:10">
+    <span class="dummy">Some text</span> <span class="dummy">Some text</span> <span class="dummy">Some text</span>
    </fieldset>
    <p><button name="submit1" type="submit">Submit</button></p>
   </form>
