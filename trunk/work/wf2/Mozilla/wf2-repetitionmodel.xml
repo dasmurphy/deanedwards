@@ -493,7 +493,7 @@
  <implementation>
   <constructor><![CDATA[
    setTimeout(function(button) {
-     if (this.type == "add" && button.hasAttribute("template")) {
+     if (button.type == "add" && button.hasAttribute("template")) {
        var template = button.htmlTemplate;
      } else {
        var block = button;
