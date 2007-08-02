@@ -38,15 +38,15 @@
  </content>
 </binding>
 
-<binding id="-input-text-value" extends="#input-text">
+<binding id="-input-text-extended" extends="#input-text">
  <handlers>
   <handler event="input">
-   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended");
    this.value = extended.value;
   </handler>
 
   <handler event="change">
-   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended");
    if (event.originalTarget == extended) {
      this.value = extended.value;
    }
@@ -54,10 +54,10 @@
  </handlers>
 </binding>
 
-<binding id="input-list" extends="#-input-text-value">
+<binding id="input-list" extends="#-input-text-extended">
  <handlers>
   <handler event="ValueChange">
-   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended");
    if (event.originalTarget == extended) {
      this.value = extended.value;
    }
@@ -65,7 +65,7 @@
  </handlers>
  <content>
   <html:span html:style="display:none"><children /></html:span>
-  <xul:menulist anonid="extended-gui" editable="true"
+  <xul:menulist anonid="extended" editable="true"
    xbl:inherits="onfocus,onblur,disabled,value,readonly,tabindex,accesskey">
    <xul:menupopup>
     <!-- TO DO: fill list -->
@@ -80,9 +80,9 @@
  </content>
 </binding>
 
-<binding id="input-number" extends="#-input-text-value" inheritstyle="true">
+<binding id="input-number" extends="#-input-text-extended" inheritstyle="true">
  <content>
-  <xul:textbox anonid="extended-gui" type="number"
+  <xul:textbox anonid="extended" type="number"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -92,7 +92,7 @@
 
 <binding id="input-range" extends="#input-number">
  <content>
-  <xul:scale anonid="extended-gui" orient="horizontal"
+  <xul:scale anonid="extended" orient="horizontal"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -102,7 +102,7 @@
 
 <binding id="input-range-readonly" extends="#input-range">
  <content>
-  <xul:progressmeter anonid="extended-gui" orient="horizontal"
+  <xul:progressmeter anonid="extended" orient="horizontal"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -113,34 +113,28 @@
 <binding id="input-datetime" extends="#input-text">
  <implementation>
   <constructor>
-   setTimeout(function(self) {
-     var extended = document.getAnonymousElementByAttribute(self, "anonid", "extended-gui");
-     if (extended) extended.dateValue = new Date(self.valueAsNumber);
+   setTimeout(function(element) {
+     var extended = document.getAnonymousElementByAttribute(element, "anonid", "extended");
+     extended.dateValue = new Date(element.valueAsNumber);
     }, 0, this);
   </constructor>
  </implementation>
  <handlers>
   <handler event="input">
-   netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-   var console = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-   console.logStringMessage("input");
-   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
-   if (extended) this.valueAsNumber = Number(extended.dateValue);
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended");
+   this.valueAsNumber = Number(extended.dateValue);
   </handler>
 
   <handler event="change">
-   netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-   var console = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended-gui");
+   var extended = document.getAnonymousElementByAttribute(this, "anonid", "extended");
    if (event.originalTarget == extended) {
-   console.logStringMessage("change");
      this.valueAsNumber = Number(extended.dateValue);
    }
   </handler>
  </handlers>
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:datetimepicker anonid="extended-gui"
+  <xul:datetimepicker anonid="extended"
    xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -150,7 +144,7 @@
 
 <binding id="input-date" extends="#input-datetime">
  <content>
-  <xul:datepicker anonid="extended-gui" type="popup"
+  <xul:datepicker anonid="extended" type="popup"
    xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -161,7 +155,7 @@
 <binding id="input-time" extends="#input-datetime">
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:timepicker anonid="extended-gui" type="number"
+  <xul:timepicker anonid="extended" type="number"
    xbl:inherits="onfocus,onblur,increment=step,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -172,7 +166,7 @@
 <binding id="input-week" extends="#input-date">
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:datepicker anonid="extended-gui" type="popup"
+  <xul:datepicker anonid="extended" type="popup"
    xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
@@ -183,7 +177,7 @@
 <binding id="input-month" extends="#input-date">
  <content>
   <html:span style="display:none"><children /></html:span>
-  <xul:datepicker anonid="extended-gui"
+  <xul:datepicker anonid="extended"
    xbl:inherits="onfocus,onblur,disabled,readonly,tabindex,accesskey"/>
   <xul:popup anonid="hint">
    <xul:description anonid="text"/>
