@@ -31,7 +31,24 @@ WF2DataListElement.prototype = new _WF2Tearoff()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2DataListElementTearoff,
   classID: Components.ID("{37c57e89-f9ce-4102-aa0c-1f20896aba43}"),
   contractID:            "@mozilla.org/wf2/datalist-element-tearoff;1",
-  classDescription:      "WF2 DataList Element Tearoff"
+  classDescription:      "WF2 DataList Element Tearoff",
+  
+  /* public properties */
+    
+  get data() {
+    if (this.outerElement.hasAttribute("data")) {
+      return this.outerElement.hasAttribute("data")
+    }
+    return "";
+  },
+  set data(val) {
+    this.outerElement.setAttribute("data", val);
+    return val;
+  },  
+  
+  get options() {
+    return null;
+  }
 };
 
 
@@ -47,7 +64,25 @@ WF2FieldsetElement.prototype = new _WF2FormControl()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2FieldsetElementTearoff,
   classID: Components.ID("{2513c2cf-b962-41cd-be6e-7afa144d28de}"),
   contractID:            "@mozilla.org/wf2/fieldset-element-tearoff;1",
-  classDescription:      "WF2 Fieldset Element Tearoff"
+  classDescription:      "WF2 Fieldset Element Tearoff",
+  
+  /* public properties */
+  
+  get disabled() {
+    return this.outerElement.hasAttribute("disabled");
+  },
+  set disabled(val) {
+    if (val) {
+      this.outerElement.setAttribute("disabled", "");
+    } else {
+      this.outerElement.removeAttribute("disabled");
+    }
+    return val;
+  },
+  
+  get elements() {
+    return null;
+  }
 };
 
 
@@ -60,10 +95,39 @@ function WF2FormElement() {
 };
 
 WF2FormElement.prototype = new _WF2Tearoff()._extend({
-  tearoff:               Components.interfaces.nsIDOMWF2FormElementTearoff
+  tearoff:               Components.interfaces.nsIDOMWF2FormElementTearoff,
   classID: Components.ID("{32c1b92f-7412-45cc-bf8d-551a9186904f}"),
   contractID:            "@mozilla.org/wf2/form-element-tearoff;1",
-  classDescription:      "WF2 Form Element Tearoff"
+  classDescription:      "WF2 Form Element Tearoff",
+  
+  /* public properties */
+
+//get templateElements()  { return null; }, // repetition model (phase 2)
+  
+  get accept()            { return ""; },
+  set accept(val)         { return ""; },
+  get data()              { return ""; },
+  set data(val)           { return ""; },
+  get replace()           { return ""; },
+  set replace(val)        { return ""; },
+  
+  /* public methods */
+
+  checkValidity: function() {
+    return true;
+  },
+
+  dispatchFormChange: function() {
+    this._dispatchEvent("formchange");
+  },
+
+  dispatchFormInput: function() {
+    this._dispatchEvent("forminput");
+  },
+
+  resetFromData: function(data) {
+    assertArity(arguments);
+  }
 };
 
 
@@ -134,11 +198,11 @@ function WF2OutputElement() {
   //
 };
 
-WF2OutputElement.prototype = extend(new WF2FormControl, {
+WF2OutputElement.prototype = extend(new _WF2FormControl()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2OutputElementTearoff,
   classID: Components.ID("{d43f5db5-5aeb-4d95-8a49-c55623427587}"),
   contractID:            "@mozilla.org/wf2/output-element-tearoff;1",
-  classDescription:      "WF2 Output Element Tearoff"
+  classDescription:      "WF2 Output Element Tearoff",
 
   /* public properties */
 
@@ -191,7 +255,25 @@ WF2SelectElement.prototype = new _WF2FormControl()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2SelectElementTearoff,
   classID: Components.ID("{84a3eaeb-a6dd-43ac-93cf-40f23ff26aaf}"),
   contractID:            "@mozilla.org/wf2/select-element-tearoff;1",
-  classDescription:      "WF2 Select Element Tearoff"
+  classDescription:      "WF2 Select Element Tearoff",
+  
+  /* public properties */
+  
+  get selectedOptions() {
+    return null;
+  },
+  
+  /* public methods */
+
+  // http://www.whatwg.org/specs/web-forms/current-work/#dispatchchange
+  dispatchChange: function() {
+    this._dispatchEvent("change");
+  },
+
+  // http://www.whatwg.org/specs/web-forms/current-work/#dispatchformchange
+  dispatchFormChange: function() {
+    this._dispatchEvent("formchange");
+  }
 };
 
 
@@ -203,7 +285,7 @@ function WF2TextAreaElement() {
   //
 };
 
-WF2TextAreaElement.prototype = new _WF2FormControl()._extend({
+WF2TextAreaElement.prototype = new WF2InputElement()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2TextAreaElementTearoff,
   classID: Components.ID("{bf573705-9b17-4e75-a957-b0ad45678e7b}"),
   contractID:            "@mozilla.org/wf2/textarea-element-tearoff;1",

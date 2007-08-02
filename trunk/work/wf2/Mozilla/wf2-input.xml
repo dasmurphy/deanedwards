@@ -1,19 +1,9 @@
 <?xml version="1.0"?>
-<bindings id="wf2-bindings"
+<bindings id="wf2-input"
           xmlns="http://www.mozilla.org/xbl"
           xmlns:html="http://www.w3.org/1999/xhtml"
           xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
           xmlns:xbl="http://www.mozilla.org/xbl">
-
-<binding id="form">
- <handlers>
-  <handler event="submit">
-   for each (var element in this.elements) {
-     if (element.willValidate) element.checkValidity();
-   }
-  </handler>
- </handlers>
-</binding>
 
 <binding id="input-text">
  <implementation>
@@ -81,6 +71,14 @@
 </binding>
 
 <binding id="input-number" extends="#-input-text-extended" inheritstyle="true">
+ <implementation>
+  <constructor>
+   setTimeout(function(element) {
+     var extended = document.getAnonymousElementByAttribute(element, "anonid", "extended");
+     extended.orientation = (this.offsetHeight > this.offsetWidth) ? "verical" : "horizontal";
+    }, 0, this);
+  </constructor>
+ </implementation>
  <content>
   <xul:textbox anonid="extended" type="number"
    xbl:inherits="onfocus,onblur,min,max,increment=step,value,disabled,readonly,tabindex,accesskey"/>

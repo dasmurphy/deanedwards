@@ -50,7 +50,7 @@ interface nsIDOMWF2FormElementTearoff : nsISupports
              attribute DOMString             data;
              
   //readonly attribute nsIDOMHTMLCollection     templateElements;
-    readonly attribute nsIVariant               templateElements;  // Defined as variant for now.
+  //readonly attribute nsIVariant               templateElements;  // Defined as variant for now.
     
     boolean            checkValidity();
     void               resetFromData(in Document data);
