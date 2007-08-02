@@ -1,6 +1,16 @@
 
 /* adapted from forms.css */
 
+xh|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-number);}
+xh|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-datetime);}
+xh|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-date);}
+xh|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-month);}
+xh|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-time);}
+xh|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-week);}
+xh|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-range);}
+xh|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-range-readonly);}
+xh|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-fieldset-disabled.xml#input-list);}
+
 fieldset[disabled] input,
 fieldset[disabled] textarea,
 fieldset[disabled] option,
