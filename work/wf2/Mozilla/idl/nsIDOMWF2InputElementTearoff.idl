@@ -66,8 +66,7 @@ interface nsIDOMWF2InputElementTearoff : nsISupports
              attribute DOMString       replace;
              
     readonly attribute nsIDOMHTMLElement        list;
-  //readonly attribute nsIDOMHTMLOptionElement  selectedOptions;
-    readonly attribute nsIVariant               selectedOptions;  // Defined as variant for now.
+    readonly attribute nsIDOMHTMLOptionElement  selectedOption;
   //readonly attribute nsIRepetitionElement     htmlTemplate;
   //readonly attribute nsIDOMHTMLCollection     labels;           // Defined as variant for now.
     readonly attribute nsIVariant               labels;
