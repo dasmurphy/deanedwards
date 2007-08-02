@@ -295,7 +295,7 @@
         return value;
       }
     }
-    return Number.UBOUND;
+    return UBOUND;
    ]]></getter>
    <setter>
     var UBOUND = Math.pow(2, 32) - 1;
@@ -450,7 +450,7 @@
     if (arguments.length < 1) {
       throw new SyntaxError("not enough arguments");
     }
-    if (this.repetitionType == this.REPETITION_BLOCK) {    
+    if (this.repetitionType == this.REPETITION_BLOCK) { 
       if (!distance) return;
      
       var target = this;
