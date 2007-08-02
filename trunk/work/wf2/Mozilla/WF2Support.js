@@ -137,9 +137,9 @@ _WF2Tearoff.prototype = {
   
   /* private methods */
   
-  _evaluate: function(query, type) {
+  _evaluate: function(query, type, context) {
     // might use this later
-    var result = this.outerElement.ownerDocument.evaluate(query, this.outerElement, null, type, null);
+    var result = this.outerElement.ownerDocument.evaluate(query, context || this.outerElement, null, type, null);
     return (type == XPathResult.BOOLEAN_TYPE) ? result.booleanValue : result;
   },
 
