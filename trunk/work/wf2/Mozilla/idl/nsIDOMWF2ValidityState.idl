@@ -40,7 +40,7 @@
  
 #include "nsISupports.idl"
 
-[scriptable, uuid(bb4dbd9a-3be9-11dc-9cb9-155e56d89593)]
+[scriptable, uuid(dab9e716-2b23-11dc-b418-5c5056d89593)]
 interface nsIDOMWF2ValidityState : nsISupports
 {
   readonly attribute boolean         typeMismatch;

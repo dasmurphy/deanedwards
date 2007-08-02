@@ -4,34 +4,16 @@ const DOM_OBJECT                    = Components.interfaces.nsIClassInfo.DOM_OBJ
 const JAVASCRIPT                    = Components.interfaces.nsIProgrammingLanguage.JAVASCRIPT
 const nsIDOMWF2Inner                = Components.interfaces.nsIDOMWF2Inner;
 const nsIDOMWF2InputElementTearoff  = Components.interfaces.nsIDOMWF2InputElementTearoff;
-const nsIDOMWF2OutputElementTearoff = Components.interfaces.nsIDOMWF2OutputElementTearoff;
 const nsIDOMWF2ValidityState        = Components.interfaces.nsIDOMWF2ValidityState;
 
-var console = {
-  console: Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
-  log: function(message) {
-    this.console.logStringMessage(message);
-  }
-};
-
-function NOT_SUPPORTED_ERR() {};
-NOT_SUPPORTED_ERR.prototype = new Error("NOT_SUPPORTED_ERR");
-NOT_SUPPORTED_ERR.prototype.code = 9;
-NOT_SUPPORTED_ERR.prototype.name = "DOMException";
-
-function INVALID_STATE_ERR() {};
-INVALID_STATE_ERR.prototype = new Error("INVALID_STATE_ERR");
-INVALID_STATE_ERR.prototype.code = 11;
-INVALID_STATE_ERR.prototype.name = "DOMException";
-
-const TYPE_VALID                   = /^(button|checkbox|date|datetime|datetime\-local|email|file|hidden|image|month|number|password|radio|range|reset|submit|text|time|url|week)$/;
-const TYPE_NO_VALIDATION           = /^(hidden|button|reset)$/
+const TYPE_VALID                   = /^(button|checkbox|date|datetime|datetime\-local|email|file|hidden|image|month|number|password|radio|range|reset|submit|text|time|url|week|add|remove|move\-up|move\-down)$/;
+const TYPE_NO_VALIDATION           = /^(hidden|button|reset|add|remove|move\-up|move\-down)$/
 const TYPE_BOOLEAN                 = /^(checkbox|radio)$/;
-const TYPE_BUTTON                  = /^(button|image|reset|submit)$/;
+const TYPE_BUTTON                  = /^(button|image|reset|submit|add|remove|move\-up|move\-down)$/;
 const TYPE_DATE                    = /^(date|datetime|datetime\-local|month|time|week)$/;
 const TYPE_NUMBER                  = /^(number|range|date|datetime|datetime\-local|month|time|week)$/;
 const TYPE_SUBMIT                  = /^(image|submit)$/;
-const TYPE_TEXT                    = /^(text|password|email|url)$/i;
+const TYPE_TEXT                    = /^(text|password|email|url|textarea)$/i;
 
 const ESCAPE_CHARS                 = /\\/g;
 const SPACE_SEPARATED              = /[^\S]+/;
@@ -41,10 +23,39 @@ const VALID_URL                    = /^[a-zA-Z][a-zA-Z0-9+-.]*:[^\s]+$/;        
 const VALID_LIST                   = /^(DATALIST|SELECT)$/;
 
 const XPATH_IS_DISABLED            = ".[@disabled] | ./ancestor::fieldset[@disabled]";             // BOOLEAN_TYPE
-const XPATH_DATALIST_ANCESTOR      = ".[not(ancestor::datalist)]";                                 // BOOLEAN_TYPE
-const XPATH_ANCESTOR_FORMS         = "./ancestor::form";                                           // UNORDERED_NODE_SNAPSHOT_TYPE
-const XPATH_FORMS_BY_ID            = "/descendant::form[contains(' %ID% ', concat(' ',@id,' '))]"; // UNORDERED_NODE_SNAPSHOT_TYPE
-const XPATH_LABELS                 = "/descendant::label[@for='%ID%']";                            // UNORDERED_NODE_ITERATOR_TYPE
+const XPATH_DATALIST_ANCESTOR      = "./ancestor::datalist";                                       // BOOLEAN_TYPE
+const XPATH_ANCESTOR_FORMS         = "./ancestor::form";                                           // ORDERED_NODE_SNAPSHOT_TYPE
+const XPATH_FORMS_BY_ID            = "/descendant::form[contains(' %ID% ', concat(' ',@id,' '))]"; // ORDERED_NODE_SNAPSHOT_TYPE
+const XPATH_LABELS                 = "/descendant::label[@for='%ID%']";                            // ORDERED_NODE_ITERATOR_TYPE
+
+
+// ==========================================================================
+// Asertions
+// ==========================================================================
+
+
+function assert(condition, Err, message) {
+	if (!condition) {
+		throw new (Err || Error)(message || "Assertion failed.");
+	}
+};
+
+function assertArity(args, arity, message) {
+	if (arity == null) arity = args.callee.length;
+	if (args.length < arity) {
+		throw new SyntaxError(message || "Not enough arguments.");
+	}
+};
+
+function assertType(object, type, message) {
+	if (type && (typeof type == "function" ? !(object instanceof type) : typeof object != type)) {
+		throw new TypeError(message || "Invalid type.");
+	}
+};
+
+// ==========================================================================
+// Default values 
+// ==========================================================================
 
 const WF2DefaultValues = {
   "max":  {
@@ -71,16 +82,114 @@ const WF2DefaultValues = {
 
 
 // ==========================================================================
-// WF2FormControl
+// DOM Exceptions
 // ==========================================================================
 
 
-function WF2FormControl() {
+var WF2DOMException = Array.reduce([
+  "INDEX_SIZE_ERR",
+  "DOMSTRING_SIZE_ERR",
+  "HIERARCHY_REQUEST_ERR",
+  "WRONG_DOCUMENT_ERR",
+  "INVALID_CHARACTER_ERR",
+  "NO_DATA_ALLOWED_ERR",
+  "NO_MODIFICATION_ALLOWED_ERR",
+  "NOT_FOUND_ERR",
+  "NOT_SUPPORTED_ERR",
+  "INUSE_ATTRIBUTE_ERR",
+  "INVALID_STATE_ERR",
+  "SYNTAX_ERR",
+  "INVALID_MODIFICATION_ERR",
+  "NAMESPACE_ERR",
+  "INVALID_ACCESS_ERR"
+], function(WF2DOMException, name, code) {
+  var Exception = function(message) {
+    this.message = message || name;
+  };
+  Exception.prototype = new Error(name);
+  Exception.prototype.code = code + 1;
+  Exception.prototype.name = "WF2DOMException";
+  WF2DOMException[name] = Exception;
+}, {});
+
+
+// ==========================================================================
+// _WF2Tearoff (abstract class)
+// ==========================================================================
+
+
+function _WF2Tearoff() {
   //
 };
 
-WF2FormControl.prototype = {
+_WF2Tearoff.prototype = {
 
+  init: function(outer) {
+    this.outerElement = outer;
+  },
+  
+  QueryInterface: function(iid) {
+    if (iid.equals(this.interfaceId) || iid.equals(nsIDOMWF2Inner)) {
+      return this;
+    }
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  },
+  
+  /* private methods */
+  
+  _evaluate: function(query, type) {
+    // might use this later
+    var result = this.outerElement.ownerDocument.evaluate(query, this.outerElement, null, type, null);
+    return (type == XPathResult.BOOLEAN_TYPE) ? result.booleanValue : result;
+  },
+
+  _extend: function(source) {
+    for (var i in source) {
+      var _getter = source.__lookupGetter__(i);
+      var _setter = source.__lookupSetter__(i);
+  
+      if (_getter || _setter) {
+        if (_getter) {
+          this.__defineGetter__(i, _getter);
+        }
+        if (_setter) {
+          this.__defineSetter__(i, _setter);
+        }
+      } else {
+        this[i] = source[i];
+      }
+    }
+  },
+
+  _dispatchEvent: function(type, bubbles, cancelable) {
+    var event = this.outerElement.ownerDocument.createEvent("Events");
+    event.initEvent(type, bubbles || true, cancelable || false);
+    return this.outerElement.dispatchEvent(event);
+  },
+
+  _getAncestorsByTagName: function(tagName) {
+    var ancestors = [], i = 0;
+    var element = this.outerElement;
+    while (element && (element = element.parentNode)) {
+      if (element.nodeType == element.ELEMENT_NODE && element.localName.toUpperCase() == tagName) {
+        ancestors[i++] = element;
+      }
+    }
+    return ancestors;
+  }
+};
+
+
+// ==========================================================================
+// _WF2FormItem (abstract class)
+// ==========================================================================
+
+
+function _WF2FormItem() {
+  //
+};
+
+_WF2FormItem.prototype = new _WF2Tearoff()._extend({
   /* public properties */
 
   // http://www.whatwg.org/specs/web-forms/current-work/#form
@@ -106,14 +215,28 @@ WF2FormControl.prototype = {
       forms = this._getAncestorsByTagName("FORM");
     }
     return forms;
-  },
+  }
+};
 
+
+// ==========================================================================
+// _WF2FormControl (abstract class)
+// ==========================================================================
+
+
+function _WF2FormControl() {
+  //
+};
+
+_WF2FormControl.prototype = new _WF2FormItem()._extend({
+  /* public properties */
+  
   // http://www.whatwg.org/specs/web-forms/current-work/#labels
   get labels() {
     var element = this.outerElement;
     var labels = [], label;
     if (this.outerElement.hasAttribute("id")) {
-      var allLabels = this._evaluate(XPATH_LABELS, XPathResult.UNORDERED_NODE_ITERATOR_TYPE);
+      var allLabels = this._evaluate(XPATH_LABELS, XPathResult.ORDERED_NODE_ITERATOR_TYPE);
       while (label = allLabels.iterateNext()) {
         if (label.control == this.outerElement) {
           labels[i++] = label;
@@ -176,6 +299,8 @@ WF2FormControl.prototype = {
 
   // http://www.whatwg.org/specs/web-forms/current-work/#setcustomvalidity
   setCustomValidity: function(error) {
+    assertArity(arguments);
+    
     this._customError = (error == null) ? "" : String(error);
   },
 
@@ -207,32 +332,7 @@ WF2FormControl.prototype = {
   get _stepMismatch()     { return false; },
   get _tooLong()          { return false; },
   get _typeMismatch()     { return false; },
-  get _valueMissing()     { return false; },
-
-  /* private methods */
-
-  _evaluate: function(query, type) {
-    // might use this later
-    var result = this.outerElement.ownerDocument.evaluate(query, this.outerElement, null, type, null);
-    return (type == XPathResult.BOOLEAN_TYPE) ? result.booleanValue : result;
-  },
-
-  _dispatchEvent: function(type) {
-    var event = this.outerElement.ownerDocument.createEvent("Events");
-    event.initEvent(type, false, false);
-    return this.outerElement.dispatchEvent(event);
-  },
-
-  _getAncestorsByTagName: function(tagName) {
-    var ancestors = [], i = 0;
-    var element = this.outerElement;
-    while (element && (element = element.parentNode)) {
-      if (element.nodeType == element.ELEMENT_NODE && element.localName.toUpperCase() == tagName) {
-        ancestors[i++] = element;
-      }
-    }
-    return ancestors;
-  }
+  get _valueMissing()     { return false; }
 };
 
 
@@ -245,15 +345,12 @@ function WF2InputElement() {
   //
 };
 
-WF2InputElement.prototype = extend(new WF2FormControl, {
+WF2InputElement.prototype = new _WF2FormControl()._extend({
 
-  classID: Components.ID("{692657e4-a8c0-41ce-bd87-75deed9d91bd}"),
-  contractID: "@mozilla.org/wf2/input-element-tearoff;1",
-  classDescription: "WF2 Input Element Tearoff",
-
-  init: function(outer) {
-    this.outerElement = outer;
-  },
+  classID: Components.ID("{5b01e95f-d87d-4763-89cc-560a91a5311f}"),
+  contractID:            "@mozilla.org/wf2/input-element-tearoff;1",
+  classDescription:      "WF2 Input Element Tearoff",
+  tearoff:               Components.interfaces.nsIDOMWF2InputElementTearoff,
 
   /* public properties */
 
@@ -382,49 +479,28 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
 
   // http://www.whatwg.org/specs/web-forms/current-work/#valueasdate
   get valueAsDate() {
-    if (this._isTypeDate) {
-      try {
-        return DateParser[this.type](this.outerElement.value);
-      } catch (error) {
-        if (error != ERR_INVALID_DATE) {
-           throw error;
-        }
-      }
-    }
-    return new Date(NaN);
+    return this._parseDate(this.outerElement.value);
   },
   set valueAsDate(val) {
-    console.log("valueAsDate: value=" + val);
     if (this._isTypeDate) {
-      console.log("valueAsDate: isDate!");
-      var date = Date(val);
+      var date = new Date(val);
       if (!isNaN(date)) {
-        console.log("valueAsDate: !isNaN");
         this.outerElement.value = DateFormatter[this.type](date);
       }
-      console.log("valueAsDate: after isDate");
     }
-    console.log("valueAsDate: this.value=" + this.outerElement.value);
     return val;
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#valueasnumber
   get valueAsNumber() {
-    if (this._isTypeDate) {
-      return this.valueAsDate.valueOf();
-    }
-    return Number(this.outerElement.value);
+    return this._parseNumber(this.outerElement.value);
   },
   set valueAsNumber(val) {
-    console.log("valueAsNumber: value=" + val);
     if (this._isTypeDate) {
-      console.log("valueAsNumber: isDate!");
-      this.valueAsDate = Date(Number(val));
-      console.log("valueAsNumber: after isDate");
+      this.valueAsDate = parseInt(val);
     } else {
-      this.outerElement.value = val;
+      this.outerElement.value = parseInt(val);
     }
-    console.log("valueAsNumber: this.value=" + this.outerElement.value);
     return val;
   },
 
@@ -463,39 +539,39 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#setcustomvalidity
-  setCustomValidity: function(error) {
-    if (this._isButton) {
-      throw new NOT_SUPPORTED_ERR;
-    }
+  setCustomValidity: function(error) {    
+    assert(!this._isButton, WF2DOMException.NOT_SUPPORTED_ERR);
+    assertArity(arguments);
+    
     this._customError = (error == null) ? "" : String(error);
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#stepdown
   stepDown: function(n) {
-    if (this.step != "any"
-    &&  this._isNumeric
-    && !this._noValueSelected
-    &&  this._isValid) {
-      // INVALID_STATE_ERR
-      // INVALID_MODIFICATION_ERR
-      // INDEX_SIZE_ERR
-    } else {
-      throw new INVALID_STATE_ERR;
-    }
+    assertArity(arguments);
+    assertType(n, "number");
+    assert(n != 0, WF2DOMException.INDEX_SIZE_ERR);
+    assert(this.step != "any", WF2DOMException.INVALID_STATE_ERR);
+    assert(this._isNumeric, WF2DOMException.INVALID_STATE_ERR);
+    assert(!this._noValueSelected, WF2DOMException.INVALID_STATE_ERR);
+    assert(this._isValid, WF2DOMException.INVALID_STATE_ERR);
+    var value = this.valueAsNumber - (n * this._stepAsNumber);
+    assert(this._testNumericValueIsValid(value), WF2DOMException.INVALID_MODIFICATION_ERR);
+    this.valueAsNumber = value;
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#stepup
   setUp: function(n) {
-    if (this.step != "any"
-    &&  this._isNumeric
-    && !this._noValueSelected
-    &&  this._isValid) {
-      // INVALID_STATE_ERR
-      // INVALID_MODIFICATION_ERR
-      // INDEX_SIZE_ERR
-    } else {
-      throw new INVALID_STATE_ERR;
-    }
+    assertArity(arguments);
+    assertType(n, "number");
+    assert(n != 0, WF2DOMException.INDEX_SIZE_ERR);
+    assert(this.step != "any", WF2DOMException.INVALID_STATE_ERR);
+    assert(this._isNumeric, WF2DOMException.INVALID_STATE_ERR);
+    assert(!this._noValueSelected, WF2DOMException.INVALID_STATE_ERR);
+    assert(this._isValid, WF2DOMException.INVALID_STATE_ERR);
+    var value = this.valueAsNumber + (n * this._stepAsNumber);
+    assert(this._testNumericValueIsValid(value), WF2DOMException.INVALID_MODIFICATION_ERR);
+    this.valueAsNumber = value;
   },
 
   /* private properties */
@@ -553,11 +629,11 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
   },
 
   get _maxAsNumber() {
-    return Number(this.max);
+    return this._parseNumber(this.max);
   },
 
   get _minAsNumber() {
-    return Number(this.min);
+    return this._parseNumber(this.min);
   },
 
   // http://www.whatwg.org/specs/web-forms/current-work/#no-value
@@ -680,84 +756,37 @@ WF2InputElement.prototype = extend(new WF2FormControl, {
     }
     return false;
   },
-
-  /* XPCOM stuff */
-
-  QueryInterface: function(iid) {
-    if (iid.equals(nsIDOMWF2InputElementTearoff) || iid.equals(nsIDOMWF2Inner)) {
-      return this;
+  
+  /* private methods */
+  
+  _parseDate: function(string) {
+    if (this._isTypeDate) {
+      try {
+        return DateParser[this.type](string);
+      } catch (error) {
+        if (error != ERR_INVALID_DATE) {
+           throw error;
+        }
+      }
     }
-    throw Components.results.NS_ERROR_NO_INTERFACE;
+    return new Date(NaN);
+  },
+
+  _parseNumber: function(string) {
+    if (this._isTypeDate) {
+      return this._parseDate(string).valueOf();
+    }
+    return Number(string);
+  },
+
+  _testNumericValueIsValid: function(value) {
+    if (value % this._stepAsNumber == 0
+    &&  value > this._minAsNumber
+    &&  value < this._maxAsNumber) {
+      return true;
+    }
+    return false;
   }
-
-});
-
-
-// ==========================================================================
-// WF2OutputElement
-// ==========================================================================
-
-
-function WF2OutputElementInner() {
-  //
-};
-
-WF2OutputElementInner.prototype = extend(new WF2FormControl, {
-
-  classID: Components.ID("{f600e9aa-3a89-11dc-8a43-e20956d89593}"),
-  contractID: "@mozilla.org/wf2/output-element-tearoff;1",
-  classDescription: "WF2 Output Element Tearoff",
-
-  init: function(outer) {
-    this.outerElement = outer;
-  },
-
-  /* public properties */
-
-  get defaultValue() {
-    if (this.hasAttribute("defaultValue")) {
-      return this.outerElement.getAttribute("defaultValue");
-    }
-    return "";
-  },
-  set defaultValue(val) {
-    this.outerElement.setAttribute("defaultValue", val);
-    return val;
-  },
-
-  get validationMessage() {
-    return "";
-  },
-
-  get value() {
-    return this.outerElement.textContent || this.defaultValue;
-  },
-  set value(val) {
-    this.outerElement.textContent = val;
-    return val;
-  },
-
-  /* public methods */
-
-  setCustomValidity: function() {
-    throw new NOT_SUPPORTED_ERR;
-  },
-
-  /* private properties */
-
-  get _isValid() {
-    return true;
-  },
-
-  /* XPCOM stuff */
-
-  QueryInterface: function(iid) {
-    if (iid.equals(nsIDOMWF2OutputElementTearoff) || iid.equals(nsIDOMWF2Inner)) {
-      return this;
-    }
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-  }
-
 });
 
 
@@ -805,37 +834,13 @@ WF2ValidityState.prototype = {
 
 
 // ==========================================================================
-// Support
-// ==========================================================================
-
-
-function extend(target, source) {
-  for (var i in source) {
-    var _getter = source.__lookupGetter__(i);
-    var _setter = source.__lookupSetter__(i);
-
-    if (_getter || _setter) {
-      if (_getter) {
-        target.__defineGetter__(i, _getter);
-      }
-      if (_setter) {
-        target.__defineSetter__(i, _setter);
-      }
-    } else {
-      target[i] = source[i];
-    }
-  }
-  return target;
-};
-
-
-// ==========================================================================
 // Date/Time Parsing
 // ==========================================================================
 
-const ERR_INVALID_DATE        = "Invalid date.";
 
-const MILLISECONDS_IN_A_WEEK  = 7 * 24 * 60 * 60;
+const ERR_INVALID_DATE        = "Invalid Date";
+
+const MILLISECONDS_IN_A_WEEK  = 7 * 24 * 60 * 60 * 1000;
 const PATTERN_WEEK            = /^\d{4}-W([0-4]\d|5[0-3])$/;
 
 // big, ugly, regular expression
@@ -857,6 +862,9 @@ const TIMEZONE_PARTS = {
   Hours: 18,
   Minutes: 20
 };
+
+const TRIM_ZEROES   = /(((00)?:0+)?:0+)?\.0+$/;
+const TRIM_TIMEZONE = /(T[0-9:.]+)$/;
 
 var DateParser = {
   parse: function(string) {
@@ -885,9 +893,9 @@ var DateParser = {
       }
     }
     if (match[TIMEZONE_PARTS.Hours]) {
-      var Hours = Number(match[TIMEZONE_PARTS.Sign] + match[TIMEZONE_PARTS.Hours]);
-      var Minutes = Number(match[TIMEZONE_PARTS.Sign] + (match[TIMEZONE_PARTS.Minutes] || 0));
-      date.setUTCMinutes(date.getUTCMinutes() + Hours * 60 + Minutes);
+      var hours = Number(match[TIMEZONE_PARTS.Sign] + match[TIMEZONE_PARTS.Hours]);
+      var minutes = Number(match[TIMEZONE_PARTS.Sign] + (match[TIMEZONE_PARTS.Minutes] || 0));
+      date.setUTCMinutes(date.getUTCMinutes() + (hours * 60) + minutes);
     } 
     return date;
   },
@@ -928,7 +936,7 @@ var DateFormatter = {
       });
     }
     // remove trailing zeroes, and remove UTC timezone, when time's absent
-    return string.replace(/(((00)?:0+)?:0+)?\.0+$/, "").replace(/(T[0-9:.]+)$/, "$1Z"); 
+    return string.replace(TRIM_ZEROES, "").replace(TRIM_TIMEZONE, "$1Z"); 
   },
   "datetime": function(date) {
     return this.toISOString(date);
@@ -940,7 +948,7 @@ var DateFormatter = {
     return this.toISOString(date).split("T")[1];
   },  
   "month": function(date) {
-    return this.date(date).slice(-3);
+    return this.date(date).slice(0, -3);
   },  
   "week": function(date) {
     date = Date(date);
@@ -962,5 +970,18 @@ var NSGetModule = XPCOMUtils.generateNSGetModule([
   WF2InputElement,
   WF2ValidityState
 ]);
+
+
+// ==========================================================================
+// DEBUG
+// ==========================================================================
+
+
+var console = {
+  console: Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService),
+  log: function(message) {
+    this.console.logStringMessage(message);
+  }
+};
 
 console.log("Web Forms 2.0 loaded.");

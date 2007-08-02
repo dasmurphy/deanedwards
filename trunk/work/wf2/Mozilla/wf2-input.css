@@ -4,20 +4,20 @@
 
 /* bindings */
 
-xh|form {-moz-binding: url(wf2-gui.xml#form);}
-xh|* > input {-moz-binding: url(wf2-gui.xml#input-text);}
-xh|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-number);}
-xh|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-datetime);}
-xh|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-date);}
-xh|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-month);}
-xh|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-time);}
-xh|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-week);}
-xh|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range);}
-xh|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-range-readonly);}
-xh|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-gui.xml#input-list);}
+xh|form {-moz-binding: url(wf2-input.xml#form);}
+xh|* > input {-moz-binding: url(wf2-input.xml#input-text);}
+xh|input[type=number] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-number);}
+xh|input[type=datetime] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-datetime);}
+xh|input[type=date] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-date);}
+xh|input[type=month] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-month);}
+xh|input[type=time] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-time);}
+xh|input[type=week] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-week);}
+xh|input[type=range] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range);}
+xh|input[type=range][readonly] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-range-readonly);}
+xh|input[list] {-moz-construct-using-display: 1; -moz-binding: url(wf2-input.xml#input-list);}
 xh|input[type=hidden] {-moz-binding: none;}
 
-xul|datetimepicker {-moz-binding: url(datetimepicker.xml#datetimepicker);}
+xul|datetimepicker {-moz-binding: url(wf2-datetimepicker.xml#datetimepicker);}
 
 /* display */
 
