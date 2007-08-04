@@ -25,9 +25,27 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2RepetitionElementTearoff,
   classID: Components.ID("{a916a573-b75a-4e89-9721-4c7039ddcdc8}"),
   contractID:            "@mozilla.org/wf2/repetition-element-tearoff;1",
-  classDescription:      "WF2 Repetition Element Tearoff"
+  classDescription:      "WF2 Repetition Element Tearoff",
+  
+  init: function(outer) {
+    this.outerElement = outer;    
+    
+    if (this._isActiveTemplate) {
+      // maintain the mimimum number of blocks
+      var i = 0;
+      var start = this.repeatStart;
+      while (i++ < start) {
+        this.addRepetitionBlock(null);
+      };
+      i = this.repetitionBlocks.length;
+      while (i++ < this.repeatMin) {
+        this.addRepetitionBlock(null);
+      }
+    }
+  },
   
   /* public constants */
+  
   get REPETITION_NONE()      {return REPETITION_NONE;},
   get REPETITION_TEMPLATE()  {return REPETITION_TEMPLATE;},
   get REPETITION_BLOCK()     {return REPETITION_BLOCK;},
@@ -64,16 +82,25 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
   },
   
   get repetitionIndex() {
-    if (this._isTemplate) {
-      return this._index;
-    } 
-    if (this.outerElement.hasAttribute("repeat")) {
-      var value = Number(this.outerElement.getAttribute("repeat"));
-      if (this._testValidIndex(value)) {
-        return value;
-      }
+    switch (this.repetitionType) {
+      case REPETITION_TEMPLATE:
+        return this._index;
+      case REPETITION_BLOCK:
+        return Number(this.getAttribute(repeat));
+      default:
+        return 0;
     }
-    return 0;
+  },  
+  set repetitionIndex(val) {
+    switch (this.repetitionType) {
+      case REPETITION_TEMPLATE:
+        this._index = val;
+        break;
+      case REPETITION_BLOCK:
+        this.setAttribute("repeat", val);
+        break;
+    }
+    return val;
   },
   
   get repetitionTemplate() {
@@ -173,22 +200,19 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
   addRepetitionBlock: function(refNode) {
     assertArity(arguments);
     
-    if (this._isTemplate && this.outerElement.parentNode && this.outerElement.parentNode.nodeType == this.ELEMENT_NODE) {
-    
-      var repetitionIndex = this.repetitionIndex;
-      
+    if (this._isActiveTemplate) {      
       // count the preceding repetition blocks
       var count = 0;
       var block = this.outerElement;
       while (block = block.previousSibling) {
         if (block.repetitionTemplate == this.outerElement) {
-          if (block.repetitionIndex >= repetitionIndex) {
-            repetitionIndex = block.repetitionIndex + 1;
+          if (block.repetitionIndex >= this.repetitionIndex) {
+            this.repetitionIndex = block.repetitionIndex + 1;
           }
           count++;
         }
       }
-     
+      
       // quit if we have reached the maximum limit
       if (count >= this.repeatMax) {
         return null;
@@ -198,8 +222,8 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
       // then use its index
       if (arguments.callee.caller == this.addRepetitionBlockByIndex) {
         var index = arguments[1];
-        if (index > repetitionIndex) {
-          repetitionIndex = index;
+        if (index > this.repetitionIndex) {
+          this.repetitionIndex = index;
         }
       }
      
@@ -208,7 +232,7 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
       block.removeAttribute("repeat-start");
       block.removeAttribute("repeat-min");
       block.removeAttribute("repeat-max");
-      block.setAttribute("repeat", repetitionIndex);
+      block.setAttribute("repeat", this.repetitionIndex);
       
       // replace [indexed] expressions
       // we have to do this for all attribute nodes
@@ -221,7 +245,7 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
         var pattern = new RegExp("[\\[\\u02d1]" + safeName + "[\\u00b7\\]]", "g");
         var attributes = this._evaluate(XPATH_INDEXED_ATTRIBUTES, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, block);
         while (attribute = attributes.iterateNext()) {
-          attribute.value = attribute.value.replace(pattern, repetitionIndex);
+          attribute.value = attribute.value.replace(pattern, this.repetitionIndex);
         }
         block.setAttribute("repeat-template", name);
         block.removeAttribute("id");
@@ -239,7 +263,7 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
       refNode.parentNode.insertBefore(block, refNode);
       
       // maintain the index
-      this._index = repetitionIndex + 1;
+      this.repetitionIndex++;
      
       // fire the "added" event
       this._dispatchTemplateEvent(this.outerElement, "added", block);
@@ -312,6 +336,11 @@ WF2RepetitionElement.prototype = new _WF2Tearoff()._extend({
   /* private properties */
   
   _index: 0,
+  
+  get _isActiveTemplate() {
+    var parentNode = this.outerElement.parentNode;
+    return this._isTemplate && parentNode && parentNode.nodeType == this.ELEMENT_NODE;
+  },
   
   get _isTemplate() {
     return this.repetitionType == REPETITION_BLOCK;

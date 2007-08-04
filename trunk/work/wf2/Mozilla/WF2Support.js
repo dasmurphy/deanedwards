@@ -954,7 +954,7 @@ var DateFormatter = {
     date = Date(date);
     var year = new Date(date.getFullYear(), 0, 1);
     var week = parseInt((date - year) / MILLISECONDS_IN_A_WEEK) + 1;
-    return date.getFullYear() + "-W" + pad(week);
+    return date.getFullYear() + "-W" + ("0" + week).slice(-2);
   }
 };
 
