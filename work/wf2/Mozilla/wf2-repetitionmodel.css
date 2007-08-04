@@ -2,9 +2,9 @@
 /*
 */
 
-[repeat]                    {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionBlock);}
-[repeat=template]           {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionTemplate); display: none;}
-button[type=add]            {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonAdd);}
-button[type=remove]         {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonRemove);}
-button[type=move-up]        {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonMoveUp);}
-button[type=move-down]      {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonMoveDown);}
+[repeat]                  {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionBlock);}
+[repeat=template]         {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionTemplate); display: none;}
+button[type="add"]        {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonAdd);}
+button[type="remove"]     {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonRemove);}
+button[type="move-up"]    {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonMoveUp);}
+button[type="move-down"]  {-moz-binding: url(wf2-repetitionmodel.xml#RepetitionButtonMoveDown);}

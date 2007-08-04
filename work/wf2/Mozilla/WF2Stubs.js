@@ -198,7 +198,7 @@ function WF2OutputElement() {
   //
 };
 
-WF2OutputElement.prototype = extend(new _WF2FormControl()._extend({
+WF2OutputElement.prototype = new _WF2FormControl()._extend({
   tearoff:               Components.interfaces.nsIDOMWF2OutputElementTearoff,
   classID: Components.ID("{d43f5db5-5aeb-4d95-8a49-c55623427587}"),
   contractID:            "@mozilla.org/wf2/output-element-tearoff;1",
