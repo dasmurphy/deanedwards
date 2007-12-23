@@ -43,11 +43,13 @@ img.icon {
 /* LAYOUT */
 
 div.document {
+  background-image: url(xmas.gif);
+  background-repeat: repeat-y;
 	width: 75%;
 	max-width: 80em;
 	min-width: 30em;
 	margin: 0 auto;
-	padding: 8px 15px;
+	padding: 8px 15px 8px 42px;
 }
 
 div.content {
