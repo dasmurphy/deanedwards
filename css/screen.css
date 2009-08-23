@@ -531,7 +531,7 @@ code,
 html *.code,
 kbd {
 	font-size: 1em;
-	font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", courier, monospace;
+  font-family: Consolas, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New";
 	font-style: normal;
 }
 
