@@ -702,7 +702,7 @@ html *.note {
 	padding: 1em;
 }
 
-*.note p {
+*.note p:first-child {
 	margin: 0;
 }
 
