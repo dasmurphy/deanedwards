@@ -48,6 +48,10 @@ div.document {
 	min-width: 30em;
 	margin: 0 auto;
 	padding: 8px 15px;
+	/* xmas */
+	padding-left: 60px;
+	background-image: url(xmas.gif);
+	background-repeat: repeat-y;
 }
 
 div.content {
