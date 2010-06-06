@@ -13,8 +13,8 @@ header a,h1 a,h2 a,h3 a {color:#00e !important; border-bottom:none}
 a {text-decoration:none; border-bottom:1px solid}
 a:link,cite a:link {color:#00e; border-color:#00e}
 a:visited,cite a:visited {color:#551a86; border-color:#551a86}
-a:hover {color:darkred!important; background-color:yellow!important; border-color:darkred!important}
-blockquote {padding:0 2em; margin:1.33em 2em; border-left:2em solid #E6E9F9; color:#444}
+a:hover {color:darkred!important; background-color:#ffc!important; border-color:darkred!important}
+blockquote {padding:0 2em; margin:1.33em 2em; border-left:2em solid #e6e9f9; color:#444}
 blockquote address {text-align:right; font-size:smaller}
 blockquote address a {color:#898e79}
 pre,code,kbd {font-size:1em; font-style:normal; font-weight: normal;
