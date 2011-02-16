@@ -1,9 +1,9 @@
 html{margin:0; padding:0; background-color:#e2e3e8;}
-body{font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; padding:0 2em;
+body{font-family:"Trebuchet MS",Arial,Helvetica,sans-serif; padding:0 2em;
  line-height:1.4; background-color:#fcfcfc; width:80%; min-width:20em;
- max-width:60em; font-size:90%; margin:10px auto; border:2px solid #eee;}
+ max-width:50em; margin:10px auto; border:2px solid #eee;}
 @media (max-width:320px){
- body{margin:0; width:auto; min-width:none; max-width:none; font-size:medium; margin:0; border:none;}
+ body{margin:0; width:auto; min-width:none; max-width:none; margin:0; border:none;}
 }
 dt {font-weight: bold}
 img {vertical-align:middle;}
